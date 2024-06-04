@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80034
 File Encoding         : 65001
 
-Date: 2024-06-04 16:41:10
+Date: 2024-06-04 17:33:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -215,6 +215,8 @@ CREATE TABLE `grades` (
   `student_id` int NOT NULL,
   `course_id` int NOT NULL,
   `grade` int NOT NULL,
+  `gpa` double DEFAULT NULL,
+  `record_time` datetime DEFAULT NULL,
   PRIMARY KEY (`student_id`,`course_id`,`grade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
