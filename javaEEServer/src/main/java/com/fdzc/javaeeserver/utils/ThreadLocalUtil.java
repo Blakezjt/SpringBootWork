@@ -1,4 +1,4 @@
-package com.example.bigevent.utils;
+package com.fdzc.javaeeserver.utils;
 
 public class ThreadLocalUtil {
     private static final ThreadLocal THREAD_LOCAL = new ThreadLocal();

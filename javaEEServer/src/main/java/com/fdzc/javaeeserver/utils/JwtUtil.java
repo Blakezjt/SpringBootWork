@@ -1,4 +1,4 @@
-package com.example.bigevent.utils;
+package com.fdzc.javaeeserver.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

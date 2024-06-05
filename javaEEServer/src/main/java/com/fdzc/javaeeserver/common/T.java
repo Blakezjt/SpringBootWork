@@ -1,4 +1,4 @@
-package com.mashang.demo.utils;
+package com.fdzc.javaeeserver.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

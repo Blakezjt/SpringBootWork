@@ -1,4 +1,4 @@
-package com.example.bigevent.utils;
+package com.fdzc.javaeeserver.utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
