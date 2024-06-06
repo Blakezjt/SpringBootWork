@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Map;
 
 public class JwtUtil {
-    private static final String KEY = "zjtZpzHm";
+    private static final String KEY = "javaeeWork";
 
 //    接收业务数据，生成token并返回
     public static String genToken(Map<String,Object> claims){
