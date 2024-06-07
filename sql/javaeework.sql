@@ -12,6 +12,9 @@ File Encoding         : 65001
 
 Date: 2024-06-04 17:33:04
 */
+# create database javaeework;
+# use javaeework;
+
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -168,14 +171,17 @@ CREATE TABLE `eventregistration` (
 -- Table structure for financialrecord
 -- ----------------------------
 DROP TABLE IF EXISTS `financialrecord`;
-CREATE TABLE `financialrecord` (
-  `record_id` int NOT NULL,
-  `student_id` int DEFAULT NULL,
-  `transaction_type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `amount` decimal(10,2) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  PRIMARY KEY (`record_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE financialrecord
+(
+    record_id        int            NOT NULL AUTO_INCREMENT,
+    student_id       int            NULL,
+    transaction_type varchar(50)    NULL,
+    amount           decimal(10, 2) NULL,
+    date             date           DEFAULT (CURDATE()),
+    PRIMARY KEY (record_id)
+)
+    COLLATE = 'utf8mb4_general_ci';
+
 
 -- ----------------------------
 -- Records of financialrecord
@@ -278,9 +284,9 @@ CREATE TABLE `leaveapplication` (
 -- ----------------------------
 DROP TABLE IF EXISTS `logistics`;
 CREATE TABLE `logistics` (
-  `repair_id` int NOT NULL,
+  `repair_id` int AUTO_INCREMENT,
   `equipment_id` int DEFAULT NULL,
-  `repair_date` date DEFAULT NULL,
+  `repair_date` date DEFAULT (CURDATE()),
   `status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`repair_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -320,11 +326,11 @@ CREATE TABLE `medicalappointment` (
 -- ----------------------------
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
-  `payment_id` int NOT NULL,
+  `payment_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `student_id` int DEFAULT NULL,
   `payment_type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
-  `payment_date` date DEFAULT NULL,
+  `payment_date` date DEFAULT DEFAULT (CURDATE()) ,
   PRIMARY KEY (`payment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
