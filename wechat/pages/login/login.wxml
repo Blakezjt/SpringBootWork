@@ -4,8 +4,8 @@
         <!-- <label class="deliver_txt">寄件登录</label> -->
     </view>
     <view class="view_select" wx:if="{{select}}">
-        <view class="user_txt" bind:tap="mySelect" data-name="用户登录">用户登录</view>
-        <view class="courier_txt" bind:tap="mySelect" data-name="快递员登录">快递员登录</view>
+        <view class="user_txt" bind:tap="mySelect" data-name="学生登录">学生登录</view>
+        <view class="courier_txt" bind:tap="mySelect" data-name="教师登录">教师登录</view>
     </view>
     <view></view>
     <view class="logo_view">

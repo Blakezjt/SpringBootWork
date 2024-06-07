@@ -22,7 +22,7 @@ Page({
     data: {
         inputUsername: "",
         inputPassword: "",
-        login_txt:"用户/快递员登录",
+        login_txt:"学生/教师登录",
         select:false,
         name:""
       },
@@ -58,11 +58,11 @@ Page({
         var password = this.data.inputPassword;
         var name = this.data.name;
       if(login(userName,password)){  
-          if(name == '用户登录'){
+          if(name == '学生登录'){
             wx.reLaunch({
                 url: '/pages/mainAddress/mainAddress',
             })
-          }else if(name == '快递员登录'){
+          }else if(name == '教师登录'){
             wx.reLaunch({
                 url: '/pages/main2/main2',
             })
