@@ -1,0 +1,57 @@
+<!--pages/waybillForm/waybillForm.wxml-->
+<view class="page">
+    <view class="block_view">
+        <view><label class="waybill">运单号：{{waybill[0]}}</label></view>
+        <view class="address_view">
+            <view class="send_view"><label class="sendAddress">{{sendAddress[0]}}</label><label class="sendName">{{sendName[0]}}</label></view>
+            <view class="line_view"><lable class="line">-——></lable><label class="state">{{state[0]}}</label></view>
+            <view class="pick_view"><label class="pickAddress">{{pickAddress[0]}}</label><label class="pickName">{{pickName[0]}}</label></view>
+        </view>
+        <view class="time_view"><label class="time_txt">签收时间：</label>
+        <label class="time">{{time[0]}}</label>
+        </view>
+        <label class="price">{{price[0]}}</label>
+        <view class="underline"></view>
+        <view class="btn_view">
+            <button class="btn">添加备注</button>
+            <button class="btn">通知收件人</button>
+            <button class="btn">删除</button>
+        </view>
+    </view>
+    <view class="block_view">
+        <view><label class="waybill">运单号：{{waybill[1]}}</label></view>
+        <view class="address_view">
+            <view class="send_view"><label class="sendAddress">{{sendAddress[1]}}</label><label class="sendName">{{sendName[1]}}</label></view>
+            <view class="line_view"><lable class="line">-——></lable><label class="state">{{state[1]}}</label></view>
+            <view class="pick_view"><label class="pickAddress">{{pickAddress[1]}}</label><label class="pickName">{{pickName[1]}}</label></view>
+        </view>
+        <view class="time_view"><label class="time_txt">签收时间：</label>
+        <label class="time">{{time[1]}}</label>
+        </view>
+        <label class="price">{{price[1]}}</label>
+        <view class="underline"></view>
+        <view class="btn_view">
+            <button class="btn">添加备注</button>
+            <button class="btn">通知收件人</button>
+            <button class="btn">删除</button>
+        </view>
+    </view>
+    <view class="block_view">
+        <view><label class="waybill">运单号：{{waybill[2]}}</label></view>
+        <view class="address_view">
+            <view class="send_view"><label class="sendAddress">{{sendAddress[2]}}</label><label class="sendName">{{sendName[2]}}</label></view>
+            <view class="line_view"><lable class="line">-——></lable><label class="state">{{state[2]}}</label></view>
+            <view class="pick_view"><label class="pickAddress">{{pickAddress[2]}}</label><label class="pickName">{{pickName[2]}}</label></view>
+        </view>
+        <view class="time_view"><label class="time_txt">签收时间：</label>
+        <label class="time">{{time[2]}}</label>
+        </view>
+        <label class="price">{{price[2]}}</label>
+        <view class="underline"></view>
+        <view class="btn_view">
+            <button class="btn">添加备注</button>
+            <button class="btn">通知收件人</button>
+            <button class="btn">删除</button>
+        </view>
+    </view>
+</view>

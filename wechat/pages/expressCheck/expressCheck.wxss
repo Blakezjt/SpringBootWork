@@ -1,0 +1,31 @@
+/* pages/expressCheck/expressCheck.wxss */
+.page{
+    height: 100vh;
+    background-color: rgb(222,222,222);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 370rpx 0;
+    box-sizing: border-box;
+}
+.check_view{
+    border: 1px solid white;
+    background-color: white;
+    width: 85%;
+    height: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.btn_view{
+    margin-bottom: 50px;
+}
+.check_btn{
+    background-color: rgb(221, 33, 33);
+    color: white;
+    width: 250px !important;
+}

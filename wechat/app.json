@@ -1,0 +1,47 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/create/create",
+        "pages/mainAddress/mainAddress",
+        "pages/deliver/deliver",
+        "pages/pickAddress/pickAddress",
+        "pages/sendAddress/sendAddress",
+        "pages/expressCheck/expressCheck",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/tongcheng/tongcheng",
+        "pages/jidajian/jidajian",
+        "pages/piliangji/piliangji",
+        "pages/main2/main2",
+        "pages/expressform/expressform",
+        "pages/address/address",
+        "pages/waybillForm/waybillForm"
+    ],
+   "tabBar": {
+      "custom": false,
+      "color": "#7A7E83",
+      "selectedColor": "#3cc51f",
+      "borderStyle": "black",
+      "backgroundColor": "#ffffff",
+      "list": [{
+        "pagePath": "pages/mainAddress/mainAddress",
+        "text": "快递",
+        "iconPath":"/pages/resourse/ban/kuaidi-2.png",
+        "selectedIconPath":"/pages/resourse/ban/kuaidi.png"
+      }, 
+      {
+        "pagePath": "pages/main2/main2",
+        "text": "快递员",
+        "iconPath":"/pages/resourse/ban/kuaidiyuan-2.png",
+        "selectedIconPath":"/pages/resourse/ban/kuaidiyuan.png"
+      }]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

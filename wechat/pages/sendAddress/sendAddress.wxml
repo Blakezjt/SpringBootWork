@@ -1,0 +1,43 @@
+<!--pages/address/address.wxml-->
+<form bindsubmit="saveAddress">
+    <view class="page">
+        <view class="view_txt">
+            <label class="txt">添加地址</label>
+        </view>
+        <view class="block_view">
+            <!--收货人-->
+            <view class="view_account">
+                <label class="account">寄件人</label>
+                <input type="text" name="consignee" id="consignee" value="{{consignee}}" bindinput="bindKeyInput" placeholder="请输入寄件人真实姓名" class="input" />
+            </view>
+            <view class="line"></view>
+            <!--手机号-->
+            <view class="view_account">
+                <label class="account">手机号码</label>
+                <input type="text" name="mobile" id="mobile" value="{{mobile}}" bindinput="bindKeyInput" placeholder="请输入寄件人手机号" class="input" />
+            </view>
+            <view class="line"></view>
+            <!-- 省市县 -->
+            <view class="view_account">
+                <label class="account">寄件地址</label>
+                <picker mode="region" bindchange="bindRegionChange" class="picker">
+                    {{myregion[0]+myregion[1]+myregion[2]}}
+                </picker>
+            </view>
+            <view class="line"></view>
+            <!--详细地址-->
+            <view class="view_account">
+                <label class="account">详细地址</label>
+                <input type="text" name="detailAddress" value="{{detailAddress}}" id="detailAddress" bindinput="bindKeyInput" placeholder="详细地址" class="input" />
+            </view>
+        </view>
+        <view >
+            <radio-group bindchange="bindDefault" class="radio_view">
+                <radio value="r1" color="red" />默认地址
+            </radio-group>
+        </view>
+    </view>
+    <view class="view_btn">
+        <button class="btn" style="width: 70%;" form-type="submit">保存</button>
+    </view>
+</form>

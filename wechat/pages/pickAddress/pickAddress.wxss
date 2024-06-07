@@ -1,0 +1,60 @@
+/* pages/address/address.wxss */
+/* page */
+.page{
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(224, 222, 222);
+}
+.block_view{
+    border-radius: 15px;
+    margin: 7px;
+    background-color: white;
+    height: 280px;
+}
+.view_txt{
+    background-color: rgb(230, 63, 63);
+    height: 35px;
+}
+.txt{
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 20px;
+    color: white;
+    font-size: 15px; 
+}
+.view_account{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+.line{
+    width: 90%;
+    height: 0.5px;
+    margin: auto;
+    background-color: rgb(233, 233, 233);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.input{
+    text-align: center;
+    margin-left: 20px;
+}
+.picker{
+    text-align: center;
+    margin-left: 20px;
+}
+.time{
+    text-align: center;
+    margin-left: 20px;
+}
+.btn{
+    margin-top: 17px;
+    background-color: rgb(230, 63, 63);
+    color: white;
+}
+.radio_view{
+
+    transform: scale(0.8);
+    margin-right: 200px;
+}

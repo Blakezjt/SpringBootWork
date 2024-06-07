@@ -1,0 +1,51 @@
+<!--expressform.wxml-->
+<view class="pages">
+  <view class="block_view">
+    <label for="">寄件人信息</label>
+    <view class="line_view1"></view>
+    <view>
+      <label for="" class="name">姓名</label>
+      <input type="text" class="nameInput" id="userName" placeholder="请输入真实姓名" bindinput="bindKeyInput" value="{{userName}}" />
+    </view>
+    <view class="tel_view">
+      <text>手机号</text>
+      <input type="text" class="telInput" id="tel" placeholder="请输入手机号" bindinput="bindKeyInput" value="{{tel}}" />
+    </view>
+    <view class="section" style="margin-top: 20px;">
+      <view class="section__title">省市区</view>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+      </picker>
+    </view>
+    <!-- <input type="text" name="" id="" placeholder="请输入住址" /> -->
+    <label for="" style="margin-top: 20px;">详细地址</label>
+    <input type="text" name="" id="address" placeholder="请输入详细地址" bindinput="bindKeyInput" value="{{address}}" />
+    <view class="line_view"></view>
+    <label for="">收件人信息</label>
+    <view class="line_view1"></view>
+    <view>
+      <label for="" class="name">姓名</label>
+      <input type="text" id="serverName" class="nameInput" placeholder="请输入真实姓名" bindinput="bindKeyInput" value="{{serverName}}"/>
+    </view>
+    <view class="tel_view">
+      <text>手机号</text>
+      <input type="text" class="telInput" id="serverTel" placeholder="请输入手机号" bindinput="bindKeyInput" value="{{serverTel}}" />
+    </view>
+    <view class="section" style="margin-top: 20px;">
+      <view class="section__title">省市区</view>
+      <picker mode="region" bindchange="bindRegionChange" value="{{receiverRegion}}" custom-item="{{customItem}}">
+        <view class="picker">
+          当前选择：{{receiverRegion[0]}}，{{receiverRegion[1]}}，{{receiverRegion[2]}}
+        </view>
+      </picker>
+    </view>
+    <!-- <input type="text" name="" id="" placeholder="请输入住址" /> -->
+    <label for="" style="margin-top: 20px;">详细地址</label>
+    <input type="text" name="" id="serverAddress" placeholder="请输入详细地址" bindinput="bindKeyInput" value="{{serverAddress}}"/>
+  </view>
+  <view class="block_view">
+    <button style="background-color: rgb(65, 107, 247); color: white;  " bindtap="expressform">确定</button>
+  </view>
+</view>

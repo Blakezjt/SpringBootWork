@@ -1,0 +1,45 @@
+/**expressform.wxss**/
+.pages{
+  height: 100vh;
+  background-color: rgb(222, 222, 222);
+}
+.block_view{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border: solid 1px lightgray;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+.line_view{
+  width: 100%;
+  background-color: lightgray;
+  height: 0.5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.block_radio{
+  margin-top: 10px;
+}
+.weight_view{
+  display: flex;
+  flex-direction: row;
+}
+/* button css样式不生效 要加!important*/
+.decline_btn{
+  width: 20px !important;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: lightblue;
+}
+.add_btn{
+  width: 20px !important;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: lightblue;
+}
+.send_user_info{
+  color: gray;
+  font-size: 13px;
+}

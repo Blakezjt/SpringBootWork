@@ -1,0 +1,88 @@
+<view class="page">
+    <!-- address_block -->
+    
+    <view class="address_block">
+       
+        <view bind:tap="intoAddress1" class="address_view1">
+             
+            <view wx:if="{{userInfo == null}}">
+                <label class="address_txt">寄件人信息</label>
+                <label class="address_adsTxt">地址薄</label>
+                <input type="text" class="address_input" disabled="true" placeholder="   请输入寄件人真实信息" />
+            </view>
+            <view wx:else="" class="user_view">
+                <label class="user_lab">{{userInfo.consignee}} \n</label>
+                <text class="user_txt">{{userInfo_mobile}}
+                {{userInfo.myregion[0]}}{{userInfo.myregion[1]}}{{userInfo.myregion[2]}} {{userInfo.detailAddress}}
+                </text>
+            </view>
+        </view>
+        <view class="address_line"> </view>
+        <view bind:tap="intoAddress2"  class="address_view2"> 
+            <view wx:if="{{userInfo2 == null}}">
+                <label class="address_txt">收件人信息</label>
+                <label class="address_adsTxt">地址薄</label>
+                <input type="text" class="address_input" placeholder="   请输入收件人真实信息" disabled="true" />
+            </view>
+            <view wx:else="" class="user_view">
+                <label class="user_lab">{{userInfo2._consignee}} \n</label>
+                <text class="user_txt">{{userInfo2_mobile}}
+                {{userInfo2.myregion[0]}}{{userInfo2.myregion[1]}}{{userInfo2.myregion[2]}} {{userInfo2._detailAddress}}
+                </text>
+            </view>
+        </view>
+    </view>
+    <!-- itemType -->
+    <view class="item_type">
+        <label class="item_txt">物品类型</label>
+        <label class="item_txt2">禁寄物品 ！</label>
+        <radio-group bindchange="" class="block_radio" bindchange="itemHandleChange">
+            <radio value="r1" color="red" checked="{{check}}" />文件
+            <radio value="r2" color="red" checked="{{check}}" />其他
+        </radio-group>
+        <text>\n</text>
+        <view class="item_btn2">
+            <view class="item_line"></view>
+            <label class="item_txt3">预估重量</label>
+
+            <button class="btn2_1" style="width: 22%; height: 50%;" bind:tap="handletap" data-operation="{{1}}" disabled="{{add_disable}}">+</button>
+            <input type="text" value="{{kgData}}  kg" class="input" bindinput="bindKg" disabled="true" />
+            <button class="btn2_2" style="width: 22%; height: 50%;" bind:tap="handletap" data-operation="{{-1}}" disabled="{{disable}}">-</button>
+        </view>
+    </view>
+    <!-- deliverType -->
+    <view class="deliver_type">
+        <label class="deliver_txt">寄件方式</label>
+        <radio-group bindchange="" class="deliver_radio" bindchange="deliverHandleChange">
+            <radio value="r1" color="red" />网点自寄
+            <radio value="r2" color="red" />自行联系快递员
+            <radio value="r3" color="red" />1小时内上门>
+        </radio-group>
+    </view>
+    <!-- paymentType -->
+    <view class="pay_type">
+        <label class="pay_txt">付款方式</label>
+        <radio-group bindchange="" class="pay_radio" bindchange="payHandleChange">
+            <radio value="r1" color="red" />寄付现结
+            <radio value="r2" color="red" />到付
+            <radio value="r3" color="red" />寄付月结>
+        </radio-group>
+    </view>
+
+    <!-- pratical products -->
+    <view class="pratic_products">
+        <label class="pratic_txt">实效产品</label>
+        <radio-group bindchange="" class="pratic_radio" bindchange="praticHandleChange">
+            <radio value="r1" color="red" />顺丰特快
+            <radio value="r2" color="red" />顺丰标快
+        </radio-group>
+        <!-- order -->
+    </view>
+    <view class="order">
+        <label class="order_txt1">预估</label>
+        <label class="order_txt2"> ￥ {{price}} </label>
+        <label class="order_txt3"> | </label>
+        <label class="order_txt4">明细^</label>
+        <button class="order_btn" style="width: 100px;" bind:tap="placeOrderChange">下单</button>
+    </view>
+</view>

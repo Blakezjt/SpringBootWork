@@ -1,0 +1,25 @@
+<view class="page">
+    <view class="view_txt" bind:tap="bindShowMsg">
+        <text class="login_txt" >{{login_txt}}</text>
+        <!-- <label class="deliver_txt">寄件登录</label> -->
+    </view>
+    <view class="view_select" wx:if="{{select}}">
+        <view class="user_txt" bind:tap="mySelect" data-name="用户登录">用户登录</view>
+        <view class="courier_txt" bind:tap="mySelect" data-name="快递员登录">快递员登录</view>
+    </view>
+    <view></view>
+    <view class="logo_view">
+        <image class="logo" src="../resourse/login.jpg" />
+    </view>
+    <view class="account_view">
+        <label class="ipt_txt">用户</label>
+        <input class="account_ipt" type="text" value="{{inputUsername}}" placeholder="用户名/邮箱/手机号码" bindinput="onAccountInput" />
+    </view>
+    <view class="account_view">
+        <label class="ipt_txt">密码</label>
+        <input class="account_ipt" type="safe-password" value="{{inputPassword}}" placeholder="" password="true" bindinput="onPasswordInput" />
+    </view>
+    <button class="lgn_btn1" bind:tap="changeLogin" style="width:250px">登录</button>
+    <button class="lgn_btn1" bind:tap="changeLogin2" style="width:250px">注册</button>
+    <label class="pawd_txt">忘记密码？</label>
+</view>
