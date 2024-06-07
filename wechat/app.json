@@ -15,26 +15,29 @@
         "pages/main2/main2",
         "pages/expressform/expressform",
         "pages/address/address",
-        "pages/waybillForm/waybillForm"
+        "pages/waybillForm/waybillForm",
+        "pages/test/test"
     ],
-   "tabBar": {
-      "custom": false,
-      "color": "#7A7E83",
-      "selectedColor": "#3cc51f",
-      "borderStyle": "black",
-      "backgroundColor": "#ffffff",
-      "list": [{
-        "pagePath": "pages/mainAddress/mainAddress",
-        "text": "快递",
-        "iconPath":"/pages/resourse/ban/kuaidi-2.png",
-        "selectedIconPath":"/pages/resourse/ban/kuaidi.png"
-      }, 
-      {
-        "pagePath": "pages/main2/main2",
-        "text": "快递员",
-        "iconPath":"/pages/resourse/ban/kuaidiyuan-2.png",
-        "selectedIconPath":"/pages/resourse/ban/kuaidiyuan.png"
-      }]
+    "tabBar": {
+        "custom": false,
+        "color": "#7A7E83",
+        "selectedColor": "#3cc51f",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/mainAddress/mainAddress",
+                "text": "快递",
+                "iconPath": "/pages/resourse/ban/kuaidi-2.png",
+                "selectedIconPath": "/pages/resourse/ban/kuaidi.png"
+            },
+            {
+                "pagePath": "pages/main2/main2",
+                "text": "快递员",
+                "iconPath": "/pages/resourse/ban/kuaidiyuan-2.png",
+                "selectedIconPath": "/pages/resourse/ban/kuaidiyuan.png"
+            }
+        ]
     },
     "window": {
         "backgroundTextStyle": "light",
