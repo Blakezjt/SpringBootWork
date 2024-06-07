@@ -1,8 +1,10 @@
 package com.fdzc.javaeeserver;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@MapperScan("com.fdzc.javaeeserver.mapper")
 @SpringBootApplication
 public class JavaEeServerApplication {
 
