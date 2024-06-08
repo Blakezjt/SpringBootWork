@@ -6,6 +6,7 @@ import com.fdzc.javaeeserver.service.impl.StudentServiceImpl;
 import com.fdzc.javaeeserver.validate.PageValidate;
 import com.fdzc.javaeeserver.validate.student.StudentCreateValidate;
 import com.fdzc.javaeeserver.validate.student.StudentSearchValidate;
+import com.fdzc.javaeeserver.validate.student.StudentUpdateValidate;
 import com.fdzc.javaeeserver.vo.student.StudentDetailVo;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,11 @@ public class StudentController {
     public R studentDetail(@Validated @RequestParam("id") Integer studentId){
         StudentDetailVo studentDetailVo = studentServiceImpl.studentDetail(studentId);
         return R.success(studentDetailVo);
+    }
+    @PostMapping("/edit")
+    public R studentEdit(@Validated @RequestBody StudentUpdateValidate updateValidate){
+        studentServiceImpl.studentEdit(updateValidate);
+        return R.success();
     }
 
     @PostMapping("/add")

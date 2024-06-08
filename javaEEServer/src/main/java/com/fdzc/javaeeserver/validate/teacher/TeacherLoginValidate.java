@@ -1,4 +1,4 @@
-package com.fdzc.javaeeserver.validate;
+package com.fdzc.javaeeserver.validate.teacher;
 
 import lombok.Data;
 
