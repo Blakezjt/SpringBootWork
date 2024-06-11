@@ -27,15 +27,15 @@
         "list": [
             {
                 "pagePath": "pages/mainAddress/mainAddress",
-                "text": "快递",
-                "iconPath": "/pages/resourse/ban/kuaidi-2.png",
-                "selectedIconPath": "/pages/resourse/ban/kuaidi.png"
+                "text": "主页",
+                "iconPath": "/pages/resourse/ban/zhuye2.jpg",
+                "selectedIconPath": "/pages/resourse/ban/zhuye.jpg"
             },
             {
                 "pagePath": "pages/main2/main2",
-                "text": "快递员",
-                "iconPath": "/pages/resourse/ban/kuaidiyuan-2.png",
-                "selectedIconPath": "/pages/resourse/ban/kuaidiyuan.png"
+                "text": "我的",
+                "iconPath": "/pages/resourse/ban/wode2.jpg",
+                "selectedIconPath": "/pages/resourse/ban/wode.jpg"
             }
         ]
     },
