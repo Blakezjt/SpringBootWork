@@ -9,6 +9,7 @@ import com.fdzc.javaeeserver.service.StudentService;
 import com.fdzc.javaeeserver.utils.Md5Utils;
 import com.fdzc.javaeeserver.validate.PageValidate;
 import com.fdzc.javaeeserver.validate.student.StudentCreateValidate;
+import com.fdzc.javaeeserver.validate.student.StudentUpdateValidate;
 import com.fdzc.javaeeserver.vo.student.StudentDetailVo;
 import com.fdzc.javaeeserver.validate.student.StudentSearchValidate;
 import com.fdzc.javaeeserver.vo.student.StudentListVo;
@@ -67,6 +68,19 @@ public class StudentServiceImpl implements StudentService {
         StudentDetailVo studentDetailVo = new StudentDetailVo();
         BeanUtils.copyProperties(student,studentDetailVo);
         return studentDetailVo;
+    }
+
+    @Override
+    public void studentEdit(StudentUpdateValidate studentUpdateValidate) {
+        Student student = studentMapper.selectOne(new QueryWrapper<Student>()
+                .eq("student_id", studentUpdateValidate.getStudentId())
+                .last("limit 1"));
+
+        student.setStudentDept(studentUpdateValidate.getStudentDept());
+        student.setStudentXb(studentUpdateValidate.getStudentXb());
+        student.setDormitoryId(studentUpdateValidate.getDormitoryId());
+        student.setUpdateTime(LocalDateTime.now());
+        studentMapper.updateById(student);
     }
 
     @Override
