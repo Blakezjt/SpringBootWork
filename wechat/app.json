@@ -15,6 +15,7 @@
         "selectedColor": "#1296db",
         "list": [
             {
+<<<<<<< HEAD
                 "pagePath": "pages/main/main",
                 "text": "首页",
                 "iconPath": "./icon/index.png",
@@ -25,6 +26,18 @@
                 "text": "我的",
                 "iconPath": "./icon/my.png",
                 "selectedIconPath": "./icon/mySelet.png"
+=======
+                "pagePath": "pages/mainAddress/mainAddress",
+                "text": "主页",
+                "iconPath": "/pages/resourse/ban/zhuye2.jpg",
+                "selectedIconPath": "/pages/resourse/ban/zhuye.jpg"
+            },
+            {
+                "pagePath": "pages/main2/main2",
+                "text": "我的",
+                "iconPath": "/pages/resourse/ban/wode2.jpg",
+                "selectedIconPath": "/pages/resourse/ban/wode.jpg"
+>>>>>>> 273ccb5da0a255179f18a23b00323dfa56bd0abe
             }
         ]
     },

@@ -1,0 +1,84 @@
+<!--pages/mainAddress/mainAddress.wxml-->
+<view class="page">
+    <view class="top_view">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+            <block wx:for="{{background}}" wx:key="this">
+                <swiper-item>
+                    <image src="../resourse/banner/{{item}}" mode="" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="block_view">
+        <view class="page_section">
+        <navigator url="/pages/tongcheng/tongcheng" open-type="navigate" class="power">
+            <image src="../resourse/logo/1.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">课程学术</text>
+                <text class="box-txt-down">课程表、选课、成绩、考试</text>
+            </view>
+        </navigator>
+        <navigator url="/pages/jidajian/jidajian" open-type="navigate" class="power">
+            <image src="../resourse/logo/7.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">行政服务</text>
+                <text class="box-txt-down">请假、宿舍、办证</text>
+            </view>
+        </navigator>
+        </view>
+        <view class="page_section">
+          <navigator url="/pages/piliangji/piliangji" open-type="navigate" class="power">
+            <image src="../resourse/logo/10.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">财务后勤</text>
+                <text class="box-txt-down">缴费、查询、后勤</text>
+            </view>
+        </navigator>
+        <navigator url="/pages/deliver/deliver" open-type="navigate" class="power2">
+            <image src="../resourse/logo/8.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">图书服务</text>
+                <text class="box-txt-down">检索、借阅、资源</text>
+            </view>
+        </navigator>
+        </view>
+        <view class="page_section">
+          <navigator url="/pages/deliver/deliver" open-type="navigate" class="power">
+            <image src="../resourse/logo/6.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">校园社交</text>
+                <text class="box-txt-down">活动、社团、论坛</text>
+            </view>
+        </navigator>
+        <navigator url="/pages/deliver/deliver" open-type="navigate" class="power3">
+            <image src="../resourse/logo/11.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">健康安全</text>
+                <text class="box-txt-down">打卡、联系人、医疗</text>
+            </view>
+        </navigator>
+        
+        </view>
+        <view class="page_section">
+          <navigator url="/pages/deliver/deliver" open-type="navigate" class="power">
+            <image src="../resourse/logo/9.png" class="icon" mode="" />
+            <view class="box-txt">
+                <text class="box-txt-up">学习支持</text>
+                <text class="box-txt-down">在线学习、\n辅导、资料
+                </text>
+            </view>
+        </navigator>
+        
+        
+        </view>
+        <view class="page_section">
+          <label class="block_title">校园资讯</label>
+      <view class="table">
+        <view class="tr" wx:for="{{newsInfo}}" wx:key="*this">
+          <view class="td">{{item}}</view>
+          <view class="td"><button class="btn">查看</button></view>
+          
+        </view>
+      </view></view>
+    </view>
+</view>
