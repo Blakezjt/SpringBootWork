@@ -41,12 +41,13 @@ public class StudentServiceImpl implements StudentService {
         else if (searchValidate.getStudentName() != null){
             queryWrapper.eq("student_name",searchValidate.getStudentName());
         }
+        else if (searchValidate.getStudentDept()!= null){
+            queryWrapper.eq("student_dept",searchValidate.getStudentDept());
+        }
         else if (searchValidate.getStudentXb()!= null){
             queryWrapper.eq("student_xb",searchValidate.getStudentXb());
-            if (searchValidate.getStudentDept()!= null){
-                queryWrapper.eq("student_dept",searchValidate.getStudentDept());
-            }
         }
+
         Page<Student> studentPage = studentMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
 
         List<StudentListVo> list = new LinkedList<>();

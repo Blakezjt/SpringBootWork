@@ -1,0 +1,324 @@
+/* pages/mail/mail.wxss */
+.mail-view {
+    width: 700rpx;
+    height: 348rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 30rpx;
+    background-color: LightSkyBlue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20rpx;
+}
+
+.mail-sendOff {
+    width: 650rpx;
+    height: 138rpx;
+    display: block;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    border-radius: 15rpx;
+    display: flex;
+    align-items: center;
+}
+
+.mail-sendOff-detail {
+    width: 650rpx;
+    height: 138rpx;
+    background-color: whitesmoke;
+    border-radius: 15rpx;
+    display: flex;
+    align-items: center;
+}
+
+.mail-sendOff image {
+    width: 60rpx;
+    height: 60rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: 25rpx;
+}
+
+.mail-sendOff-detail image {
+    width: 60rpx;
+    height: 60rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: 25rpx;
+}
+
+.send_user_info {
+    color: gray;
+    font-size: small;
+}
+
+.send_user_info_name {
+    color: black;
+    font-size: large;
+}
+
+.mail-sendOff view {
+    width: 506rpx;
+    height: 60rpx;
+    display: block;
+    box-sizing: border-box;
+    line-height: 60rpx;
+    margin-left: 15rpx;
+}
+
+.mail-sendOff text {
+    width: 40rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: gainsboro;
+}
+
+.shipping_method {
+    width: 700rpx;
+    height: 200rpx;
+    margin-top: 20rpx;
+    background-color: LightSkyBlue;
+    border-radius: 20rpx;
+}
+
+.shipping_method_view {
+    width: 700rpx;
+    height: 100rpx;
+    display: block;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20rpx
+}
+
+.shipping_method_view2 {
+    width: 700rpx;
+    height: 100rpx;
+    display: block;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20rpx
+}
+
+.shipping_method_font {
+    margin-right: 25rpx;
+    padding: 10rpx;
+    border-radius: 30rpx;
+    font-size: small;
+    width: 150rpx;
+    text-align: center;
+    background-color: gainsboro;
+}
+
+.change_class {
+    background-color: blue;
+    color: white;
+}
+
+.shipping_method_view_text {
+    font-size: xx-small;
+    background-color: rgb(250, 223, 174);
+    padding: 2rpx;
+    color: rgb(255, 136, 0);
+}
+
+.shipping_method_view_coupon {
+    margin-right: 10rpx;
+    background-color: rgb(255, 60, 0);
+    padding: 10rpx;
+    font-size: small;
+    color: white;
+}
+
+.value_add {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20rpx;
+    font-size: 28rpx;
+}
+
+.value_add_compensate {
+    margin: 5rpx;
+    padding-right: 10rpx;
+    border-right: 3rpx solid black;
+}
+
+.register-end-claush {
+    width: 550rpx;
+    height: 60rpx;
+    display: flex;
+    box-sizing: border-box;
+    font-size: small;
+    line-height: 40rpx;
+    text-align: center;
+    margin-left: 20rpx;
+}
+
+.register-end-image {
+    width: 40rpx;
+    height: 40rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 10rpx;
+}
+
+.register-end-claushfont {
+    width: 494rpx;
+    height: 40rpx;
+    margin-top: 10rpx;
+}
+
+.end {
+    width: 750rpx;
+    height: 262rpx;
+    display: block;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0rpx;
+    background-color: LightSkyBlue;
+}
+
+.end_price {
+    width: 750rpx;
+    height: 142rpx;
+    display: block;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.end_price_text {
+    width: 458rpx;
+    height: 46rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-left: 20rpx;
+}
+
+.end_btn {
+    height: 90rpx;
+    display: block;
+    box-sizing: border-box;
+    left: 0rpx;
+    top: 0rpx;
+    border-radius: 30rpx;
+    background-color: blue;
+    color: white;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    width: 216rpx !important;
+}
+
+.product-detail {
+    border: 1rpx solid black;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: 30rpx;
+    background-color: white;
+    margin-bottom: 10rpx;
+}
+
+.product-detail1 {
+    background-color: white;
+    height: 400rpx;
+    margin-bottom: 10rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.productTypeView {
+    height: 80rpx;
+    width: 30%;
+    border: 3rpx solid gainsboro;
+    margin: 10rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+}
+
+.proTypeChange {
+    border: 3rpx solid red;
+    color: red;
+}
+
+.courierRema {
+    border: 3rpx solid LightSkyBlue;
+    color: LightSkyBlue;
+}
+
+.courierR {
+    display: flex;
+    justify-content: space-between;
+}
+
+.marginLe {
+    margin-left: 30rpx;
+}
+
+.product-detail2 {
+    background-color: white;
+    height: 250rpx;
+    margin-bottom: 10rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weightView {
+    height: 80rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-detail3 {
+    background-color: white;
+    height: 300rpx;
+}
+
+.remack {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15rpx;
+}
+
+.courierRe {
+    border: 1rpx solid gainsboro;
+    margin: 15rpx;
+    padding: 10rpx;
+    line-height: 70rpx;
+    border-radius: 20rpx;
+    font-size: small;
+}
+
+.product-detail4 {
+    background-color: white;
+    height: 200rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0rpx;
+    display: block;
+    z-index: 999;
+}
+
+.product-detail4 button {
+    background-color: LightSkyBlue;
+    width: 50%;
+    border-radius: 30rpx;
+    margin-top: 40rpx;
+}
+
+.time_select {
+    background-color: gainsboro;
+    height: 120rpx;
+    width: 100%;
+}
+.time_select_changeColor{
+    background-color: whitesmoke;
+}

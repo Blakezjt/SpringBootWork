@@ -1,0 +1,65 @@
+/* pages/expresslist/expresslist.wxss */
+.page {
+    background-color: rgb(222, 222, 222);
+    /* v纵向 100% h是单位 */
+    height: 100vh;
+}
+
+.block_view {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: white;
+    padding: 10px;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.express_no {
+    color: gray;
+    font-size: small;
+    margin-top: 10px;
+}
+
+.express_view {
+    display: flex;
+    flex-direction: row;
+}
+
+.express_no_view {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.city {
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.user {
+    font-size: large;
+    color: gray;
+}
+
+.btn_view {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn {
+    font-size: 10px;
+    font-weight: 400;
+    width: 80px !important;
+    margin: 3px !important;
+    padding: 5px;
+    border-radius: 20px;
+    border: solid 1px lightgray;
+}

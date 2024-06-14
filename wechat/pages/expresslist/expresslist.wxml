@@ -1,0 +1,32 @@
+<!--pages/expresslist/expresslist.wxml-->
+<view class="container page">
+    <view class="block_view" wx:for="{{expresslist}}">
+        <view class="express_no">
+            运单号：SF122232123
+        </view>
+        <view class="express_view">
+            <view class="express_no_view">
+                <text class="city">{{item.senderCity}}</text>
+                <text class="user">{{item.senderName}}</text>
+            </view>
+            <view class="express_no_view">
+                <text style="color: red;">---》</text>
+                <text class="user">已签收</text>
+            </view>
+            <view class="express_no_view">
+                <text class="city">{{item.receiverCity}}</text>
+                <text class="user">{{item.receiverName}}</text>
+            </view>
+
+        </view>
+        <view class="express_no">
+            签收时间：2023-10-09 09:44
+        </view>
+        <view class="btn_view">
+            <button class="btn">添加备注</button>
+            <button class="btn">通知收件人</button>
+            <button class="btn">评价打赏</button>
+            <button class="btn">删除</button>
+        </view>
+    </view>
+</view>

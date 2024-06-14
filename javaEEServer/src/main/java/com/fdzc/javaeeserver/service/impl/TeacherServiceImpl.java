@@ -28,12 +28,28 @@ public class TeacherServiceImpl implements TeacherService {
     private TeacherMapper teacherMapper;
 
     @Override
-    public T teacherList(PageValidate pageValidate, TeacherSearchValidate teacherSearchValidate) {
+    public T teacherList(PageValidate pageValidate, TeacherSearchValidate searchValidate) {
         Integer pageNo = pageValidate.getPageNo();
         Integer pageSize = pageValidate.getPageSize();
 
         QueryWrapper<Teacher> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByAsc("teacher_id");
+
+        if(searchValidate.getTeacherId() != null){
+            queryWrapper.eq("teacher_id",searchValidate.getTeacherId());
+        }
+        else if (searchValidate.getName() != null){
+            queryWrapper.eq("name",searchValidate.getName());
+        }
+        else if (searchValidate.getDegree()!= null){
+            queryWrapper.eq("degree",searchValidate.getDegree());
+            if (searchValidate.getMajor()!= null){
+                queryWrapper.eq("major",searchValidate.getMajor());
+            }
+        }
+        else if(searchValidate.getMajor()!= null){
+            queryWrapper.eq("major",searchValidate.getMajor());
+        }
         Page<Teacher> teacherPage = teacherMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
 
         List<TeacherListVo> list = new LinkedList<>();
@@ -59,7 +75,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void teacherEdit(TeacherUpdateValidate teacherUpdateValidate) {
         Teacher teacher = teacherMapper.selectOne(new QueryWrapper<Teacher>()
-                .eq("teacher_id", teacherUpdateValidate.getTeacher_id())
+                .eq("teacher_id", teacherUpdateValidate.getTeacherId())
                 .last("limit 1"));
         teacher.setEmail(teacherUpdateValidate.getEmail());
         teacher.setAddress(teacherUpdateValidate.getAddress());
@@ -74,7 +90,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void teacherAdd(TeacherCreateValidate createValidate) {
         Teacher teacher = new Teacher();
-        teacher.setTeacher_id(createValidate.getTeacher_id());
+        teacher.setTeacherId(createValidate.getTeacherId());
         teacher.setName(createValidate.getName());
         teacher.setPassword(Md5Utils.encode(createValidate.getPassword()));
         teacher.setAddress(createValidate.getAddress());

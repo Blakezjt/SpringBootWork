@@ -1,105 +1,43 @@
 // pages/login/login.js
-/*登陆数据*/
-var users = [
-  {userName:"1",password:"1"},
-  {userName:"123456",password:"123456"},
-  {userName:"1234567j",password:"1234567j"},
-]
-/*登陆功能数据判断函数*/
-function login(userName,password){
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].userName === userName && users[i].password === password) {
-          return true;
-        }
-      }
-      return false;
-}
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        inputUsername: "",
-        inputPassword: "",
-        login_txt:"学生/教师登录",
-        select:false,
-        name:""
-      },
-      /**
-       * 登录方式下拉框
-       */
-      bindShowMsg(){
-        this.setData({
-            select: !this.data.select
-        })
-      },
-      mySelect(e){
-        var name = e.currentTarget.dataset.name;
-        this.setData({
-            login_txt: name,
-            select :false
-        })
-        this.setData({
-            name : e.currentTarget.dataset.name
-        })
-      },
-      /**
-       * 登录功能
-       */
-      onAccountInput(e) {
-        this.setData({ inputUsername: e.detail.value });
-      },
-      onPasswordInput(e) {
-        this.setData({ inputPassword: e.detail.value });
-      },
-    changeLogin: function(e) {
-        var userName = this.data.inputUsername;
-        var password = this.data.inputPassword;
-        var name = this.data.name;
-      if(login(userName,password)){  
-          if(name == '学生登录'){
-            wx.reLaunch({
-                url: '/pages/mainAddress/mainAddress',
-            })
-          }else if(name == '教师登录'){
-            wx.reLaunch({
-                url: '/pages/main2/main2',
-            })
-          }else{
-              wx.showToast({
-                title: '请选择登录方式',
-              })
-          }
-        this.setData({ 
-            inputUsername: "",
-            inputPassword: ""
-        })
-    }else{
-        wx.showToast({
-          title: '登录失败',
-        })
-        this.setData({ 
-            inputUsername: "",
-            inputPassword: ""
-        })
-      }
+        users: [{
+            userName:'小明',
+            account: "test123",
+            password: "test123",
+            tel:"18876262341",
+        }, {
+            userName:'小路',
+            account: "t123",
+            password: "t123",
+            tel:"18998262341",
+        }, {
+            userName:'小溪',
+            account: "111",
+            password: "111",
+            tel:"18009262341",
+        }, {
+            userName:'小发',
+            account: "test",
+            password: "test",
+            tel:"18234262341",
+        }],
+        courier:[{
+            account: "test123",
+            password: "test123",
+            tel:"18123262341",
+        }],
+        switchOver:true,
     },
-    /** 
- * 跳转到注册页面
-*/
-
-changeLogin2:function() {
-  wx.navigateTo({
-    url: '/pages/create/create',
-  })
-},
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-      
 
     },
 
@@ -116,7 +54,67 @@ changeLogin2:function() {
     onShow() {
 
     },
-
+    /**
+     * 用户登入
+     */
+    onLoginUser(e){
+        this.onLoginType(e,this.data.users,'/pages/main/main');
+    },
+    /**
+     * 快递员登入
+     */
+    onLoginCourier(e){
+        this.onLoginType(e,this.data.courier,);
+    },
+    /**
+     * 登入函数
+     */
+    onLoginType(e,loginType,url) {
+         let account = e.detail.value.account;
+        let password = e.detail.value.password;
+        for (let User of loginType) {
+            if (User.account == account && User.password == password) {
+                wx.showToast({
+                    title: '登入成功',
+                    icon: 'success',
+                    duration: 500,
+                    success(res) {
+                        setTimeout(function () {
+                            wx.switchTab({
+                                url: url,
+                            })
+                        },500)
+                        let app = getApp();
+                        app.globalData.userName = User.userName;
+                        app.globalData.tel = User.tel
+                    }
+                })
+                return;
+            }
+        }
+        wx.showToast({
+            icon: "error",
+            title: '登入失败',
+        })
+    },
+    /**
+     * 
+     */
+    onRegister() {
+        wx.navigateTo({
+            url: '/pages/register/register',
+        })
+    },
+    onSwitchOver(){
+        this.setData({
+            switchOver:true
+        })
+    },
+    onSwitchOver1(){
+        this.setData({
+            switchOver:false
+        })
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

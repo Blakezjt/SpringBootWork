@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "van-popup": "@vant/weapp/popup/index",
+        "van-stepper": "@vant/weapp/stepper/index"
+
+      }
+      
+}

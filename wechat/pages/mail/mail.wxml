@@ -1,0 +1,147 @@
+<view style="text-align: center;">寄件</view>
+<view style="display: flex;justify-content: center;">
+    <view class="mail-view">
+        <view class="mail-sendOff" bindtap="onSendOf" wx:if="{{userInfo==null}}">
+            <image src="/icon/sendOff.png" mode="" />
+            <view>
+                从哪里寄出
+            </view>
+            <text>></text>
+        </view>
+        <view class="mail-sendOff-detail" bindtap="onSendOf" wx:else>
+            <image src="/icon/sendOff.png" mode="" />
+            <text class="send_user_info"> <text class="send_user_info_name">{{userInfo.userName}}</text>{{userInfo.tel}} {{userInfo.radioValue}} <text style="color: red;">{{userInfo.switchValue==true?"默认":""}}</text>
+                {{userInfo.region[0]}}{{userInfo. region[1]}}{{userInfo.region[2]}}{{userInfo.address}}
+            </text>
+        </view>
+        <view class="mail-sendOff" bindtap="onSendTo" wx:if="{{sendTo==null}}">
+            <image src="/icon/sendTo.png" mode="" />
+            <view>
+                要寄到哪里
+            </view>
+            <text>></text>
+        </view>
+        <view class="mail-sendOff-detail" bindtap="onSendTo" wx:else>
+            <image src="/icon/sendTo.png" mode="" />
+            <text class="send_user_info"><text class="send_user_info_name">{{sendTo.userName}}</text> {{sendTo.tel}} {{sendTo.radioValue}}
+                {{sendTo.region[0]}}{{sendTo. region[1]}}{{sendTo.region[2]}}{{sendTo.address}}
+            </text>
+        </view>
+    </view>
+</view>
+<view style="display: flex;justify-content: center;">
+    <view class="shipping_method">
+        <view class="shipping_method_view">
+            <view style="margin-left: 25rpx;">寄件方式</view>
+            <view style="display: flex;flex-wrap: wrap;">
+                <view class="shipping_method_font {{isChangeShipping?'change_class':''}}" bindtap="onClickShipping">上门取件</view>
+                <view class="shipping_method_font {{!isChangeShipping?'change_class':''}}" bindtap="onClickShipping1">服务点自寄</view>
+            </view>
+        </view>
+        <view class="shipping_method_view" wx:if="{{isChangeShipping}}">
+            <view style="margin-left: 25rpx;">上门时间</view>
+            <view style="margin-right: 20rpx;" bindtap="selectTime">
+                <text style="margin-right: 10rpx;color: blue;">{{defautTime}} {{nowTime.startTime}}:00-{{nowTime.endTime}}:00<text style="color: gainsboro;">></text>
+                </text>
+                
+            </view>
+        </view>
+        <view class="shipping_method_view2" wx:else>
+            <view style="margin-left: 25rpx;" bindtap="onservicePoint">{{servicePoint}}</view>
+        </view>
+    </view>
+</view>
+<view style="display: flex;justify-content: center;">
+    <view class="shipping_method">
+        <view class="shipping_method_view">
+            <view style="margin-left: 25rpx;">物品信息<text class="shipping_method_view_text">必填</text></view>
+            <view style="display: flex;flex-wrap: wrap;margin-right: 20rpx;" bindtap="onShowProduct">
+                <text style="margin-right: 10rpx;">{{productItem}}/{{weight}}kg{{isRemackSuccess?'/已备注':''}}</text>
+                <text style="color: gainsboro;">></text>
+            </view>
+        </view>
+        <view class="shipping_method_view">
+            <view style="margin-left: 25rpx;">优惠</view>
+            <view style="margin-right: 20rpx;" bindtap="onDiscountCoupon">
+                <text class="shipping_method_view_coupon">优惠卷</text>
+                <text style="color: gainsboro;">></text>
+            </view>
+        </view>
+    </view>
+</view>
+<view style="display: flex;justify-content: center;">
+    <view class="shipping_method" style="height: 100rpx;">
+        <view class="shipping_method_view" bindtap="onValueAdded">
+            <view style="margin-left: 25rpx;">增值服务</view>
+            <view class="value_add">
+                <text class="value_add_compensate">超时赔</text>
+                <text class="value_add_compensate">丢损必赔</text>
+                <text style="margin: 5rpx;padding-right: 10rpx;">隐私保护</text>
+                <text style="color: gainsboro;">></text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="end">
+    <view class="register-end-claush">
+        <image class="register-end-image" src="/icon/grayCannel.png" mode="" wx:if="{{isAgree}}" bindtap="onClickAgree" />
+        <image class="register-end-image" src="/icon/redCannel.png" mode="" wx:else bindtap="onClickAgree" />
+        <view class="register-end-claushfont">阅读并同意《服务条款》和《证照信息》</view>
+    </view>
+    <view class="end_price">
+        <view class="end_price_text">{{freight}}</view>
+        <button class="end_btn" bindtap="placeOrder" >立即下单</button>
+    </view>
+</view>
+
+
+<!-- 日用品的弹窗 -->
+
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 90%;background-color:Gainsboro;" closeable round bind:close="onShowProduct">
+    <view class="product-detail"><text class="marginLe">物品信息</text></view>
+    <view class="product-detail1">
+        <view class="marginLe" style="width: 100%;"> 物品类型<text class="shipping_method_view_text">必填</text></view>
+        <view wx:for="{{productType}}" class="productTypeView {{item==productItem?'proTypeChange':''}}" wx:key="index" bindtap="onClickSelect" data-index="{{index}} " data-item="{{item}}">{{item}}</view>
+    </view>
+    <view class="product-detail2">
+        <view class="weightView">
+            <view class="marginLe">设置重量(kg)<text class="shipping_method_view_text">必填</text></view>
+            <van-stepper value="{{ 0 }}" min="0" max="8" integer bind:change="onChange" style="margin-right: 70rpx;" />
+        </view>
+    </view>
+    <view class="product-detail3">
+        <view class="courierR">
+            <text class="marginLe"> 给快递员备注</text>
+            <text class="send_user_info" style="margin-right: 20rpx;">您的要求会提前告知快递员</text>
+        </view>
+        <view class="remack">
+            <view wx:for="{{courierRemark}}" class="courierRe {{item.isRemark?'courierRema':''}}" wx:key="index" bindtap="onRemack" data-item="{{item.remarkName}}" data-index="{{index}}" id="remack{{index}}">{{item.remarkName}}</view>
+        </view>
+    </view>
+</van-popup>
+<view class="product-detail4" wx:if="{{show}}">
+    <button bindtap="onShowProduct">确定</button>
+</view>
+
+<!-- 上门时间的弹窗 -->
+<van-popup show="{{ time }}" position="bottom" custom-style="height: 60%;" closeable round bind:close="selectTime">
+    <view style="height: 150rpx; line-height: 60rpx;margin-left: 30rpx;">
+       <text>选择上门时间
+           <text style="color: LightSkyBlue;font-size: small;">准时上门·超时赔</text> 
+       </text> 
+    </view>
+    <view style="display: flex;flex-direction: row;flex-wrap: wrap;align-items:flex-start">
+    <view style="width: 20%;text-align: center;line-height: 120rpx;">
+        <view class="time_select {{index == getIndex?'time_select_changeColor':''}}" wx:for="{{dateTine}}" wx:key="index" data-index="{{index}}" bindtap="onChangeTime">{{item}}</view>
+    </view>
+    <view style="width: 80%;height: 520rpx;background-color: whitesmoke;" wx:for="{{dateTine}}" wx:if="{{index == getIndex}}" wx:key="index">
+        <view style="padding: 30rpx;border-bottom: 1rpx solid gainsboro;display: flex;justify-content: space-between; "  wx:for="{{timeDetail}}" wx:key="index"  bindtap="setTimeVisit" data-index="{{index}}">
+            <text>{{item.startTime}}:00-{{item.endTime}}:00</text>
+            <image wx:if="{{item.isShow}}" style="height: 50rpx;width: 50rpx;" src="/icon/checked.png" mode=""/>
+            <view wx:if="{{item.isPastDue}}">已过期</view>
+        </view>
+    </view>
+        
+    </view>
+</van-popup>

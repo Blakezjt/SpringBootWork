@@ -1,50 +1,38 @@
 {
     "pages": [
         "pages/login/login",
-        "pages/create/create",
-        "pages/mainAddress/mainAddress",
-        "pages/deliver/deliver",
-        "pages/pickAddress/pickAddress",
-        "pages/sendAddress/sendAddress",
-        "pages/expressCheck/expressCheck",
-        "pages/index/index",
-        "pages/logs/logs",
-        "pages/tongcheng/tongcheng",
-        "pages/jidajian/jidajian",
-        "pages/piliangji/piliangji",
-        "pages/main2/main2",
-        "pages/expressform/expressform",
-        "pages/address/address",
-        "pages/waybillForm/waybillForm",
-        "pages/test/test"
+        "pages/register/register",
+        "pages/main/main",
+        "pages/mail/mail",
+        "pages/sendOf/senfOf",
+        "pages/sendTO/sendTo",
+        "pages/my/my",
+        "pages/expresslist/expresslist",
+        "pages/courseModel/course"
     ],
     "tabBar": {
-        "custom": false,
-        "color": "#7A7E83",
-        "selectedColor": "#3cc51f",
-        "borderStyle": "black",
-        "backgroundColor": "#ffffff",
+        "color": "#8a8a8a",
+        "selectedColor": "#1296db",
         "list": [
             {
-                "pagePath": "pages/mainAddress/mainAddress",
-                "text": "快递",
-                "iconPath": "/pages/resourse/ban/kuaidi-2.png",
-                "selectedIconPath": "/pages/resourse/ban/kuaidi.png"
+                "pagePath": "pages/main/main",
+                "text": "首页",
+                "iconPath": "./icon/index.png",
+                "selectedIconPath": "./icon/indexSelect.png"
             },
             {
-                "pagePath": "pages/main2/main2",
-                "text": "快递员",
-                "iconPath": "/pages/resourse/ban/kuaidiyuan-2.png",
-                "selectedIconPath": "/pages/resourse/ban/kuaidiyuan.png"
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "./icon/my.png",
+                "selectedIconPath": "./icon/mySelet.png"
             }
         ]
     },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
+        "navigationBarTitleText": "校园一键通",
         "navigationBarTextStyle": "black"
     },
-    "style": "v2",
     "sitemapLocation": "sitemap.json"
 }

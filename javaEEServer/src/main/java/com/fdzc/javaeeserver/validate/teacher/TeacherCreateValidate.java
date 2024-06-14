@@ -11,7 +11,7 @@ public class TeacherCreateValidate {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer teacher_id;
+    private Integer teacherId;
 
     private String name;
 

@@ -13,7 +13,7 @@ public class Teacher {
     private static final long serialVersionUID = 1L;
 
     @TableId
-    private Integer teacher_id;
+    private Integer teacherId;
 
     private String name;
 
