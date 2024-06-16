@@ -12,7 +12,7 @@ public class CodeGenerator {
     public static void main(String[] args) {
         FastAutoGenerator.create("jdbc:mysql://localhost:3306/javaeework", "root", "123456")
                 .globalConfig(builder -> {
-                    builder.author("何安琪") // 设置作者
+                    builder.author("陈嘉诚") // 设置作者
                             // .enableSwagger() // 开启 swagger 模式
                             .outputDir("src\\main\\java"); // 指定输出目录
                 })
@@ -32,7 +32,7 @@ public class CodeGenerator {
                                 .pathInfo(Collections.singletonMap(OutputFile.xml, "src\\main\\resources\\com\\fdzc\\javaeeserver\\mapper")) // 设置mapperXml生成路径
                 )
                 .strategyConfig(builder ->
-                        builder.addInclude("payment,financialrecord,logistics") // 设置需要生成的表名
+                        builder.addInclude("Dormitory,DormitoryFix,HealthReport,EmergencyContact,MedicalAppointment") // 设置需要生成的表名
                                 // .addTablePrefix("t_", "c_") // 设置过滤表前缀
                                 .entityBuilder()
                                 .enableLombok() // 启用 Lombok
