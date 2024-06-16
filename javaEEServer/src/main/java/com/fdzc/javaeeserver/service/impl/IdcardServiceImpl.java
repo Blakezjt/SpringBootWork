@@ -1,5 +1,8 @@
 package com.fdzc.javaeeserver.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fdzc.javaeeserver.entity.Idcard;
 import com.fdzc.javaeeserver.mapper.IdcardMapper;
 import com.fdzc.javaeeserver.service.IdcardService;
@@ -10,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 /**
@@ -43,5 +45,28 @@ public class IdcardServiceImpl extends ServiceImpl<IdcardMapper, Idcard> impleme
             return false;
         }
         return true;
+    }
+
+    @Override
+    public IPage<Idcard> teacherlist(Page<Idcard> idcardPage) {
+        LambdaQueryWrapper<Idcard> queryWrapper =new LambdaQueryWrapper<>();
+        return idcardMapper.selectPage(idcardPage,queryWrapper);
+    }
+
+    @Override
+    public IPage<Idcard> studentlist(Integer studentId, Page<Idcard> idcardPage) {
+        LambdaQueryWrapper<Idcard> queryWrapper =new LambdaQueryWrapper<>();
+        queryWrapper.eq(Idcard::getStudentId,studentId);
+        return idcardMapper.selectPage(idcardPage,queryWrapper);
+    }
+
+    @Override
+    public boolean deletebyId(String id) {
+        int delete = idcardMapper.deleteById(id);
+        if (delete>0){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
