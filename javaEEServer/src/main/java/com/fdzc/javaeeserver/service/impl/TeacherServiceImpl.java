@@ -3,7 +3,7 @@ package com.fdzc.javaeeserver.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fdzc.javaeeserver.common.T;
-import com.fdzc.javaeeserver.entity.Teacher;
+import com.fdzc.javaeeserver.entity.Teachers;
 import com.fdzc.javaeeserver.mapper.TeacherMapper;
 import com.fdzc.javaeeserver.service.TeacherService;
 import com.fdzc.javaeeserver.utils.Md5Utils;
@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TeacherServiceImpl implements TeacherService {
@@ -32,7 +33,7 @@ public class TeacherServiceImpl implements TeacherService {
         Integer pageNo = pageValidate.getPageNo();
         Integer pageSize = pageValidate.getPageSize();
 
-        QueryWrapper<Teacher> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<Teachers> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByAsc("teacher_id");
 
         if(searchValidate.getTeacherId() != null){
@@ -50,12 +51,13 @@ public class TeacherServiceImpl implements TeacherService {
         else if(searchValidate.getMajor()!= null){
             queryWrapper.eq("major",searchValidate.getMajor());
         }
-        Page<Teacher> teacherPage = teacherMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
+        Page<Teachers> teacherPage = teacherMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
 
         List<TeacherListVo> list = new LinkedList<>();
-        for (Teacher stu: teacherPage.getRecords()) {
+        for (Teachers stu: teacherPage.getRecords()) {
             TeacherListVo vo = new TeacherListVo();
             BeanUtils.copyProperties(stu,vo);
+            vo.setTeacher_id(stu.getTeacherId());
             list.add(vo);
         }
 
@@ -64,55 +66,60 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public TeacherDetailVo teacherDetail(Integer teacherId) {
-        Teacher teacher = teacherMapper.selectOne(new QueryWrapper<Teacher>()
+        Teachers teachers = teacherMapper.selectOne(new QueryWrapper<Teachers>()
                 .eq("teacher_id", teacherId)
                 .last("limit 1"));
         TeacherDetailVo teacherDetailVo = new TeacherDetailVo();
-        BeanUtils.copyProperties(teacher,teacherDetailVo);
+        BeanUtils.copyProperties(teachers,teacherDetailVo);
+        teacherDetailVo.setTeacher_id(teachers.getTeacherId());
         return teacherDetailVo;
     }
 
     @Override
     public void teacherEdit(TeacherUpdateValidate teacherUpdateValidate) {
-        Teacher teacher = teacherMapper.selectOne(new QueryWrapper<Teacher>()
+        Teachers teachers = teacherMapper.selectOne(new QueryWrapper<Teachers>()
                 .eq("teacher_id", teacherUpdateValidate.getTeacherId())
                 .last("limit 1"));
-        teacher.setEmail(teacherUpdateValidate.getEmail());
-        teacher.setAddress(teacherUpdateValidate.getAddress());
-        teacher.setPhone(teacherUpdateValidate.getPhone());
-        teacher.setSalary(teacherUpdateValidate.getSalary());
-        teacher.setDegree(teacherUpdateValidate.getDegree());
-        teacher.setMajor(teacherUpdateValidate.getMajor());
-        teacher.setUpdateTime(LocalDateTime.now());
-        teacherMapper.updateById(teacher);
+        teachers.setEmail(teacherUpdateValidate.getEmail());
+        teachers.setAddress(teacherUpdateValidate.getAddress());
+        teachers.setPhone(teacherUpdateValidate.getPhone());
+        teachers.setSalary(teacherUpdateValidate.getSalary());
+        teachers.setDegree(teacherUpdateValidate.getDegree());
+        teachers.setMajor(teacherUpdateValidate.getMajor());
+        teachers.setUpdateTime(LocalDateTime.now());
+        teacherMapper.updateById(teachers);
     }
 
     @Override
     public void teacherAdd(TeacherCreateValidate createValidate) {
-        Teacher teacher = new Teacher();
-        teacher.setTeacherId(createValidate.getTeacherId());
-        teacher.setName(createValidate.getName());
-        teacher.setPassword(Md5Utils.encode(createValidate.getPassword()));
-        teacher.setAddress(createValidate.getAddress());
-        teacher.setSex(createValidate.getSex());
-        teacher.setBirthDate(createValidate.getBirthDate());
-        teacher.setEmail(createValidate.getEmail());
-        teacher.setPhone(createValidate.getPhone());
-        teacher.setHireDate(createValidate.getHireDate());
-        teacher.setSalary(createValidate.getSalary());
-        teacher.setDegree(createValidate.getDegree());
-        teacher.setMajor(createValidate.getMajor());
-        teacher.setCreateTime(LocalDateTime.now());
-        teacher.setUpdateTime(LocalDateTime.now());
-        teacherMapper.insert(teacher);
+        Teachers teachers = new Teachers();
+        teachers.setId(UUID.randomUUID().toString());
+        QueryWrapper<Teachers> QueryWrapper = new QueryWrapper<Teachers>().orderByDesc("teacher_id");
+        Teachers teachers1 = teacherMapper.selectOne(QueryWrapper.last("limit 1"));
+        Integer teacherId = teachers1.getTeacherId();
+        teachers.setTeacherId(teacherId + 1);
+        teachers.setName(createValidate.getName());
+        teachers.setPassword(Md5Utils.encode(createValidate.getPassword()));
+        teachers.setAddress(createValidate.getAddress());
+        teachers.setSex(createValidate.getSex());
+        teachers.setBirthDate(createValidate.getBirthDate());
+        teachers.setEmail(createValidate.getEmail());
+        teachers.setPhone(createValidate.getPhone());
+        teachers.setHireDate(createValidate.getHireDate());
+        teachers.setSalary(createValidate.getSalary());
+        teachers.setDegree(createValidate.getDegree());
+        teachers.setMajor(createValidate.getMajor());
+        teachers.setCreateTime(LocalDateTime.now());
+        teachers.setUpdateTime(LocalDateTime.now());
+        teacherMapper.insert(teachers);
     }
 
     @Override
     public void teacherDelete(Integer teacherId) {
-        Teacher teacher = teacherMapper.selectOne(new QueryWrapper<Teacher>()
+        Teachers teachers = teacherMapper.selectOne(new QueryWrapper<Teachers>()
                 .eq("teacher_id", teacherId));
-        teacher.setIsDelete(1);
-        teacher.setDeleteTime(LocalDateTime.now());
-        teacherMapper.updateById(teacher);
+        teachers.setIsDelete(1);
+        teachers.setDeleteTime(LocalDateTime.now());
+        teacherMapper.updateById(teachers);
     }
 }

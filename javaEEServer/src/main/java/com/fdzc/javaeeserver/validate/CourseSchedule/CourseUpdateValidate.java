@@ -10,7 +10,7 @@ public class CourseUpdateValidate {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    private String id;
 
     private Integer courseId;
 

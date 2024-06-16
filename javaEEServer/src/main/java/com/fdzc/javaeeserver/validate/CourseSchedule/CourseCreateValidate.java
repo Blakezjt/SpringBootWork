@@ -11,7 +11,7 @@ public class CourseCreateValidate {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    private String id;
 
     private Integer courseId;
 

@@ -1,5 +1,6 @@
 package com.fdzc.javaeeserver.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -8,11 +9,13 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
-public class Teacher {
+public class Teachers {
 
     private static final long serialVersionUID = 1L;
 
     @TableId
+    private String id;
+
     private Integer teacherId;
 
     private String name;

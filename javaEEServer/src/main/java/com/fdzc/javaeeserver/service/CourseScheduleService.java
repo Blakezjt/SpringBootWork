@@ -10,7 +10,7 @@ import com.fdzc.javaeeserver.vo.Course.CourseDetailVo;
 
 public interface CourseScheduleService {
 
-    T  CourseList(PageValidate pageValidate,  CourseSearchValidate CourseSearchValidate);
+    T  courseList(PageValidate pageValidate,  CourseSearchValidate CourseSearchValidate);
 
     CourseDetailVo courseDetail(Integer Id);
 
