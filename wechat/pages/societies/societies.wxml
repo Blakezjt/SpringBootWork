@@ -1,0 +1,65 @@
+
+<h3 style="margin-left: 200px;">社团简介</h3>
+<van-divider />
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item title="学生会" name="1">
+    学生会是由学生选举产生的组织，负责代表学生的利益，组织校园活动，并与校方沟通协调。学生会通常设有多个部门，如文艺部、体育部、宣传部等。<text>\n</text>
+    <van-button type="primary" >报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="辩论社" name="2">
+    辩论社致力于培养学生的逻辑思维、演讲技巧和辩论能力。社员通过参加内部培训和外部比赛，提高辩论水平，并在比赛中为校争光。<van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="摄影社" name="3">
+    摄影社为热爱摄影的学生提供一个交流和学习的平台。社团组织摄影讲座、外拍活动和摄影展览，帮助成员提高摄影技术和艺术审美。<van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="戏剧社" name="4">
+    戏剧社主要从事戏剧表演和相关活动。社团通过排练和演出各种剧目，锻炼成员的表演能力，并为校园文化生活增添色彩。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="志愿者协会" name="5">
+  志愿者协会旨在组织和协调学生参与各类社会公益活动，如义务支教、社区服务和环保行动，培养学生的社会责任感和奉献精神。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="乐队社" name="6">
+    乐队社为喜欢音乐的学生提供一个合作和展示才艺的平台。社员们组建乐队，进行排练和演出，并参加各类音乐比赛和校园音乐节。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="书法社" name="7">
+    书法社致力于传播和弘扬中国传统书法艺术。社员通过书法练习、讲座和展览，提高书法技艺和文化修养。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="创新创业协会" name="8">
+    该协会为有创业梦想的学生提供一个交流和学习的平台。协会组织创业讲座、项目孵化和创业比赛，帮助学生实现创业梦想。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="体育社团" name="9">
+    大学里通常有多个体育社团，如篮球社、足球社、羽毛球社等。这些社团组织日常训练和比赛，促进学生的身心健康和团队合作精神。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="国际交流协会" name="10">
+    国际交流协会旨在促进校园内国际文化交流。协会组织文化交流活动、语言角和国际学生联谊活动，帮助学生了解和融入多元文化。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="科技创新社" name="11">
+    科技创新社旨在激发学生的科技创新意识，鼓励他们参与科技项目和发明创造。社团组织科技竞赛、实验室研讨和科技展览，帮助学生提升科研能力和创新思维。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="文学社" name="12">
+    文学社为文学爱好者提供了一个交流创作的平台。社团定期举办诗歌朗诵会、文学讨论会和作品分享会，鼓励会员写作和发表作品，提升文学素养。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="电影社" name="13">
+    电影社致力于电影文化的传播与研究。社团组织观影活动、电影讲座和影评讨论，帮助成员提高电影鉴赏能力，深入了解电影艺术。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="环保社" name="14">
+    环保社关注环境保护和可持续发展，组织各种环保活动，如垃圾分类宣传、植树造林和环保讲座，倡导绿色生活，提升同学们的环保意识。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+  <van-collapse-item title="英语角" name="15">
+    英语角是一个提供英语交流平台的社团，旨在提高学生的英语听说能力。社团定期举办英语角活动，如英语演讲、辩论和语言游戏，帮助学生在轻松愉快的氛围中练习英语。<text>\n</text>
+    <van-button type="primary">报名</van-button>
+  </van-collapse-item>
+</van-collapse>
+
+

@@ -1,0 +1,94 @@
+<van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="宿舍报修申请"
+/>
+
+<van-cell-group>
+  <van-field
+    value="{{ sushelou}}"
+    required
+    clearable
+    label="宿舍楼"
+    icon="question-o"
+    placeholder="请输入宿舍楼"
+    bind:click-icon="onClickIcon"
+  />
+  
+
+  <van-field
+    value="{{ sushehao }}"
+    label="宿舍号"
+    placeholder="请输入宿舍号"
+    required
+  />
+  <van-field
+    value="{{ xiangmu }}"
+    label="报修项目"
+    placeholder="请输入报修项目"
+    required
+  />
+  <van-field
+    value="{{ time }}"
+    label="期望上门时间"
+    placeholder="请输入期望上门时间"
+    required
+  />
+  <van-field
+    value="{{ password }}"
+    label="备注"
+  />
+  
+</van-cell-group>
+<van-button type="primary" size="large" bind:tap="onClickSuccess">提交</van-button>
+<van-divider />
+<van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="换房申请"
+/>
+
+<van-cell-group>
+  <van-field
+    value="{{ yuanbenL}}"
+    required
+    clearable
+    label="原宿舍楼"
+    icon="question-o"
+    placeholder="请输入原宿舍楼"
+    bind:click-icon="onClickIcon"
+  />
+  
+
+  <van-field
+    value="{{ qiwangL }}"
+    label="期望宿舍楼"
+    placeholder="请输入期望宿舍楼"
+    required
+  />
+  <van-field
+    value="{{ yuanbenH }}"
+    label="原宿舍号"
+    placeholder="请输入原宿舍号"
+    required
+  />
+  <van-field
+    value="{{ qiwangH }}"
+    label="期望宿舍号"
+    placeholder="请输入期望宿舍号"
+    required
+  />
+  <van-field
+    value="{{ qiwangC }}"
+    label="期望床位"
+    placeholder="请输入期望床位"
+    required
+  />
+  <van-field
+    value="{{ password }}"
+    label="备注"
+  />
+  
+</van-cell-group>
+<van-button type="primary" size="large" bind:tap="onClickSuccess">提交</van-button>
+

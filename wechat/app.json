@@ -1,5 +1,6 @@
 {
     "pages": [
+        
         "pages/login/login",
         "pages/register/register",
         "pages/main/main",
@@ -8,7 +9,16 @@
         "pages/sendTO/sendTo",
         "pages/my/my",
         "pages/expresslist/expresslist",
-        "pages/courseModel/course"
+        "pages/courseModel/course",
+        "pages/administration/administration",
+        "pages/vacation/vacation",
+        "pages/dormitory/dormitory",
+        "pages/certification/certification",
+        "pages/activity/activity",
+        "pages/societies/societies",
+        "pages/activityurl/activityurl",
+        "pages/social/social",
+        "pages/signup/signup"
     ],
     "tabBar": {
         "color": "#8a8a8a",

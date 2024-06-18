@@ -1,0 +1,82 @@
+<van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="学生证补办"
+/>
+
+<van-cell-group>
+  <van-field
+    value="{{ name}}"
+    required
+    clearable
+    label="姓名"
+    icon="question-o"
+    placeholder="请输入姓名"
+    bind:click-icon="onClickIcon"
+  />
+  
+
+  <van-field
+    value="{{ number }}"
+    label="学号"
+    placeholder="请输入学号"
+    required
+  />
+  <van-field
+    value="{{ zhuanye }}"
+    label="专业"
+    placeholder="请输入专业"
+    required
+  />
+  <van-field
+    value="{{ time }}"
+    label="期望上门时间"
+    placeholder="请输入期望上门时间"
+    required
+  />
+  <van-field
+    value="{{ password }}"
+    label="备注"
+  />
+  
+</van-cell-group>
+<van-button type="primary" size="large" bind:tap="onClickSuccess">提交</van-button>
+<van-divider />
+<van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="图书证申请/补办"
+/>
+
+<van-cell-group>
+  <van-field
+    value="{{ name}}"
+    required
+    clearable
+    label="姓名"
+    icon="question-o"
+    placeholder="请输入姓名"
+    bind:click-icon="onClickIcon"
+  />
+  
+
+  <van-field
+    value="{{ number }}"
+    label="学号"
+    placeholder="请输入学号"
+    required
+  />
+  <van-field
+    value="{{ zhuanye }}"
+    label="专业"
+    placeholder="请输入专业"
+    required
+  />
+  <van-field
+    value="{{ password }}"
+    label="备注"
+  />
+  
+</van-cell-group>
+<van-button type="primary" size="large" bind:tap="onClickSuccess">提交</van-button>
+
