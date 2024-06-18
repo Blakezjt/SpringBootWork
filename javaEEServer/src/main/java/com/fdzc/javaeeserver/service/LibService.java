@@ -1,13 +1,11 @@
 package com.fdzc.javaeeserver.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.fdzc.javaeeserver.entity.Lib;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 
-public interface LibService {
+public interface LibService extends IService<Lib> {
 
-List<Lib> getAllList();
+
 
 }
