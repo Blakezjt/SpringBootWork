@@ -25,5 +25,5 @@ public class StudentDetailVo {
 
     private String studentPhone;
 
-    private LocalDateTime entryTime;
+    private String entryTime;
 }

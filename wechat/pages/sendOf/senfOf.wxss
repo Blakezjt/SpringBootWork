@@ -1,0 +1,35 @@
+/* pages/sendOf/senfOf.wxss */
+.retain-btn {
+    width: 520rpx;
+    height: 86rpx;
+    display: block;
+    box-sizing: border-box;
+    left: 0rpx;
+    top: 717rpx;
+    position: relative;
+    background-color: rgba(0, 174, 255, 0.733);
+    color: white;
+}
+
+.picker{
+    font-size: small;
+}
+.radio-group1 {
+    margin-top: 30rpx;
+}
+
+.radio-group1 radio {
+    margin-left: 50rpx;
+}
+
+.section {
+    margin-left: 30rpx;
+}
+
+.default {
+    display: flex;
+    height: 65rpx;
+    line-height: 65rpx;
+    justify-content: space-between;
+    margin-top: 30rpx;
+}

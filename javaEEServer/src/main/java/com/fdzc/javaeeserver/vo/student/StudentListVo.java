@@ -3,6 +3,7 @@ package com.fdzc.javaeeserver.vo.student;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class StudentListVo {
@@ -24,5 +25,5 @@ public class StudentListVo {
 
     private String studentPhone;
 
-    private LocalDateTime entryTime;
+    private String entryTime;
 }

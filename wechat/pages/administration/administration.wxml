@@ -1,0 +1,22 @@
+
+<van-notice-bar
+  left-icon="volume-o"
+  text="我爱至诚！我爱至诚！我爱至诚！我爱至诚！我爱至诚！我爱至诚！我爱至诚！"
+/>
+<van-cell-group>
+  <van-cell title="请假申请" value="进入" label="在线提交请假申请，并实时查看审批进度" border="{{ false }}"  size="large" is-link 
+  link-type="navigateTo" 
+  url="/pages/vacation/vacation"/>
+</van-cell-group>
+<van-cell-group>
+  <van-cell title="宿舍管理" value="进入" label="在线保修、换房申请" border="{{ false }}" is-link size="large"
+  link-type="navigateTo" 
+  url="/pages/dormitory/dormitory"/>
+</van-cell-group>
+<van-cell-group>
+  <van-cell title="证件办理" value="进入" label="学生证、图书证等证件的申请与补办" border="{{ false }}" is-link size="large"
+  link-type="navigateTo" 
+  url="/pages/certification/certification"/>
+</van-cell-group>
+
+

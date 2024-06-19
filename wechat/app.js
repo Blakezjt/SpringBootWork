@@ -14,6 +14,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    sendTo:null,
+    userName:null,
+    tel:null
   }
 })

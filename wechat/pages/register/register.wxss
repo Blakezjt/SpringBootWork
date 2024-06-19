@@ -1,0 +1,91 @@
+/* pages/register/register.wxss */
+.register-body {
+    width: 750rpx;
+    height: 268rpx;
+    display: block;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.register-body-view {
+    display: flex;
+    justify-content: center;
+    width: 595rpx;
+    height: 80rpx;
+    box-sizing: border-box;
+    margin-top: 30rpx;
+    line-height: 80rpx;
+    background-color: whitesmoke;
+    border-radius: 25rpx;
+}
+
+.register-body-input {
+    width: 480rpx;
+    height: 46rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 18rpx;
+}
+
+.register-body-btnView {
+    width: 128rpx;
+    height: 60rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 10rpx;
+    font-size: x-small;
+    line-height: 60rpx;
+    color: rgb(236, 93, 57);
+}
+
+.register-body-image {
+    width: 60rpx;
+    height: 60rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 12rpx;
+    margin-right: 15rpx;
+}
+
+.register-end {
+    width: 750rpx;
+    height: 208rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50rpx;
+}
+
+.register-end-claush {
+    width: 550rpx;
+    height: 60rpx;
+    display: flex;
+    box-sizing: border-box;
+    font-size: small;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.register-end-image {
+    width: 40rpx;
+    height: 40rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 10rpx;
+}
+
+.register-end-claushfont {
+    width: 494rpx;
+    height: 40rpx;
+    margin-top: 10rpx;
+}
+
+.register-end-btn {
+    height: 84rpx;
+    border-radius: 30rpx;
+    background-color: rgb(236, 93, 57);
+    color: white;
+}

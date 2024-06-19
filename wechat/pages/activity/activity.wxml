@@ -1,0 +1,76 @@
+<van-notice-bar
+  left-icon="volume-o"
+  text="活动报名！活动报名！活动报名！活动报名！活动报名！活动报名！"
+/>
+<van-grid gutter="10px" icon-size="55px" reverse="true" column-num="3">
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/粽子.jpg"/>
+  <h3>“粽叶传情”端午传统文化节</h3>
+  </van-grid-item>
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/剪纸.jpg"/>
+  <h3>“妙手生花”剪纸比赛</h3>
+  </van-grid-item>
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/飞花.jpg"/>
+  <h3>“诗词飞花令”校园诗词大会</h3>
+  </van-grid-item>
+</van-grid>
+<van-divider />
+<van-grid gutter="10px" icon-size="55px" reverse="true" column-num="3">
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/脸谱.jpg"/>
+  <h3>“感知京剧魅力”脸谱艺术创作大赛</h3>
+  </van-grid-item>
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/粘土.jpg"/>
+  <h3>“创意粘土，造就文化”粘土里的中国传统节日</h3>
+  </van-grid-item>
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/黑板.jpg"/>
+  <h3>"迎新年"全校黑板报设计评比大赛</h3>
+  </van-grid-item>
+</van-grid>
+<van-divider />
+<van-grid gutter="10px" icon-size="55px" reverse="true" column-num="3">
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/讲座1.jpg"/>
+  <h3>讲座：展礼仪风采，扬成功风帆</h3>
+  </van-grid-item>
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/讲座2.jpg"/>
+  <h3>讲座：大学生如何正确进行就业</h3>
+  </van-grid-item>
+  <van-grid-item use-slot link-type="reLaunch"
+    url="/pages/activityurl/activityurl">
+  <image 
+  style="width: 80px; height:80px;"
+  src="/images/讲座3.jpg"/>
+  <h3>讲座：大学生心理健康</h3>
+  </van-grid-item>
+</van-grid>
+

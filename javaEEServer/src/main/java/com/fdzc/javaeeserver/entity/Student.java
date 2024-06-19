@@ -3,8 +3,10 @@ package com.fdzc.javaeeserver.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class Student {
@@ -12,6 +14,8 @@ public class Student {
     private static final long serialVersionUID = 1L;
 
     @TableId
+    private String id;
+
     private Integer studentId;
 
     private String password;
@@ -32,7 +36,9 @@ public class Student {
 
     private Integer isDelete;
 
-    private LocalDateTime entryTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date entryTime;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

@@ -1,0 +1,22 @@
+
+<van-notice-bar
+  left-icon="volume-o"
+  text="我爱至诚！我爱至诚！我爱至诚！我爱至诚！我爱至诚！我爱至诚！我爱至诚！"
+/>
+<van-cell-group>
+  <van-cell title="活动报名" value="进入" label="查看和报名参加校园活动和讲座，提供活动提醒" border="{{ false }}"  size="large" is-link 
+  link-type="navigateTo" 
+  url="/pages/activity/activity"/>
+</van-cell-group>
+<van-cell-group>
+  <van-cell title="社团管理" value="进入" label="加入和管理社团活动，查看社团信息和公告" border="{{ false }}" is-link size="large"
+  link-type="navigateTo" 
+  url="/pages/societies/societies"/>
+</van-cell-group>
+<van-cell-group>
+  <van-cell title="校园论坛" value="进入" label="参与校园话题讨论，发布和回复帖子" border="{{ false }}" is-link size="large"
+  link-type="navigateTo" 
+  url="/pages/certification/certification"/>
+</van-cell-group>
+
+

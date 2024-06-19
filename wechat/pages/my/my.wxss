@@ -1,0 +1,87 @@
+/* pages/my/my.wxss */
+.page {
+	background-color: rgb(222, 222, 222);
+	/* v纵向 100% h是单位 */
+	height: 100vh;
+}
+
+.block_view {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	background-color: white;
+	padding: 20px;
+	border: solid 1px lightgray;
+	border-radius: 10px;
+	margin-top: 5px;
+}
+
+.user {
+	display: flex;
+	flex-direction: row;
+}
+
+.user_profile {
+	width: 50px;
+	height: 50px;
+}
+
+.user_information {
+	display: flex;
+	flex-direction: column;
+	margin-top: 7rpx;
+	margin-left: 20rpx;
+}
+
+.user_name {
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.user_phone {
+	display: flex;
+	flex-direction: row;
+}
+
+.user_phone_img {
+	width: 20px;
+	height: 20px;
+}
+
+.mod1 {
+	display: flex;
+	flex-direction: row;
+}
+
+.mod1_mod {
+	display: flex;
+	flex-direction: column;
+	margin-left: 40px;
+}
+
+.mod1_img {
+	width: 35px;
+	height: 35px;
+	margin-left: 10rpx;
+}
+
+.mod1_txt {
+	font-size: 28rpx;
+}
+
+.mod2 {
+	display: flex;
+	flex-direction: row;
+	margin-top: 15px;
+	margin-left: -10px;
+}
+
+.mod2_mod {
+	display: flex;
+	flex-direction: column;
+	margin-left: 23px;
+}
+
+.txt {
+	font-weight: 700;
+}

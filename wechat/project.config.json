@@ -27,9 +27,14 @@
         "useApiHook": true,
         "useApiHostProcess": true,
         "showShadowRootInWxmlPanel": true,
-        "packNpmManually": false,
+        "packNpmManually": true,
         "enableEngineNative": false,
-        "packNpmRelationList": [],
+        "packNpmRelationList": [
+            {
+                "packageJsonPath": "./package.json",
+                "miniprogramNpmDistDir": "./"
+            }
+        ],
         "minifyWXSS": true,
         "showES6CompileOption": false,
         "minifyWXML": true,
@@ -37,11 +42,12 @@
             "ignore": [],
             "disablePlugins": [],
             "outputPath": ""
-        }
+        },
+        "condition": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.19.4",
-    "appid": "wx8e8b93a393fc6576",
+    "appid": "wx4be28c5964028ff1",
     "projectname": "miniprogram-92",
     "condition": {},
     "editorSetting": {

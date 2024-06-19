@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class StudentCreateValidate {
@@ -28,7 +29,7 @@ public class StudentCreateValidate {
 
     private String studentPhone;
 
-    private LocalDateTime entryTime;
+    private Date entryTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

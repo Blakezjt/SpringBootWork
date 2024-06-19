@@ -5,7 +5,9 @@ import com.fdzc.javaeeserver.entity.Student;
 import com.fdzc.javaeeserver.service.impl.StudentServiceImpl;
 import com.fdzc.javaeeserver.validate.PageValidate;
 import com.fdzc.javaeeserver.validate.student.StudentCreateValidate;
+import com.fdzc.javaeeserver.validate.student.StudentLoginValidate;
 import com.fdzc.javaeeserver.validate.student.StudentSearchValidate;
+import com.fdzc.javaeeserver.validate.student.StudentUpdateValidate;
 import com.fdzc.javaeeserver.vo.student.StudentDetailVo;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +16,17 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("student")
+@RequestMapping("/student")
 public class StudentController {
 
     @Resource
     private StudentServiceImpl studentServiceImpl;
+
+//    @GetMapping("/login")
+//    public R login( StudentLoginValidate studentLoginValidate){//将@RequestBody加在RuleForm ruleForm前面时可以再postman中运行
+//        R resultV0 = studentServiceImpl.login(studentLoginValidate);
+//        return resultV0;
+//    }
 
     @GetMapping("/list")
     public R studentList(@Validated PageValidate pageValidate,
@@ -31,6 +39,11 @@ public class StudentController {
     public R studentDetail(@Validated @RequestParam("id") Integer studentId){
         StudentDetailVo studentDetailVo = studentServiceImpl.studentDetail(studentId);
         return R.success(studentDetailVo);
+    }
+    @PostMapping("/edit")
+    public R studentEdit(@Validated @RequestBody StudentUpdateValidate updateValidate){
+        studentServiceImpl.studentEdit(updateValidate);
+        return R.success();
     }
 
     @PostMapping("/add")

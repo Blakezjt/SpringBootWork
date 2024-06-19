@@ -1,0 +1,43 @@
+<form bindsubmit="confirmBtn">
+    <van-cell-group>
+        <van-field
+            clearable
+            label="收件人"
+            placeholder="请输入联系人"
+            name="userName"
+            value="{{userName}}"
+            extra-event-params ="true"
+            bind:change="onChangeInput"
+        />
+        <van-field
+            label="联系手机"
+            placeholder="请输入联系人手机号"
+            border="{{ false }}"
+            name="tel"
+            value="{{tel}}"
+        />
+        <view class="section">
+            <view class="picker">省市区</view>
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" >
+                <view class="picker">
+                    当前选择：<text style="margin-left: 70rpx;">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+                </view>
+            </picker>
+        </view>
+        <van-field
+            label="详细地区"
+            placeholder="街道、楼房号等"
+            border="{{ false }}"
+            name="detailRedion"
+            value="{{address}}"
+            name="address"
+        />
+        <radio-group bindchange="radioSelect" class="radio-group1">
+            <text style="margin-left: 30rpx;">设置标签</text>
+            <radio value="家"/>家
+            <radio value="学校"/>学校
+            <radio value="公司"/>公司
+        </radio-group>
+        <button class="retain-btn" form-type="submit">保存</button>
+    </van-cell-group>
+</form>

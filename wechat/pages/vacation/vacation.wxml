@@ -1,0 +1,57 @@
+<van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="请假申请"
+/>
+<van-cell-group>
+  <van-field
+    value="{{ yuanyin }}"
+    required
+    clearable
+    label="请假事由"
+    icon="question-o"
+    placeholder="请输入请假事由"
+    bind:click-icon="onClickIcon"
+  />
+  
+
+  <van-field
+    value="{{ kaishi }}"
+    label="开始时间"
+    placeholder="请输入开始时间"
+    required
+  />
+  <van-field
+    value="{{ jieshu }}"
+    label="结束时间"
+    placeholder="请输入结束时间"
+    required
+  />
+  <van-field
+    value="{{ jiazhang }}"
+    label="家长联系方式"
+    placeholder="请输入家长联系方式"
+    required
+  />
+  <van-field
+    value="{{ mudidi }}"
+    label="目的地"
+    placeholder="请输入目的地"
+    required
+  />
+  <van-field
+    value="{{ beizhu }}"
+    label="备注"
+  />
+  
+</van-cell-group>
+<van-button type="primary" size="large" bind:tap="onClickSuccess">提交</van-button>
+<van-divider />
+<van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="审批进度"
+/>
+<van-steps steps="{{ steps }}" active="{{ active }}" />
+
+

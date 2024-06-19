@@ -1,0 +1,53 @@
+<!--pages/main/main.wxml-->
+<view class="main page">
+    <view class="top_view">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px " circular="true" style="height: 100%;">
+            <block wx:for="{{background}}" wx:key="*this">
+                <swiper-item>
+                    <image src="./resource/{{item}}" mode="" class="img-main" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+
+    <view class="block_view">
+        <!-- <label class="box-txt-up">最新资讯</label> -->
+        <view class="table">
+            <block wx:for="{{functionInfo}}" wx:key="item">
+                <view class="td" bindtap="onClickSelect" data-item="{{item}}" data-id="{{item.id}}">
+                    <view style="margin-top: 30px;">#{{item.name}}</view>
+                    <view class="box_txt_down">{{item.detail}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    
+    <view class="page_section">
+        <navigator class="box" url="/pages/mail/mail" open-type="navigateTo">
+            <image src="./resource/寄快递.png" mode="" class="img" />
+            <view class="box-tet">
+                <view class="box-txt-up">寄快递</view>
+                <view class="box-txt-down">一小时软件</view>
+            </view>
+        </navigator>
+        <navigator class="box" url="/pages/expresslist/expresslist" open-type="navigateTo">
+            <image src="./resource/快递查询.png" mode="" class="img" />
+            <view class="box-tet">
+                <view class="box-txt-up">快递查询</view>
+                <view class="box-txt-down">追踪快递状态</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="block_new">
+        <label class="block_title">校园资讯</label>
+        <view style="height: 500rpx;">
+        </view>
+        <view class="">
+            <view class="news_tr" wx:for="{{newsInfo}}" wx:key="*this">
+                <view class="news_td">{{item}}</view>
+                <view class="news_td" style="width: 336rpx"><button class="btn">查看</button></view>
+            </view>
+        </view>
+    </view>
+</view>

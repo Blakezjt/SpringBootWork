@@ -1,0 +1,86 @@
+<!--pages/my/my.wxml-->
+<view class="container page">
+	<view class="block_view">
+		<view class="user">
+			<image src="/images/用户头像.png" mode="" class="user_profile" />
+			<view class="user_information">
+				<text class="user_name">{{userName}}</text>
+				<view class="user_phone">
+					<image src="/images/电话-壹米滴答-01.png" mode="" class="user_phone_img" />
+					<text>{{tel}}</text>
+				</view>
+
+			</view>
+		</view>
+	</view>
+
+	<view class="block_view">
+		<view class="mod1">
+			<view class="mod1_mod">
+				<image src="/images/违禁品查询-壹米滴答.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">我的快递</text>
+			</view>
+			<view class="mod1_mod">
+				<image src="/images/钱袋-壹米滴答.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">我的支付</text>
+			</view>
+			<view class="mod1_mod">
+				<image src="/images/地址-壹米滴答-01.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">地址簿</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="block_view">
+		<text class="txt">推荐工具</text>
+		<view class="mod2">
+			<view class="mod2_mod">
+				<image src="/images/账号管理-壹米滴答.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">实名认证</text>
+			</view>
+			<view class="mod2_mod">
+				<image src="/images/移库操作-壹米滴答.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">驿站代取件</text>
+			</view>
+			<view class="mod2_mod">
+				<image src="/images/事件查询-壹米滴答-01.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">寄件记录</text>
+			</view>
+			<view class="mod2_mod">
+				<image src="/images/版本号-壹米滴答.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">绑定亲属</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="block_view">
+		<text class="txt">其他服务</text>
+		<view class="mod2">
+			<view class="mod2_mod">
+				<image src="/images/在线客服-壹米滴答-01.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">在线客服</text>
+			</view>
+			<view class="mod2_mod">
+				<image src="/images/信息采集_壹米滴答.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">投诉反馈</text>
+			</view>
+			<view class="mod2_mod">
+				<image src="/images/发票-壹米滴答-01.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">电子发票</text>
+			</view>
+			<view class="mod2_mod">
+				<image src="/images/金融-壹米滴答-01.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">报价理赔</text>
+			</view>
+		</view>
+		<view class="mod2">
+			<view class="mod2_mod">
+				<image src="/images/消息-壹米滴答-01.png" mode="" class="mod1_img" />
+				<text class="mod1_txt">反馈建议</text>
+			</view>
+		</view>
+	</view>
+    <view class="block_view">
+        <button bindtap="onReturnLogin">返回登录</button>
+    </view>
+</view>

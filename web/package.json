@@ -1,18 +1,24 @@
 {
-  "name": "web",
+  "name": "vue3-project",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "axios": "^1.6.2",
+    "element-plus": "^2.4.3",
+    "pinia": "^2.1.7",
+    "pinia-persistedstate-plugin": "^0.1.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.8"
+    "@vitejs/plugin-vue": "^4.4.0",
+    "unplugin-auto-import": "^0.17.1",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.11"
   }
 }

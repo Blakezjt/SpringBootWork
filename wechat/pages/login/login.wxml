@@ -1,25 +1,54 @@
-<view class="page">
-    <view class="view_txt" bind:tap="bindShowMsg">
-        <text class="login_txt" >{{login_txt}}</text>
-        <!-- <label class="deliver_txt">寄件登录</label> -->
+<view class="login-head">
+    <image class="login-image" src="/icon/home.png" mode="" wx:if="{{switchOver}}"/>
+    <image class="login-image" src="/icon/courier.png" mode="" wx:else/>
+    <view class="login-Welcome">欢迎登入</view>
+    <view class="login-type">
+        <view class="login-account {{switchOver?'login-type-font':''}}" style="border-right: 1rpx solid black;" bindtap="onSwitchOver">
+        学生登入</view>
+
+        <view class="login-account  {{!switchOver?'login-type-font':''}}" style="border-left: 1rpx solid black;" bindtap="onSwitchOver1">
+        老师登入</view>
     </view>
-    <view class="view_select" wx:if="{{select}}">
-        <view class="user_txt" bind:tap="mySelect" data-name="用户登录">用户登录</view>
-        <view class="courier_txt" bind:tap="mySelect" data-name="快递员登录">快递员登录</view>
-    </view>
-    <view></view>
-    <view class="logo_view">
-        <image class="logo" src="../resourse/login.jpg" />
-    </view>
-    <view class="account_view">
-        <label class="ipt_txt">用户</label>
-        <input class="account_ipt" type="text" value="{{inputUsername}}" placeholder="用户名/邮箱/手机号码" bindinput="onAccountInput" />
-    </view>
-    <view class="account_view">
-        <label class="ipt_txt">密码</label>
-        <input class="account_ipt" type="safe-password" value="{{inputPassword}}" placeholder="" password="true" bindinput="onPasswordInput" />
-    </view>
-    <button class="lgn_btn1" bind:tap="changeLogin" style="width:250px">登录</button>
-    <button class="lgn_btn1" bind:tap="changeLogin2" style="width:250px">注册</button>
-    <label class="pawd_txt">忘记密码？</label>
 </view>
+<form bindsubmit="onLoginUser" wx:if="{{switchOver}}">
+    <view class="login-body">
+        <view class="login-body-view">
+            账号：<input class="login-body-input" type="text" placeholder="用户名/邮箱/手机号码" name="account" />
+            <image class="login-body-image" src="/icon/account.png" mode="" />
+        </view>
+        <view class="login-body-view">
+            密码：<input class="login-body-input" type="password" name="password" />
+            <image class="login-body-image" src="/icon/lock.png" mode="" />
+        </view>
+    </view>
+    <view class="login-end">
+        <button class="login-end-loginbtn"  form-type="submit">登入</button>
+        <button class="login-end-accountbtn"  bindtap="onRegister">注册</button>
+        <view class="login-end-forget">忘记密码？</view>
+        <view class="login-end-clause ">
+            <view>《服务条款》</view>
+            <view style="width: 182rpx;">《隐私权政策》</view>
+        </view>
+    </view>
+</form>
+
+<form bindsubmit="onLoginUser" wx:else>
+    <view class="login-body">
+        <view class="login-body-view">
+            账号：<input class="login-body-input" type="text" placeholder="快递员名/手机号码" name="account" />
+            <image class="login-body-image" src="/icon/account.png" mode="" />
+        </view>
+        <view class="login-body-view">
+            密码：<input class="login-body-input" type="password" name="password" />
+            <image class="login-body-image" src="/icon/lock.png" mode="" />
+        </view>
+    </view>
+    <view class="login-end">
+        <button class="login-end-loginbtn" style="background-color: rgb(5, 192, 255);" form-type="submit">登入</button>
+        <view class="login-end-forget">忘记密码？</view>
+        <view class="login-end-clause ">
+            <view>《服务条款》</view>
+            <view style="width: 182rpx;">《隐私权政策》</view>
+        </view>
+    </view>
+</form>

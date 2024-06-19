@@ -1,82 +1,136 @@
 /* pages/login/login.wxss */
-.page{
-    height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 150rpx 0;
-  box-sizing: border-box;
-}
-.view_txt{
-    width: 100%;
-    height: 35px;
-    margin-top: -60px;
-    text-align: center;
-    background-color: rgb(230, 63, 63);
-}
-.view_select{
-    background-color: rgb(230, 63, 63);
-    padding:  0px 10px;
-    width: 100%;
-    position: absolute;
-    top: 39.5px;
-    z-index: 1;
-    overflow: hidden;
-    animation: myfirst 0.5s;
+.login-head {
+    width: 750rpx;
+    height: 426rpx;
+    display: block;
+    box-sizing: border-box;
     text-align: center;
 }
-.login_txt{
-    font-size: 23px;
-    font-weight: bold;
-    color: white;
+
+.login-image {
+    width: 166rpx;
+    height: 166rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 70rpx;
 }
-.user_txt{
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: white;
+
+.login-Welcome {
+    font-size: x-large;
+    margin: 20rpx;
 }
-.courier_txt{
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
-.logo_view{
-    margin-top: 60px;
-}
-.logo{
-    width: 100px;
-    height: 100px;  
-}
-.account_view{
+
+.login-type {
+    width: 750rpx;
+    height: 62rpx;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 20px;
+    box-sizing: border-box;
+    margin-top: 25rpx;
 }
-.account_ipt{
-    height: 35px;
-    width: 180px;
-    margin-left: 10px;
+
+.login-account {
+    width: 375rpx;
+    height: 30rpx;
+    display: block;
+    font-size: small;
+    box-sizing: border-box;
+
+    color: rgb(155, 152, 152);
+}
+.login-type-font{
+    color: orange;
+    font-size: 33rpx;
+}
+.login-body {
+    width: 750rpx;
+    height: 268rpx;
+    display: block;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.login-body-view {
+    display: flex;
+    justify-content: center;
+    width: 595rpx;
+    height: 80rpx;
+    box-sizing: border-box;
+    margin-top: 30rpx;
+    line-height: 80rpx;
     background-color: whitesmoke;
-    border-radius: 8px;
-    font-size: 13px;
-    text-align: center;
+    border-radius: 25rpx;
 }
-.lgn_btn1{
-    /* margin: 10px; */
-    margin-top: 20px;
-    background-color: rgb(230, 63, 63);
+
+.login-body-input {
+    width: 387rpx;
+    height: 46rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 18rpx;
+}
+
+.login-body-image {
+    width: 60rpx;
+    height: 60rpx;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 12rpx;
+}
+
+.login-end {
+    width: 750rpx;
+    height: 502rpx;
+    display: block;
+    box-sizing: border-box
+}
+
+.login-end-loginbtn {
+    position: relative;
+    top: 57rpx;
+    height: 84rpx;
+    width: 540rpx !important;
+    display: block;
+    box-sizing: border-box;
     color: white;
+    background-color: rgb(236, 93, 57);
 }
-.lgn_btn2{
-    margin-top: 20px;
-    color: rgb(87, 84, 84);
+
+.login-end-accountbtn {
+    position: relative;
+    top: 127rpx;
+    height: 84rpx;
+    width: 540rpx !important;
+    display: block;
+    box-sizing: border-box
 }
-.pawd_txt{
-    margin-top: 20px;
-    font-size: 13px;
-    color: gray;
-    text-decoration:underline;
+
+.login-end-forget {
+    width: 132rpx;
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 309rpx;
+    top: 1032rpx;
+    border-bottom: 1rpx solid rgb(167, 164, 164);
+    color: rgb(167, 164, 164);
+    font-size: small;
+}
+
+.login-end-clause {
+    width: 346rpx;
+    height: 34rpx;
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    left: 210rpx;
+    top: 1134rpx
+}
+
+.login-end-clause view {
+    font-size: small;
+    width: 156rpx;
+    height: 34rpx;
+    color: blue;
 }

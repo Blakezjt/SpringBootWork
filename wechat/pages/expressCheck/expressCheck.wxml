@@ -1,9 +1,0 @@
-<!--pages/expressCheck/expressCheck.wxml-->
-<view class="page">
-    <view class="check_view">
-        <input type="text" class="check_ipt" value="{{billNumber}}" bindinput="checkInput" placeholder="运单号查询/关键字索引"/>
-    </view>
-    <view class="btn_view">
-        <button class="check_btn"  bind:tap="checkChange">查询</button>
-    </view>
-</view>
