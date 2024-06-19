@@ -17,6 +17,7 @@ import com.fdzc.javaeeserver.vo.Manager.ManagerListVo;
 import com.fdzc.javaeeserver.vo.student.StudentDetailVo;
 import com.fdzc.javaeeserver.vo.student.StudentListVo;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
@@ -24,6 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class ManagerServiceImpl implements ManagerService {
     @Resource
     private ManagerMapper managerMapper;

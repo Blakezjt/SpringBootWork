@@ -1,5 +1,6 @@
 package com.fdzc.javaeeserver.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @ToString
 public class EventRegistration {
     // 报名ID
+    @TableId
     private Integer registrationId;
     // 学生ID
     private Integer studentId;
