@@ -9,7 +9,7 @@
         "pages/sendTO/sendTo",
         "pages/my/my",
         "pages/expresslist/expresslist",
-        "pages/courseModel/course",
+        "pages/course/course",
         "pages/administration/administration",
         "pages/vacation/vacation",
         "pages/dormitory/dormitory",
