@@ -1,5 +1,23 @@
 <template>
   <div class="common-layout">
+    <el-header class="home_header">
+      <div class="home_title">校园一键通系统</div>
+      <div class="home_userinfoContainer">
+        <el-dropdown>
+          <span class="el-dropdown-link home_userinfo">
+            cjc<el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="centerDialogVisible = true">退出登入</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
+    </el-header>
+
     <el-container>
       <el-aside width="200px">
         <div class="aside">
@@ -61,14 +79,17 @@
         </div>
 
       </el-aside>
-      <el-container>
+      <el-main>
+        <RouterView></RouterView>
+      </el-main>
+      <!-- <el-container>
         <el-header style="display: flex; justify-content: space-between;">
           <h1>
             管理员模块
           </h1>
           <el-dropdown class="dropdown">
             <span class="el-dropdown-link">
-                    <!-- {{ManName}} -->
+              {{ManName}}
               <el-icon class="el-icon--right">
                 <arrow-down />
               </el-icon>
@@ -83,8 +104,8 @@
         <el-main>
           <RouterView></RouterView>
         </el-main>
-        <!-- <el-footer>Footer</el-footer> -->
-      </el-container>
+        <el-footer>Footer</el-footer>
+      </el-container> -->
     </el-container>
   </div>
 
@@ -106,7 +127,7 @@
     
   
 <script lang="ts" setup>
-import {ref,onMounted} from 'vue'
+import { ref, onMounted } from 'vue'
 import {
   Document,
   Menu as IconMenu,
@@ -145,6 +166,41 @@ const logOut = () => {
 </script>
   
 <style scoped>
+a {
+  text-decoration: none;
+}
+.home_container {
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.home_header {
+  background-color: #2B2B2B;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home_title {
+  color: #C2C2C2;
+  font-size: 22px;
+  display: inline;
+}
+
+.home_userinfo {
+  color: #fff;
+  cursor: pointer;
+}
+
+.home_userinfoContainer {
+  display: inline;
+  margin-right: 20px;
+}
+
 .aside {
   height: 590px;
   width: inherit;
