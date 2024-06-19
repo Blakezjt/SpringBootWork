@@ -49,7 +49,7 @@ const AllStuByPages = () => {
   });
   setTimeout(() => {
     tableList.value = tableData.value.data.rows;
-    // console.log( tableData.value.data.rows);
+    console.log( tableData.value.data.rows);
     total.value = tableData.value.data.total;
     // console.log( total.value);
   }, 500)
