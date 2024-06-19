@@ -1,4 +1,4 @@
-package com.fdzc.javaeeserver.service.impl;
+package com.fdzc.javaeeserver.service;
 
 import com.fdzc.javaeeserver.entity.EventRegistration;
 import com.fdzc.javaeeserver.vo.event.EventVo;
