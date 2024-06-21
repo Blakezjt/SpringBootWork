@@ -1,0 +1,19 @@
+<!--pages/scoreinquiry/scoreinquiry.wxml-->
+<van-divider contentPosition="center">成绩单</van-divider>
+
+<van-row gutter="20" >
+  <van-col span="3" offset="1">课程名称</van-col>
+  <van-col span="5" offset="1">成绩</van-col>
+  <van-col span="5" offset="1">绩点</van-col>
+  <van-col span="5" offset="1">记录时间</van-col>
+</van-row>
+
+<van-divider hairline />
+
+<van-row gutter="20" wx:for="{{ number }}">
+  <van-col span="3" offset="1">{{CourseName}}</van-col>
+  <van-col span="5" offset="1">{{grade}}</van-col>
+  <van-col span="5" offset="1">{{gpa}}</van-col>
+  <van-col span="5" offset="1">{{recordtime}}</van-col>
+  <van-divider hairline />
+</van-row>

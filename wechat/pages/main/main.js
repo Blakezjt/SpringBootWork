@@ -26,12 +26,12 @@ Page({
             detail:'请假、宿舍、办证'
         },
         {
-            id:"2",
+            id:"financial",
             name:'财务后勤 ',
             detail:'缴费、查询、后勤'
         },
         {
-            id:"2",
+            id:"bookservice",
             name:'图书服务 ',
             detail:'检索、借阅、资源'
         },
@@ -41,7 +41,7 @@ Page({
             detail:'活动、社团、论坛'
         },
         {
-            id:"2",
+            id:"HealthSafety",
             name:'健康安全 ',
             detail:'检索、借阅、资源'
         }
@@ -77,9 +77,9 @@ Page({
   },
   onClickSelect(e){
     let item = e.currentTarget.dataset.item
-    console.log('pages/courseModel/'+item.id);
+    console.log('pages/'+item.id+'/'+item.id);
     wx.navigateTo({
-      url: "/pages/"+item.id+"/"+item.id,
+      url: '/pages/'+item.id+'/'+item.id,
     })
     // wx.showModal({
     //   title: '暂无'+item.id,

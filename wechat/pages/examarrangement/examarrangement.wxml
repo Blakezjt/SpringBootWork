@@ -1,0 +1,19 @@
+<!--pages/examarrangement/examarrangement.wxml-->
+<van-divider contentPosition="center">考试安排表</van-divider>
+
+<van-row gutter="20" >
+  <van-col span="3" offset="1">课程名称</van-col>
+  <van-col span="5" offset="1">考试时间</van-col>
+  <van-col span="5" offset="1">考试地点</van-col>
+  <van-col span="5" offset="1">考前提醒</van-col>
+</van-row>
+
+<van-divider hairline />
+
+<van-row gutter="20" wx:for="{{ number }}">
+  <van-col span="3" offset="1">{{CourseName}}</van-col>
+  <van-col span="5" offset="1">{{examtime}}</van-col>
+  <van-col span="5" offset="1">{{examlocation}}</van-col>
+  <van-col span="5" offset="1">{{remindersent}}</van-col>
+  <van-divider hairline />
+</van-row>

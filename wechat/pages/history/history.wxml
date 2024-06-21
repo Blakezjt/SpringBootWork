@@ -1,0 +1,6 @@
+<!--pages/history/history.wxml-->
+<van-divider contentPosition="center">历史记录</van-divider>
+<van-cell-group inset wx:for="{{books}}" wx:key="item">
+  <van-cell title="{{item.title}}" value="{{item.time}}" label="作者：{{item.author}}"/>
+  <van-divider hairline />
+</van-cell-group>

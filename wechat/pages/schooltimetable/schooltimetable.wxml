@@ -1,0 +1,86 @@
+<!--pages/schooltimetable/schooltimetable.wxml-->
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="周课表">
+
+    <van-divider contentPosition="center">周程表</van-divider>
+
+    <van-row gutter="20" >
+      <van-col span="3" offset="1">节次</van-col>
+      <van-col span="4">周一</van-col>
+      <van-col span="4">周二</van-col>
+      <van-col span="4">周三</van-col>
+      <van-col span="4">周四</van-col>
+      <van-col span="4">周五</van-col>
+    </van-row>
+
+    <van-divider hairline />
+
+    <van-row gutter="20" >
+      <van-col span="3" offset="1">8:00-10:00</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+    </van-row>
+
+    <van-divider hairline />
+
+    <van-row gutter="20" >
+      <van-col span="3" offset="1">10:00-12:00</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+    </van-row>
+
+    <van-divider hairline />
+
+    <van-row gutter="20" >
+      <van-col span="3" offset="1">14:00-16:00</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+    </van-row>
+
+    <van-divider hairline />
+
+    <van-row gutter="20" >
+      <van-col span="3" offset="1">16:00-18:00</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+      <van-col span="4">{{CourseName}}</van-col>
+    </van-row>
+
+  </van-tab>
+
+  <van-tab title="完整课表">
+    <van-divider contentPosition="center">完整程表</van-divider>
+
+    <van-row gutter="20" >
+      <van-col span="3" offset="1">课程名称</van-col>
+      <van-col span="5" >任课老师</van-col>
+      <van-col span="5">教室</van-col>
+      <van-col span="5">时间</van-col>
+      <van-col span="5">日期</van-col>
+    </van-row>
+
+    <van-divider hairline />
+
+    <van-row gutter="20" wx:for="{{ number }}">
+      <van-col span="3" offset="1">{{CourseName}}</van-col>
+      <van-col span="5">{{teacherid}}</van-col>
+      <van-col span="5">{{classnameid}}</van-col>
+      <van-col span="5">{{time}}</van-col>
+      <van-col span="5">{{date}}</van-col>
+      <van-divider hairline />
+    </van-row>
+
+    <van-cell-group>{{data}}</van-cell-group>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,30 @@
+<van-notice-bar
+  left-icon="volume-o"
+  text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+/>
+<van-cell-group>
+  <van-cell is-link title="图书大全" label="查看所有图书信息" value="进入" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/bookoverview/bookoverview"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="借阅图书" value="进入" label="学生可以借阅需要的书籍" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/borrowingbooks/borrowingbooks"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="归还图书" label="学生可以归还书籍" value="进入" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/returningbooks/returningbooks"
+  />
+</van-cell-group>
+<van-cell-group>
+  <van-cell is-link title="历史记录" label="查看历史借阅以及归还记录" value="进入" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/history/history"
+  />
+</van-cell-group>

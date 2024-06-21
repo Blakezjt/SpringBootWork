@@ -1,2 +1,30 @@
-<!--pages/courseModel/course.wxml-->
-<text>pages/course/course.wxml</text>
+<van-notice-bar
+  left-icon="volume-o"
+  text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+/>
+<van-cell-group>
+  <van-cell is-link title="课程表" label="查看课程信息" value="进入" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/schooltimetable/schooltimetable"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="学生选课" value="进入" label="学生进行自主选课" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/courseselection/courseselection"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="成绩查询" label="查询学科成绩" value="进入" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/scoreinquiry/scoreinquiry"
+  />
+</van-cell-group>
+<van-cell-group>
+  <van-cell is-link title="考试安排" label="查询考试信息" value="进入" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/examarrangement/examarrangement"
+  />
+</van-cell-group>

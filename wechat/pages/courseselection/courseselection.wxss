@@ -1,0 +1,4 @@
+/* pages/courseselection/courseselection.wxss */
+.value-class {
+  flex: none !important;
+}

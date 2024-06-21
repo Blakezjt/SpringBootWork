@@ -1,0 +1,51 @@
+<!--pages/borrowingbooks/borrowingbooks.wxml-->
+<van-nav-bar
+  title="借阅申请表"
+/>
+
+<van-divider hairline />
+
+<van-cell-group inset>
+  <van-field
+    value="{{ studentid }}"
+    required
+    clearable
+    label="学号"
+    icon="question-o"
+    placeholder="请输入学号"
+    bind:click-icon="onClickIcon"
+  />
+
+  <van-divider hairline />
+
+  <van-field
+    value="{{ studentname }}"
+    required
+    clearable
+    label="姓名"
+    placeholder="请输入姓名"
+    icon="question-o"
+    bind:click-icon="onClickIcon"
+  />
+
+  <van-divider hairline />
+
+  <van-field
+    value="{{ bookid }}"
+    required
+    clearable
+    label="书名"
+    placeholder="请输入书名"
+    icon="question-o"
+    bind:click-icon="onClickIcon"
+  />
+
+  <van-divider hairline />
+
+  <van-cell title="输入借阅时间" value="{{ date }}" bind:click="onDisplay" />
+  <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+
+  <van-divider hairline />
+
+  <van-button type="primary" size="large">确认提交</van-button>
+</van-cell-group>

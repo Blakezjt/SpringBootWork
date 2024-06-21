@@ -2,7 +2,7 @@
     "pages": [
 "pages/login/login",
 "pages/HealthSafety/HealthSafety",
-"pages/financeLogistics/financial",
+"pages/financial/financial",
 "pages/register/register",
 "pages/main/main",
 "pages/mail/mail",
