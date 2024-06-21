@@ -36,7 +36,7 @@ public class CourseScheduleServiceImpl implements CourseScheduleService {
 
         QueryWrapper<CourseSchedule> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByAsc("course_id");
-
+        
         Page<CourseSchedule> CoursePage = courseScheduleMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
 
         List<CourseListVo> list = new LinkedList<>();

@@ -21,7 +21,7 @@ Page({
             detail:'课程表、选课、成绩、考试'
         },
         {
-            id:"2",
+            id:"administration",
             name:'行政服务 ',
             detail:'请假、宿舍、办证'
         },
@@ -36,7 +36,7 @@ Page({
             detail:'检索、借阅、资源'
         },
         {
-            id:"2",
+            id:"social",
             name:'校园社交 ',
             detail:'活动、社团、论坛'
         },
@@ -79,7 +79,7 @@ Page({
     let item = e.currentTarget.dataset.item
     console.log('pages/courseModel/'+item.id);
     wx.navigateTo({
-      url: '/pages/courseModel/'+item.id,
+      url: "/pages/"+item.id+"/"+item.id,
     })
     // wx.showModal({
     //   title: '暂无'+item.id,

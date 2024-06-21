@@ -13,8 +13,6 @@ public class CourseSelectUpdateValidate {
 
     private String studentId;
 
-    private Integer courseId;
-
     private Integer isSelect;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

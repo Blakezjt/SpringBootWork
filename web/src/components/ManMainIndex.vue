@@ -1,5 +1,23 @@
 <template>
   <div class="common-layout">
+    <el-header class="home_header">
+      <div class="home_title">校园一键通系统</div>
+      <div class="home_userinfoContainer">
+        <el-dropdown>
+          <span class="el-dropdown-link home_userinfo">
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="centerDialogVisible = true">退出登入</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
+    </el-header>
+
     <el-container>
       <el-aside width="200px">
         <div class="aside">
@@ -11,8 +29,30 @@
                   <el-icon>
                     <setting />
                   </el-icon>
-                  <RouterLink to="/manMain/stuDetailTable">宿舍学生信息</RouterLink>
+                  <RouterLink to="/manMain/managerUpdate" style="font-size: 18px;">工作台</RouterLink>
                 </el-menu-item>
+                <el-sub-menu index="2">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">学生信息</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="2-1">
+                      <RouterLink to="/manMain/stuList">学生列表</RouterLink>
+                    </el-menu-item>
+                    <el-menu-item index="2-2">
+                      <RouterLink to="/manMain/managerUpdate">学生请假</RouterLink>
+                    </el-menu-item>
+                    <el-menu-item index="2-3">
+                      <RouterLink to="/manMain/updatePwd">学生报修</RouterLink>
+                    </el-menu-item>
+                    <el-menu-item index="1-4">
+                      <RouterLink to="/manMain/updatePwd">证件办理</RouterLink>
+                    </el-menu-item>
+                  </el-menu-item-group>
+                </el-sub-menu>
                 <el-menu-item index="2">
                   <el-icon>
                     <setting />
@@ -61,14 +101,17 @@
         </div>
 
       </el-aside>
-      <el-container>
+      <el-main>
+        <RouterView></RouterView>
+      </el-main>
+      <!-- <el-container>
         <el-header style="display: flex; justify-content: space-between;">
           <h1>
             管理员模块
           </h1>
           <el-dropdown class="dropdown">
             <span class="el-dropdown-link">
-                    <!-- {{ManName}} -->
+              {{ManName}}
               <el-icon class="el-icon--right">
                 <arrow-down />
               </el-icon>
@@ -83,8 +126,8 @@
         <el-main>
           <RouterView></RouterView>
         </el-main>
-        <!-- <el-footer>Footer</el-footer> -->
-      </el-container>
+        <el-footer>Footer</el-footer>
+      </el-container> -->
     </el-container>
   </div>
 
@@ -106,7 +149,7 @@
     
   
 <script lang="ts" setup>
-import {ref,onMounted} from 'vue'
+import { ref, onMounted } from 'vue'
 import {
   Document,
   Menu as IconMenu,
@@ -145,8 +188,43 @@ const logOut = () => {
 </script>
   
 <style scoped>
+a {
+  text-decoration: none;
+}
+.home_container {
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.home_header {
+  background-color: #2B2B2B;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home_title {
+  color: #C2C2C2;
+  font-size: 22px;
+  display: inline;
+}
+
+.home_userinfo {
+  color: #fff;
+  cursor: pointer;
+}
+
+.home_userinfoContainer {
+  display: inline;
+  margin-right: 20px;
+}
+
 .aside {
-  height: 590px;
+  height: 700px;
   width: inherit;
   text-align: center;
 }

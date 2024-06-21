@@ -14,7 +14,6 @@
     <el-table-column prop="studentDept" label="专业" />
     <el-table-column prop="dormitoryId" label="宿舍号" />
     <el-table-column prop="studentPhone" label="电话" />
-    <!-- <el-table-column prop="email" label="邮箱" /> -->
   </el-table>
   <div class="demo-pagination-block">
     <el-pagination v-model:current-page="currentPage4" v-model:page-size="pageSize4" :page-sizes="[2, 4]" :small="small"
@@ -49,7 +48,7 @@ const AllStuByPages = () => {
   });
   setTimeout(() => {
     tableList.value = tableData.value.data.rows;
-    // console.log( tableData.value.data.rows);
+    console.log( tableData.value.data.rows);
     total.value = tableData.value.data.total;
     // console.log( total.value);
   }, 500)

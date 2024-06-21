@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SpringBootWork.iml" filepath="$PROJECT_DIR$/.idea/SpringBootWork.iml" />
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/javaEEServer/javaEEServer.iml" filepath="$PROJECT_DIR$/javaEEServer/javaEEServer.iml" />
+=======
+>>>>>>> d7228347dc7e4017a9f97650c3bdf1e2582cf52a
     </modules>
   </component>
 </project>

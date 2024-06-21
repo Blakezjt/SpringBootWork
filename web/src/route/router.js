@@ -21,29 +21,18 @@ import stuVisitor from '../components/stuVisitor.vue'
 import stuOutOrIn from '../components/stuOutOrIn.vue'
 import text from '../components/text.vue'
 
+
+import stuList from '../components/student/stuList.vue'
 const route = createRouter({
     history: createWebHashHistory(),
     routes: [
         { path: '/', redirect: "/login" },
         { path: '/login', component: Login },
         {
-            path: '/stuMain',
-            component: stuMainIndex,
-            children: [
-                { path: 'updatePwd', component: updatePwd },
-                { path: 'stuUpdate', component: stuUpdate },
-                { path: 'submitRepairs', component: submitRepairs },
-                { path: 'addVisitor', component: addVisitor },
-                { path: 'addOutOrIn', component: addOutOrIn },
-                { path: 'stuRepairsTable', component: stuRepairsTable },
-                { path: 'stuVisitor', component: stuVisitor },
-                { path: 'stuOutOrIn', component: stuOutOrIn },
-            ]
-        },
-        {
             path: '/manMain',
             component: manMainIndex,
             children: [
+                { path: 'stuList', component: stuList },
                 { path: 'stuDetailTable', component: stuDetailTable },
                 { path: 'dormTable', component: dormTable },
                 { path: 'managerUpdate', component: managerUpdate },
@@ -53,16 +42,6 @@ const route = createRouter({
                 { path: 'outOrIn', component: outOrIn }
             ]
         },
-        {path:'/pluMain',
-        component:pluMainIndex,
-        children:[
-            { path: 'repairTable', component: repairTable },
-            { path: 'waterAndEle', component: waterAndEle },
-            { path: 'pluUpdate', component: pluUpdate },
-            { path: 'updatePwd', component: updatePwd },
-        ]
-        },
-        { path: '/text', component: text }
     ]
 })
 

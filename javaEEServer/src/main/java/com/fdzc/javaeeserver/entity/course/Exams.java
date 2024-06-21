@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -16,14 +17,17 @@ public class Exams {
     private static final long serialVersionUID = 1L;
 
     @TableId
-    private Integer id;
+    private String id;
 
     private Integer examId;
 
     private Integer courseId;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime examTime;
 
     private String examLocation;
+
+    private float examHour;
 }
