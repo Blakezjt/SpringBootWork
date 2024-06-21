@@ -42,17 +42,18 @@ public class StudentServiceImpl implements StudentService {
         if(searchValidate.getStudentId() != null){
             queryWrapper.eq("student_id",searchValidate.getStudentId());
         }
-        else if (searchValidate.getStudentName() != null){
+        else if (!searchValidate.getStudentName().equals("")){
             queryWrapper.eq("student_name",searchValidate.getStudentName());
         }
-        else if (searchValidate.getStudentDept()!= null){
+        else if (!searchValidate.getStudentDept().equals("")){
             queryWrapper.eq("student_dept",searchValidate.getStudentDept());
         }
-        else if (searchValidate.getStudentXb()!= null){
+        else if (!searchValidate.getStudentXb().equals("")){
             queryWrapper.eq("student_xb",searchValidate.getStudentXb());
         }
 
-        Page<Student> studentPage = studentMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
+        Page<Student> studentPage = studentMapper.selectPage(new Page<>(pageNo, pageSize),
+                queryWrapper.eq("is_delete",0));
         List<StudentListVo> list = new LinkedList<>();
         for (Student stu: studentPage.getRecords()) {
             StudentListVo vo = new StudentListVo();
@@ -82,7 +83,6 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentMapper.selectOne(new QueryWrapper<Student>()
                 .eq("student_id", studentUpdateValidate.getStudentId())
                 .last("limit 1"));
-
         student.setStudentDept(studentUpdateValidate.getStudentDept());
         student.setStudentXb(studentUpdateValidate.getStudentXb());
         student.setDormitoryId(studentUpdateValidate.getDormitoryId());

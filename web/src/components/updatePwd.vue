@@ -1,117 +1,36 @@
 <template>
-  <el-form ref="ruleFormRef" :model="ruleForm" status-icon :rules="rules" label-width="120px" class="demo-ruleForm">
-    <el-form-item label="旧密码" prop="old_pwd">
-      <el-input v-model="ruleForm.old_pwd" type="password" autocomplete="off"/>
-    </el-form-item>
-    <el-form-item label="新密码" prop="new_pwd">
-      <el-input v-model="ruleForm.new_pwd" type="password" autocomplete="off" />
-    </el-form-item>
-    <el-form-item label="重新输入密码" prop="re_pwd">
-      <el-input v-model="ruleForm.re_pwd" type="password" autocomplete="off" />
-    </el-form-item>
-
-    <el-form-item>
-      <el-button type="primary" @click="submitForm(ruleFormRef)">Submit</el-button>
-      <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
-    </el-form-item>
-  </el-form>
+  <div class="mb-2 flex items-center text-sm">
+    <el-radio-group v-model="radio1" class="ml-4">
+      <el-radio value="1" size="large">Option 1</el-radio>
+      <el-radio value="2" size="large">Option 2</el-radio>
+    </el-radio-group>
+  </div>
+  <div class="my-2 flex items-center text-sm">
+    <el-radio-group v-model="radio2" class="ml-4">
+      <el-radio value="1">Option 1</el-radio>
+      <el-radio value="2">Option 2</el-radio>
+    </el-radio-group>
+  </div>
+  <div class="my-4 flex items-center text-sm">
+    <el-radio-group v-model="radio3" class="ml-4">
+      <el-radio value="1" size="small">Option 1</el-radio>
+      <el-radio value="2" size="small">Option 2</el-radio>
+    </el-radio-group>
+  </div>
+  <!-- 创建一个新的响应式引用 radio4 -->
+  <div class="mb-2 flex items-center text-sm">
+    <el-radio-group v-model="radio4" disabled class="ml-4">
+      <el-radio value="1" size="small">Option 1</el-radio>
+      <el-radio value="2" size="small">Option 2</el-radio>
+    </el-radio-group>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref ,onMounted} from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
-import { ElMessage } from 'element-plus'
-const ruleFormRef = ref<FormInstance>()
+import { ref } from 'vue'
 
-const validatePass = (rule: any, value: any, callback: any) => {
-  if (value === '') {
-    callback(new Error('Please input the password'))
-  } else {
-    if (ruleForm.re_pwd !== '') {
-      if (!ruleFormRef.value) return
-      ruleFormRef.value.validateField('checkPass', () => null)
-    }
-    callback()
-  }
-}
-const validatePass2 = (rule: any, value: any, callback: any) => {
-  if (value === '') {
-    callback(new Error('Please input the password again'))
-  } else if (value !== ruleForm.new_pwd) {
-    callback(new Error("Two inputs don't match!"))
-  } else {
-    callback()
-  }
-}
-
-const ruleForm = reactive({
-  old_pwd: '',
-  new_pwd: '',
-  re_pwd: '',
-})
-
-const rules = reactive<FormRules<typeof ruleForm>>({
-  old_pwd: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-  ],
-  new_pwd: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { validator: validatePass, trigger: 'blur' }
-  ],
-  re_pwd: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { validator: validatePass2, trigger: 'blur' }
-  ],
-})
-import { ManUpdatePwd } from '../api/updatePwd.js'
-import { useRouter,useRoute } from 'vue-router'
-import { useTokenStore } from '../stores/token.js'
-const Router = useRouter();
-const Route = useRoute();
-const tokenStore = useTokenStore();
-const link = ref('')
-const logOut = () => {
-  Router.push('/login');
-  tokenStore.removeToken();
-}
-const submitForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.validate((valid) => {
-    if (valid) {
-      console.log('submit!')
-      console.log(Route.fullPath);
-      if(Route.fullPath == '/manMain/updatePwd'){
-        link.value = '/manager/updatePwd';
-      }else if(Route.fullPath == '/stuMain/updatePwd'){
-        link.value = '/stu/updatePwd'
-      }else{
-        link.value = '/plumber/updatePwd'
-      }
-      console.log(ruleForm);
-      
-      const result = ManUpdatePwd(link.value,ruleForm);
-      result.then((data) => {
-        console.log(data.data);
-        if (data.data == '更新密码成功') {
-          ElMessage.success("更新密码成功")
-          logOut();
-        }
-        else {
-          ElMessage.error("原密码填写不正确")
-        }
-      })
-      console.log(result);
-
-
-    } else {
-      console.log('error submit!')
-      return false
-    }
-  })
-}
-
-const resetForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.resetFields()
-}
+const radio1 = ref('1')
+const radio2 = ref('1')
+const radio3 = ref('1')
+const radio4 = ref('1') // 新增的响应式引用
 </script>

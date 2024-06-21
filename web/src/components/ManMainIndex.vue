@@ -5,7 +5,7 @@
       <div class="home_userinfoContainer">
         <el-dropdown>
           <span class="el-dropdown-link home_userinfo">
-            cjc<el-icon class="el-icon--right">
+            <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
           </span>
@@ -29,8 +29,30 @@
                   <el-icon>
                     <setting />
                   </el-icon>
-                  <RouterLink to="/manMain/stuDetailTable">宿舍学生信息</RouterLink>
+                  <RouterLink to="/manMain/managerUpdate" style="font-size: 18px;">工作台</RouterLink>
                 </el-menu-item>
+                <el-sub-menu index="2">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">学生信息</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="2-1">
+                      <RouterLink to="/manMain/stuList">学生列表</RouterLink>
+                    </el-menu-item>
+                    <el-menu-item index="2-2">
+                      <RouterLink to="/manMain/managerUpdate">学生请假</RouterLink>
+                    </el-menu-item>
+                    <el-menu-item index="2-3">
+                      <RouterLink to="/manMain/updatePwd">学生报修</RouterLink>
+                    </el-menu-item>
+                    <el-menu-item index="1-4">
+                      <RouterLink to="/manMain/updatePwd">证件办理</RouterLink>
+                    </el-menu-item>
+                  </el-menu-item-group>
+                </el-sub-menu>
                 <el-menu-item index="2">
                   <el-icon>
                     <setting />
@@ -202,7 +224,7 @@ a {
 }
 
 .aside {
-  height: 590px;
+  height: 700px;
   width: inherit;
   text-align: center;
 }
