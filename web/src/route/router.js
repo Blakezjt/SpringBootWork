@@ -21,8 +21,11 @@ import stuVisitor from '../components/stuVisitor.vue'
 import stuOutOrIn from '../components/stuOutOrIn.vue'
 import text from '../components/text.vue'
 
+// import LeaveApplication from '../components/LeaveApplication/LeaveApplication.vue'
+// import IDCard from '../components/IDCard/IDCard.vue'
 
 import stuList from '../components/student/stuList.vue'
+import workBench from '../components/workbench/index.vue'
 const route = createRouter({
     history: createWebHashHistory(),
     routes: [
@@ -39,7 +42,10 @@ const route = createRouter({
                 { path: 'updatePwd', component: updatePwd },
                 { path: 'repairTable', component: repairTable },
                 { path: 'visitorTable', component: visitorTable },
-                { path: 'outOrIn', component: outOrIn }
+                { path: 'outOrIn', component: outOrIn },
+                // { path: 'LeaveApplication', component: LeaveApplication },
+                // { path: 'IDCard', component: IDCard },
+                { path: 'workBench', component: workBench },
             ]
         },
     ]

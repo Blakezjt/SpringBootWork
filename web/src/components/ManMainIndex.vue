@@ -23,14 +23,16 @@
         <div class="aside">
           <el-row class="tac">
             <el-col :span="30">
-              <h5 class="mb-2">功能</h5>
+              <!-- <h5 class="mb-2" style="font-size: 20px;">功能</h5> -->
               <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-                <el-menu-item index="1">
-                  <el-icon>
-                    <setting />
-                  </el-icon>
-                  <RouterLink to="/manMain/managerUpdate" style="font-size: 18px;">工作台</RouterLink>
-                </el-menu-item>
+                <RouterLink to="/manMain/workBench">
+                  <el-menu-item index="1" style="font-size: 18px;">
+                    <el-icon>
+                      <setting />
+                    </el-icon>
+                    工作台
+                  </el-menu-item>
+                </RouterLink>
                 <el-sub-menu index="2">
                   <template #title>
                     <el-icon>
@@ -39,56 +41,193 @@
                     <span style="font-size: 18px;">学生信息</span>
                   </template>
                   <el-menu-item-group>
-                    <el-menu-item index="2-1">
-                      <RouterLink to="/manMain/stuList">学生列表</RouterLink>
-                    </el-menu-item>
-                    <el-menu-item index="2-2">
-                      <RouterLink to="/manMain/managerUpdate">学生请假</RouterLink>
-                    </el-menu-item>
-                    <el-menu-item index="2-3">
-                      <RouterLink to="/manMain/updatePwd">学生报修</RouterLink>
-                    </el-menu-item>
-                    <el-menu-item index="1-4">
-                      <RouterLink to="/manMain/updatePwd">证件办理</RouterLink>
-                    </el-menu-item>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="2-1">
+                        学生列表
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/managerUpdate">
+                      <el-menu-item index="2-2">
+                        学生请假
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="2-3">
+                        学生报修
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="2-4">
+                        证件办理
+                      </el-menu-item>
+                    </RouterLink>
                   </el-menu-item-group>
                 </el-sub-menu>
-                <el-menu-item index="2">
-                  <el-icon>
-                    <setting />
-                  </el-icon>
-                  <RouterLink to="/manMain/dormTable">宿舍信息</RouterLink>
-                </el-menu-item>
-                <el-menu-item index="3">
-                  <el-icon>
-                    <setting />
-                  </el-icon>
-                  <RouterLink to="/manMain/repairTable">报修信息</RouterLink>
-                </el-menu-item>
-                <el-menu-item index="4">
-                  <el-icon>
-                    <setting />
-                  </el-icon>
-                  <RouterLink to="/manMain/visitorTable">访客信息</RouterLink>
-                </el-menu-item>
-                <el-menu-item index="5">
-                  <el-icon>
-                    <setting />
-                  </el-icon>
-                  <RouterLink to="/manMain/outOrIn">出入物品信息</RouterLink>
-                </el-menu-item>
+                <el-sub-menu index="3">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">老师信息</span>
+                  </template>
+                  <el-menu-item-group>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="3-1">
+                        老师列表
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
+                <el-sub-menu index="4">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">课程信息</span>
+                  </template>
+                  <el-menu-item-group>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="4-1">
+                        课程列表
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/managerUpdate">
+                      <el-menu-item index="4-2">
+                        选课系统
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="4-3">
+                        成绩查询
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="4-4">
+                        考试安排
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
+                <el-sub-menu index="5">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">行政服务</span>
+                  </template>
+                  <el-menu-item-group>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="5-1">
+                        宿舍管理
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
                 <el-sub-menu index="6">
                   <template #title>
                     <el-icon>
                       <location />
                     </el-icon>
-                    <span>个人信息</span>
+                    <span style="font-size: 18px;">财务和后勤服务</span>
                   </template>
                   <el-menu-item-group>
-                    <el-menu-item index="6-1">
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="6-1">
+                        缴费系统
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/managerUpdate">
+                      <el-menu-item index="6-2">
+                        财务查询
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="6-3">
+                        后勤服务
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
+
+                <el-sub-menu index="7">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">图书馆服务</span>
+                  </template>
+                  <el-menu-item-group>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="7-1">
+                        图书检索
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/managerUpdate">
+                      <el-menu-item index="7-2">
+                        借阅管理
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="7-3">
+                        电子资源
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
+
+                <el-sub-menu index="8">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">校园活动</span>
+                  </template>
+                  <el-menu-item-group>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="8-1">
+                        社团管理
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
+
+                <el-sub-menu index="9">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">健康与安全服务</span>
+                  </template>
+                  <el-menu-item-group>
+                    <RouterLink to="/manMain/stuList">
+                      <el-menu-item index="9-1">
+                        健康打卡
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/managerUpdate">
+                      <el-menu-item index="9-2">
+                        紧急联系人
+                      </el-menu-item>
+                    </RouterLink>
+                    <RouterLink to="/manMain/updatePwd">
+                      <el-menu-item index="9-3">
+                        医疗预约
+                      </el-menu-item>
+                    </RouterLink>
+                  </el-menu-item-group>
+                </el-sub-menu>
+                <el-sub-menu index="10">
+                  <template #title>
+                    <el-icon>
+                      <location />
+                    </el-icon>
+                    <span style="font-size: 18px;">个人信息</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="10-1">
                       <RouterLink to="/manMain/managerUpdate">更新个人信息</RouterLink>
                     </el-menu-item>
-                    <el-menu-item index="6-2">
+                    <el-menu-item index="10-2">
                       <RouterLink to="/manMain/updatePwd">
                         更改密码
                       </RouterLink>
@@ -131,10 +270,7 @@
     </el-container>
   </div>
 
-  <el-dialog v-model="centerDialogVisible" title="Warning" width="30%" center>
-    <span>
-      您确定退出登入吗？
-    </span>
+  <el-dialog v-model="centerDialogVisible" title="您确定退出登入吗？" width="30%" center>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="centerDialogVisible = false">取消</el-button>
@@ -145,9 +281,9 @@
     </template>
   </el-dialog>
 </template>
-    
-    
-  
+
+
+
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import {
@@ -186,11 +322,12 @@ const logOut = () => {
 //   getManName();
 // })
 </script>
-  
+
 <style scoped>
 a {
   text-decoration: none;
 }
+
 .home_container {
   height: 100%;
   position: absolute;
@@ -200,7 +337,7 @@ a {
 }
 
 .home_header {
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
   text-align: center;
   display: flex;
   align-items: center;
@@ -224,7 +361,7 @@ a {
 }
 
 .aside {
-  height: 700px;
+  height: 900px;
   width: inherit;
   text-align: center;
 }
