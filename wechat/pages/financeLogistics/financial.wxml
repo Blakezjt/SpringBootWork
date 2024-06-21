@@ -1,0 +1,30 @@
+
+<van-notice-bar
+  left-icon="volume-o"
+  text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+/>
+<van-cell-group>
+  <van-cell is-link title="缴费系统" value="进入" label="学费、其他费用的在线缴纳和查询" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/paymentSystem/PaymentSystem"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="财务查询" value="进入" label="查看账户余额、消费记录和奖学金发放情况" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/financialInquiries/financialInquiries"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="后勤服务" value="进入" label="在线报修校园设备、提交意见反馈" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/logisticsServices/logisticsServices"
+  />
+</van-cell-group>
+
+
+
+
+

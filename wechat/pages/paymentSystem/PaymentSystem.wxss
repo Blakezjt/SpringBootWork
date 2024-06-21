@@ -1,0 +1,31 @@
+/* pages/paymentSystem/PaymentSystem.wxss */
+
+.background{
+    width: 100%;
+}
+.col0{
+  width: 180px;
+  height: 80px;
+  margin-left: 40px;
+  background:whitesmoke;
+  border-radius: 10px;
+}
+.col1{
+  width: 180px;
+  height: 80px;
+  background: whitesmoke;
+    border-radius: 10px;
+}
+.text0{
+  padding-top: 15px;
+  text-align: center;
+}
+.text1{
+  padding-bottom:10px;
+  text-align: center;
+}
+.button{
+  width: 80%;
+ color:teal;
+ text-align: center;
+}

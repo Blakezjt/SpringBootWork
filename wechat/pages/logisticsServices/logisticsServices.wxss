@@ -1,0 +1,18 @@
+/* pages/logisticsServices/logisticsServices.wxss */
+
+.body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4rpx solid #0c0c0c;
+	border-radius: 10rpx;
+  padding: 10rpx;
+  width: 90%;
+  margin-left: 15px;
+}
+.typing{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

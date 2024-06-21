@@ -1,0 +1,20 @@
+
+<image src="/images/缴费背景.png" class="background"></image>
+  <view class="col0"  style="position: relative; left: -9rpx; top: -70rpx">
+    <view class="text0">0.00</view>
+    <view class="text1">学费</view>
+  </view>
+  <view class="col1" style="position: relative; left: 403rpx; top: -210rpx">
+    <view class="text0">0.00</view>
+    <view class="text1">其他缴费</view>
+  </view >
+  <view style="text-align: center; margin-top: 0px;">
+    <van-button icon="https://img.yzcdn.cn/vant/logo.png"  type="info" custom-class="button"> 我要缴费 </van-button>
+</view>
+<view style="text-align: center; margin-top: 20px;">
+    <van-button icon="https://img.yzcdn.cn/vant/logo.png"  type="info" custom-class="button"> 我要查询 </van-button>
+</view>
+
+
+
+

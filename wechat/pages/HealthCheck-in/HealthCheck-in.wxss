@@ -1,0 +1,32 @@
+/* pages/HealthCheck-in/HealthCheck-in.wxss */
+.top{
+  text-align: center;
+  font-size: 30px;
+}
+
+.font30{
+  font-size: 30rpx;
+}
+
+.color3{
+  color: #333;
+}
+
+.color6{
+  color: blue;
+}
+
+.timeIcon{
+  color:#666;
+  font-size:18rpx;
+  margin-left: 5rpx;
+}
+.radio{
+  margin-top: 8px;
+  margin-left: 10px;
+}
+.input{
+  border: 4rpx solid gray;
+  height: 40px;
+}
+

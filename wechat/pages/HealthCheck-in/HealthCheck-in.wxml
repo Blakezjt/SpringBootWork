@@ -1,0 +1,75 @@
+
+     <view class="top">每日健康上报</view>
+     <view style="height: 50px;"></view>
+
+    <picker mode="region" bindchange="getUserProvince">
+          <view style="text-align: center;">
+          目前所在位置:<text style="color: blue;" wx:for="{{region}}">{{item}} </text>
+          </view>
+    </picker>
+
+    <view style="height: 20px;"></view>
+
+    <view style="text-align: center;">
+      <picker mode="date" header-text="选择时间"  value="{{date}}" bindchange="bindDateChange">
+      <view class="font30">
+        <text class="color3">填报时间：</text>
+        <text class="color6">{{date}}</text>
+        <text class="timeIcon">▼</text>
+      </view>
+    </picker>
+    </view>
+
+    <view style="height: 20px;"></view>
+    <view style="font-size: 15px;" >今日体温是否正常？(体温小于37.3为正常)</view>
+
+  <van-radio-group >
+  <van-cell-group>
+    <van-cell title="正常" clickable data-name="1" bind:click="onClick">
+      <van-radio slot="right-icon" name="1" />
+    </van-cell>
+    <van-cell title="发热" clickable data-name="2" bind:click="onClick">
+      <van-radio slot="right-icon" name="2" />
+    </van-cell>
+  </van-cell-group>
+  </van-radio-group>
+
+  <view style="height: 20px;"></view>
+  <view style="font-size: 15px;">今日健康状况?</view>
+
+  <van-radio-group value="{{ radio }}" bind:change="onChange">
+  <van-cell-group>
+    <van-cell title="健康" clickable data-name="3" bind:click="onClick">
+      <van-radio slot="right-icon" name="3" />
+    </van-cell>
+    <van-cell title="咳嗽" clickable data-name="4" bind:click="onClick">
+      <van-radio slot="right-icon" name="4" />
+    </van-cell>
+    <van-cell title="咽喉疼痛" clickable data-name="5" bind:click="onClick">
+      <van-radio slot="right-icon" name="5" />
+    </van-cell>
+    <van-cell title="呼吸困难" clickable data-name="6" bind:click="onClick">
+      <van-radio slot="right-icon" name="6" />
+    </van-cell>
+    <van-cell title="其他" clickable data-name="7" bind:click="onClick">
+      <van-radio slot="right-icon" name="7" />
+    </van-cell>
+  </van-cell-group>
+  </van-radio-group>
+
+  <view style="height: 20px;"></view>
+  <view>目前新冠感染情况？</view>
+  <van-radio-group >
+  <van-radio name="8" custom-class="radio">阳了</van-radio>
+  <van-radio name="9"custom-class="radio">未阳</van-radio>
+  <van-radio name="10"custom-class="radio">阳康</van-radio>
+</van-radio-group>
+<view style="height: 20px;"></view>
+<view>目前已接种新冠疫苗接种针数</view>
+<input class="input"></input>
+<view style="height: 20px;"></view>
+<van-button type="primary" size="large">提交</van-button>
+
+
+ 
+

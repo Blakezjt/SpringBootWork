@@ -1,0 +1,30 @@
+
+<van-notice-bar
+  left-icon="volume-o"
+  text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+/>
+<van-cell-group>
+  <van-cell is-link title="健康打卡" value="进入" label="每日健康状况上报，查看历史记录" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/HealthCheck-in/HealthCheck-in"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="紧急联系人" value="进入" label="设置紧急联系人，快速求助" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/EmergencyContacts/EmergencyContacts"
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-cell is-link title="医疗预约" value="进入" label="在线预约校医服务，查看就诊记录。" border="{{ false }}"size="large"
+  link-type="navigateTo"
+  url="/pages/MedicalAppointments/MedicalAppointments"
+  />
+</van-cell-group>
+
+
+
+
+

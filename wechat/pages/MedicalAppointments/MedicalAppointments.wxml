@@ -1,0 +1,35 @@
+<view style="text-align: center; font-size: 20px;">校医预约</view>
+
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    required
+    clearable
+    label="姓名"
+    icon="question-o"
+    placeholder="请输入姓名"
+    bind:click-icon="onClickIcon"
+  />
+</van-cell-group>
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    required
+    clearable
+    label="学号"
+    icon="question-o"
+    placeholder="请输入学号"
+    bind:click-icon="onClickIcon"
+  />
+</van-cell-group>
+
+<van-cell title="预约日期选择" value="{{ date }}" bind:click="onDisplay" />
+<van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+<view style="height: 20px;"></view>
+<view style="margin-left: 10px;">病情描述：</view>
+<view style="height: 20px;"></view>
+<input class="box"></input>
+<view style="height: 20px;"></view>
+<van-button type="primary" size="large" color="#7232dd">预约查询</van-button>
+<view style="height: 20px;"></view>
+<van-button type="primary" size="large">提交</van-button>
