@@ -21,8 +21,8 @@ import stuVisitor from '../components/stuVisitor.vue'
 import stuOutOrIn from '../components/stuOutOrIn.vue'
 import text from '../components/text.vue'
 
-// import LeaveApplication from '../components/LeaveApplication/LeaveApplication.vue'
-// import IDCard from '../components/IDCard/IDCard.vue'
+import LeaveApplication from '../components/LeaveApplication/LeaveApplication.vue'
+import IDCard from '../components/IDCard/IDCard.vue'
 
 import stuList from '../components/student/stuList.vue'
 import workBench from '../components/workbench/index.vue'
@@ -35,6 +35,7 @@ const route = createRouter({
             path: '/manMain',
             component: manMainIndex,
             children: [
+                { path: 'workBench', component: workBench },
                 { path: 'stuList', component: stuList },
                 { path: 'stuDetailTable', component: stuDetailTable },
                 { path: 'dormTable', component: dormTable },
@@ -43,9 +44,9 @@ const route = createRouter({
                 { path: 'repairTable', component: repairTable },
                 { path: 'visitorTable', component: visitorTable },
                 { path: 'outOrIn', component: outOrIn },
-                // { path: 'LeaveApplication', component: LeaveApplication },
-                // { path: 'IDCard', component: IDCard },
-                { path: 'workBench', component: workBench },
+                { path: 'LeaveApplication', component: LeaveApplication },
+                { path: 'IDCard', component: IDCard },
+                
             ]
         },
     ]

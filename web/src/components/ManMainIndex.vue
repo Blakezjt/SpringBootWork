@@ -46,7 +46,7 @@
                         学生列表
                       </el-menu-item>
                     </RouterLink>
-                    <RouterLink to="/manMain/managerUpdate">
+                    <RouterLink to="/manMain/LeaveApplication">
                       <el-menu-item index="2-2">
                         学生请假
                       </el-menu-item>
@@ -56,7 +56,7 @@
                         学生报修
                       </el-menu-item>
                     </RouterLink>
-                    <RouterLink to="/manMain/updatePwd">
+                    <RouterLink to="/manMain/IDCard">
                       <el-menu-item index="2-4">
                         证件办理
                       </el-menu-item>

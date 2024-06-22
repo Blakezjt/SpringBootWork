@@ -39,6 +39,13 @@ public class LeaveApplicationServiceImpl extends ServiceImpl<LeaveApplicationMap
     }
 
     @Override
+    public IPage<LeaveApplication> studentlist2(String approvalStatus, Page<LeaveApplication> leaveApplicationPagepage) {
+        LambdaQueryWrapper<LeaveApplication> queryWrapper =new LambdaQueryWrapper<>();
+        queryWrapper.eq(LeaveApplication::getApprovalStatus,approvalStatus);
+        return leaveApplicationMapper.selectPage(leaveApplicationPagepage,queryWrapper);
+    }
+
+    @Override
     public boolean deletebyId(Integer id) {
         int isdelete = leaveApplicationMapper.deleteById(id);
         if (isdelete>0){
@@ -47,4 +54,6 @@ public class LeaveApplicationServiceImpl extends ServiceImpl<LeaveApplicationMap
             return false;
         }
     }
+
+
 }

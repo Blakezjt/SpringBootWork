@@ -31,6 +31,9 @@ public class Idcard implements Serializable {
     @TableField("student_id")
     private Integer studentId;
 
+    @TableField("student_name")
+    private String studentName;
+
     @TableField("issue_date")
     private LocalDate issueDate;
 

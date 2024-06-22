@@ -12,4 +12,6 @@ public interface LeaveApplicationService extends IService<LeaveApplication> {
     public IPage<LeaveApplication> studentlist(Integer studentId, Page<LeaveApplication> page);
 
     public boolean deletebyId(Integer id);
+
+    IPage<LeaveApplication> studentlist2(String approvalStatus, Page<LeaveApplication> leaveApplicationPagepage);
 }

@@ -18,9 +18,13 @@ public class LeaveApplication implements Serializable {
 
     private Integer studentId;
 
+    private String studentName;
+
     private Date startDate;
 
     private Date endDate;
+
+    private String approvalReason;
 
     private String approvalStatus;
 }
