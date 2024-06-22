@@ -6,7 +6,7 @@
         <el-dropdown>
           <span class="el-dropdown-link home_userinfo">
             <el-icon class="el-icon--right">
-              <arrow-down />
+              admin<arrow-down />
             </el-icon>
           </span>
           <template #dropdown>
@@ -71,7 +71,7 @@
                     <span style="font-size: 18px;">老师信息</span>
                   </template>
                   <el-menu-item-group>
-                    <RouterLink to="/manMain/stuList">
+                    <RouterLink to="/manMain/teaList">
                       <el-menu-item index="3-1">
                         老师列表
                       </el-menu-item>
@@ -86,22 +86,22 @@
                     <span style="font-size: 18px;">课程信息</span>
                   </template>
                   <el-menu-item-group>
-                    <RouterLink to="/manMain/stuList">
+                    <RouterLink to="/manMain/courseSchedule">
                       <el-menu-item index="4-1">
                         课程列表
                       </el-menu-item>
                     </RouterLink>
-                    <RouterLink to="/manMain/managerUpdate">
+                    <RouterLink to="/manMain/courseSelect">
                       <el-menu-item index="4-2">
                         选课系统
                       </el-menu-item>
                     </RouterLink>
-                    <RouterLink to="/manMain/updatePwd">
+                    <RouterLink to="/manMain/grades">
                       <el-menu-item index="4-3">
                         成绩查询
                       </el-menu-item>
                     </RouterLink>
-                    <RouterLink to="/manMain/updatePwd">
+                    <RouterLink to="/manMain/exam">
                       <el-menu-item index="4-4">
                         考试安排
                       </el-menu-item>
@@ -273,10 +273,10 @@
   <el-dialog v-model="centerDialogVisible" title="您确定退出登入吗？" width="30%" center>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">取消</el-button>
         <el-button type="primary" @click="logOut">
           确定
         </el-button>
+        <el-button @click="centerDialogVisible = false">取消</el-button>
       </span>
     </template>
   </el-dialog>

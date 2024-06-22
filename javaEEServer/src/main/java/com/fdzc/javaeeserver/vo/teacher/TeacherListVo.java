@@ -11,7 +11,7 @@ public class TeacherListVo {
 
     private String id;
 
-    private Integer teacher_id;
+    private Integer teacherId;
 
     private String name;
 

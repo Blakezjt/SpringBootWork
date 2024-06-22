@@ -39,16 +39,16 @@ public class TeacherServiceImpl implements TeacherService {
         if(searchValidate.getTeacherId() != null){
             queryWrapper.eq("teacher_id",searchValidate.getTeacherId());
         }
-        else if (searchValidate.getName() != null){
+        else if (!searchValidate.getName().equals("")){
             queryWrapper.eq("name",searchValidate.getName());
         }
-        else if (searchValidate.getDegree()!= null){
+        else if (!searchValidate.getDegree().equals("")){
             queryWrapper.eq("degree",searchValidate.getDegree());
-            if (searchValidate.getMajor()!= null){
+            if (!searchValidate.getMajor().equals("")){
                 queryWrapper.eq("major",searchValidate.getMajor());
             }
         }
-        else if(searchValidate.getMajor()!= null){
+        else if(!searchValidate.getMajor().equals("")){
             queryWrapper.eq("major",searchValidate.getMajor());
         }
         Page<Teachers> teacherPage = teacherMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
@@ -57,7 +57,7 @@ public class TeacherServiceImpl implements TeacherService {
         for (Teachers stu: teacherPage.getRecords()) {
             TeacherListVo vo = new TeacherListVo();
             BeanUtils.copyProperties(stu,vo);
-            vo.setTeacher_id(stu.getTeacherId());
+            vo.setTeacherId(stu.getTeacherId());
             list.add(vo);
         }
 

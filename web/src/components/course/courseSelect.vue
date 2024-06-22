@@ -1,17 +1,14 @@
 <template>
   <div class="demo-input-size">
     <el-form :inline="true" :model="searchForm" class="demo-form-inline" ref="ruleFormRef" :rules="rules" status-icon>
-      <el-form-item label="学号">
+      <el-form-item label="学生号">
         <el-input v-model="searchForm.studentId" placeholder="Approved by" clearable />
       </el-form-item>
-      <el-form-item label="姓名">
-        <el-input v-model="searchForm.studentName" placeholder="Approved by" clearable />
+      <el-form-item label="课程号">
+        <el-input v-model="searchForm.courseId" placeholder="Approved by" clearable />
       </el-form-item>
-      <el-form-item label="系别">
-        <el-input v-model="searchForm.studentDept" placeholder="Approved by" clearable />
-      </el-form-item>
-      <el-form-item label="专业">
-        <el-input v-model="searchForm.studentXb" placeholder="Approved by" clearable />
+      <el-form-item label="选择">
+        <el-input v-model="searchForm.isSelect" placeholder="Approved by" clearable />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>
@@ -24,16 +21,16 @@
   </div>
   <el-table :data="tableList" stripe style="width: 100%" @cell-click="cellClick" v-loading="loading"
     element-loading-text="Loading..." :element-loading-spinner="svg" element-loading-svg-view-box="-10, -10, 50, 50">
-    <el-table-column prop="studentId" label="学号" sortable />
-    <el-table-column prop="studentName" label="姓名" />
-    <el-table-column prop="studentSex" label="性别" :formatter="formatSex" />
-    <el-table-column prop="studentXb" label="系别" />
-    <el-table-column prop="studentDept" label="专业" />
-    <el-table-column prop="dormitoryId" label="宿舍号" />
-    <el-table-column prop="studentPhone" label="电话" />
+    <el-table-column prop="id" label="ID" sortable />
+    <el-table-column prop="studentId" label="学号" />
+    <el-table-column prop="courseId" label="课程号" />
+    <el-table-column prop="selectionTime" label="选课时间" />
+    <el-table-column prop="isSelect" label="选择" />
+    <el-table-column prop="beginTime" label="选课开始时间" />
+    <el-table-column prop="endTime" label="选课结束时间" />
     <el-table-column prop="" label="操作">
       <el-button type="primary" :icon="Edit" circle @click="dialogFormVisible = true" />
-      <el-button type="danger" :icon="Delete" circle @click=" centerDialogVisible = true;"/>
+      <el-button type="danger" :icon="Delete" circle @click=" centerDialogVisible = true;" />
     </el-table-column>
   </el-table>
   <div class="demo-pagination-block">
@@ -46,35 +43,23 @@
   <el-dialog v-model="dialogFormVisible" title="修改" width="500px">
     <el-form :model="ruleForm" ref="ruleFormRef" :rules="rules" label-width="120px" class="demo-ruleForm"
       :size="formSize" status-icon>
-      <el-form-item label="学号">
-        <el-input v-model="ruleForm.studentId" disabled placeholder="Please input" />
+      <el-form-item label="学生号">
+        <el-input v-model="ruleForm.studentId" placeholder="Please input" />
       </el-form-item>
-      <el-form-item label="密码" v-if="addFrame">
-        <el-input v-model="ruleForm.password" placeholder="Please input" />
+      <el-form-item label="课程号">
+        <el-input v-model="ruleForm.courseId" placeholder="Please input" />
       </el-form-item>
-      <el-form-item label="姓名">
-        <el-input v-model="ruleForm.studentName" placeholder="Please input" />
+      <el-form-item label="选择时间">
+        <el-input v-model="ruleForm.selectionTime" placeholder="Please input" />
       </el-form-item>
-      <el-form-item label="性别">
-        <el-radio-group v-model="ruleForm.studentSex" class="ml-4">
-          <el-radio label="1" size="large" :value="1" checked>男</el-radio>
-          <el-radio label="0" size="large" :value="0">女</el-radio>
-        </el-radio-group>
+      <el-form-item label="选择" prop="">
+        <el-input v-model="ruleForm.isSelect" placeholder="Please input" />
       </el-form-item>
-      <el-form-item label="系别">
-        <el-input v-model="ruleForm.studentXb" placeholder="Please input" />
+      <el-form-item label="选择开始时间">
+        <el-input v-model="ruleForm.beginTime" placeholder="Please input" />
       </el-form-item>
-      <el-form-item label="专业" prop="">
-        <el-input v-model="ruleForm.studentDept" />
-      </el-form-item>
-      <el-form-item label="宿舍号">
-        <el-input v-model="ruleForm.dormitoryId" placeholder="Please input" />
-      </el-form-item>
-      <el-form-item label="电话">
-        <el-input v-model="ruleForm.studentPhone" placeholder="Please input" />
-      </el-form-item>
-      <el-form-item label="入学时间">
-        <el-input v-model="ruleForm.entryTime" placeholder="Please input" />
+      <el-form-item label="选择结束时间">
+        <el-input v-model="ruleForm.endTime" placeholder="Please input" />
       </el-form-item>
       <el-form-item v-if="addFrame">
         <el-button type="primary" @click="addStu(ruleFormRef)">添加</el-button>
@@ -87,20 +72,20 @@
     </el-form>
 
   </el-dialog>
-<!--删除确认框 -->
+  <!--删除确认框 -->
   <el-dialog v-model="centerDialogVisible" title="确认框" width="30%" center>
-      <span style="font-size: 20px;">
-                  确定删除该条信息吗？
+    <span style="font-size: 20px;">
+      确定删除该条信息吗？
+    </span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button type="primary" @click="deleteLie">
+          确定
+        </el-button>
+        <el-button @click=" centerDialogVisible = false;">取消</el-button>
       </span>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button type="primary" @click="deleteLie">
-            确定
-          </el-button>
-          <el-button @click=" centerDialogVisible = false;">取消</el-button>
-        </span>
-      </template>
-    </el-dialog>
+    </template>
+  </el-dialog>
 </template>
 
 <script lang="ts" setup>
@@ -110,7 +95,7 @@ import {
   Search,
 } from '@element-plus/icons-vue'
 import { ref, reactive, onMounted } from 'vue'
-import { stuList, stuDetail, stuEdit, stuAdd, stuDelete } from '../../api/student/stu.js'
+import { courseSelectList, courseSelectDetail, courseSelectEdit, courseSelectAdd, courseSelectDelete } from '../../api/course/courseSelect.js'
 import { ElNotification } from 'element-plus'
 //table
 interface tableDataInter {
@@ -136,15 +121,15 @@ const centerDialogVisible = ref(false)
 //加载
 const loading = ref(true)
 const svg = `
-        <path class="path" d="
-          M 30 15
-          L 28 17
-          M 25.61 25.61
-          A 15 15, 0, 0, 1, 15 30
-          A 15 15, 0, 1, 1, 27.99 7.5
-          L 15 15
-        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
+          <path class="path" d="
+            M 30 15
+            L 28 17
+            M 25.61 25.61
+            A 15 15, 0, 0, 1, 15 30
+            A 15 15, 0, 1, 1, 27.99 7.5
+            L 15 15
+          " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+        `
 //添加
 const addFrame = ref(false);
 //查询
@@ -155,17 +140,16 @@ const onSubmit = () => {
 //重置
 const resetForm = () => {
   Object.assign(searchForm, {
+    courseId: '',
     studentId: '',
-    studentName: '',
-    studentXb: '',
-    studentDept: '',
+    isSelect: '',
   });
   list(searchForm);
   open1();
 }
 //初始化数据
 const list = (searsh) => {
-  let result = stuList(currentPage4.value, pageSize4.value,searsh);
+  let result = courseSelectList(currentPage4.value, pageSize4.value, searsh);
   result.then(function (data) {
     // 在这里可以访问后端数据  
     tableData.value = data.data;
@@ -174,9 +158,7 @@ const list = (searsh) => {
     loading.value = false;
   });
 }
-const formatSex = (row, column, cellValue, index) => {
-  return cellValue === 1 ? '男' : '女';
-};
+
 onMounted(() => {
   list(searchForm);
 })
@@ -195,54 +177,49 @@ const handleCurrentChange = (val) => {
 import type { FormInstance, FormRules } from 'element-plus'
 
 interface RuleForm {
+  id: string
+  courseId: number
   studentId: number
-  studentName: string
-  password: string
-  studentSex: number
-  studentXb: string
-  studentDept: string
-  dormitoryId: number
-  studentPhone: string
-  entryTime: string
+  isSelect: number
+  selectionTime: string
+  dropTime: string
+  beginTime: string
+  endTime: string
 }
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive<RuleForm>({
+  id: '',
+  courseId: 0,
   studentId: 0,
-  studentName: '',
-  password: '',
-  studentSex: 0,
-  studentXb: '',
-  studentDept: '',
-  dormitoryId: 0,
-  studentPhone: '',
-  entryTime: '',
+  isSelect: 0,
+  selectionTime: '',
+  dropTime: '',
+  beginTime: '',
+  endTime: ''
 })
 interface SearchForm {
+  courseId: string
   studentId: string
-  studentName: string
-  studentXb: string
-  studentDept: string
+  isSelect: string
 }
 const searchForm = reactive<SearchForm>({
+  courseId: '',
   studentId: '',
-  studentName: '',
-  studentXb: '',
-  studentDept: ''
+  isSelect: '',
 })
 // 创建一个重置函数来还原 ruleForm 的状态
 function resetRuleForm() {
   // 创建一个新的 RuleForm 对象，并分配给 ruleForm
   Object.assign(ruleForm, {
+    id: '',
+    courseId: 0,
     studentId: 0,
-    studentName: '',
-    password: '',
-    studentSex: 0,
-    studentXb: '',
-    studentDept: '',
-    dormitoryId: 0,
-    studentPhone: '',
-    entryTime: '',
+    isSelect: 0,
+    selectionTime: '',
+    dropTime: '',
+    beginTime: '',
+    endTime: ''
   });
 }
 const rules = reactive<FormRules<RuleForm>>({
@@ -256,7 +233,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      stuEdit(ruleForm).then(() => {
+      courseSelectEdit(ruleForm).then(() => {
         list(searchForm);
         dialogFormVisible.value = false;
         open1();
@@ -268,14 +245,14 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 }
 
 const cellClick = (row: any) => {
+  ruleForm.id = row.id;
+  ruleForm.courseId = row.courseId;
   ruleForm.studentId = row.studentId;
-  ruleForm.studentName = row.studentName;
-  ruleForm.studentSex = row.studentSex;
-  ruleForm.studentXb = row.studentXb;
-  ruleForm.studentDept = row.studentDept;
-  ruleForm.dormitoryId = row.dormitoryId;
-  ruleForm.studentPhone = row.studentPhone;
-  ruleForm.entryTime = row.entryTime;
+  ruleForm.selectionTime = row.selectionTime;
+  ruleForm.dropTime = row.dropTime;
+  ruleForm.isSelect = row.isSelect;
+  ruleForm.beginTime = row.beginTime;
+  ruleForm.endTime = row.endTime;
 }
 
 //点添加，初始学生信息
@@ -289,7 +266,7 @@ const addStu = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      stuAdd(ruleForm).then(() => {
+      courseSelectAdd(ruleForm).then(() => {
         list(searchForm);
         dialogFormVisible.value = false;
         open1();
@@ -301,14 +278,14 @@ const addStu = async (formEl: FormInstance | undefined) => {
 }
 
 //删除
-const deleteLie = ()=>{
+const deleteLie = () => {
   centerDialogVisible.value = false;
-    console.log(ruleForm.studentId);
-    stuDelete(ruleForm.studentId).then(()=>{
-      open1();
-      list(searchForm);
-    });
-    
+  console.log(ruleForm.id);
+  courseSelectDelete(ruleForm.id).then(() => {
+    open1();
+    list(searchForm);
+  });
+
 }
 //提醒框
 const open1 = () => {

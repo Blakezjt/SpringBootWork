@@ -113,15 +113,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (!formEl) return
     await formEl.validate((valid, fields) => {
         if (valid) {
-            console.log('submit!')
-            if (radio.value === 3) {
-                stuLogin();
-            }
-            else if (radio.value === 6) {
-                manLogin();
-            } else {
-                pluLogin();
-            }
+             manLogin();
         } else {
             console.log('error submit!', fields)
         }
@@ -143,10 +135,11 @@ const stuLogin = async () => {
 }
 //管理员登入
 const manLogin = async () => {
-    let result = await manLoginService(ruleForm);
-    ElMessage.success(result.msg ? result.msg : '登入成功');
-    tokenStore.setToken(result.data);
-    router.push('/manMain/stuDetailTable');
+    // let result = await manLoginService(ruleForm);
+    // ElMessage.success(result.msg ? result.msg : '登入成功');
+    ElMessage.success('登入成功');
+    // tokenStore.setToken(result.data);
+    router.push('/manMain/workbench');
 }
 //水电工登入
 const pluLogin = async () => {
