@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 80034
+Source Server         : 172.25.132.118
+Source Server Version : 80035
 Source Host           : localhost:3306
 Source Database       : javaeework
 
 Target Server Type    : MYSQL
-Target Server Version : 80034
+Target Server Version : 80035
 File Encoding         : 65001
 
-Date: 2024-06-22 16:23:20
+Date: 2024-06-23 15:32:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,9 +55,9 @@ CREATE TABLE `borrowing` (
 DROP TABLE IF EXISTS `clubmanagement`;
 CREATE TABLE `clubmanagement` (
   `club_id` int NOT NULL,
-  `club_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `club_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `activity_id` int DEFAULT NULL,
-  `announcement` text COLLATE utf8mb4_general_ci,
+  `announcement` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`club_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -70,12 +70,12 @@ CREATE TABLE `clubmanagement` (
 -- ----------------------------
 DROP TABLE IF EXISTS `course_schedule`;
 CREATE TABLE `course_schedule` (
-  `id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `course_id` int NOT NULL,
   `teacher_id` int NOT NULL,
   `classroom_id` int DEFAULT NULL,
-  `course_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `time` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `course_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `time` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
@@ -93,7 +93,7 @@ INSERT INTO `course_schedule` VALUES ('e1946677-d2f1-4759-ae82-6f6568127df6', '1
 -- ----------------------------
 DROP TABLE IF EXISTS `course_selection`;
 CREATE TABLE `course_selection` (
-  `id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `student_id` int NOT NULL,
   `course_id` int NOT NULL,
   `selection_time` datetime NOT NULL,
@@ -114,16 +114,34 @@ INSERT INTO `course_selection` VALUES ('ad874bc0-f192-4ac9-9d7d-d0348f496b09', '
 -- ----------------------------
 DROP TABLE IF EXISTS `dormitory`;
 CREATE TABLE `dormitory` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `buildingid` int DEFAULT NULL,
-  `dormname` varchar(255) NOT NULL,
+  `dormitory_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `building_name` varchar(255) DEFAULT NULL,
+  `dorm_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `type` int DEFAULT NULL,
   `available` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`dormitory_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of dormitory
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for dormitoryfix
+-- ----------------------------
+DROP TABLE IF EXISTS `dormitoryfix`;
+CREATE TABLE `dormitoryfix` (
+  `repair_id` int NOT NULL AUTO_INCREMENT,
+  `dormitory_id` int DEFAULT NULL,
+  `student_id` int DEFAULT NULL,
+  `repair_date` date DEFAULT NULL,
+  `repair_reason` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `repai_state` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`repair_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ----------------------------
+-- Records of dormitoryfix
 -- ----------------------------
 
 -- ----------------------------
@@ -147,15 +165,21 @@ CREATE TABLE `electronicresource` (
 -- ----------------------------
 DROP TABLE IF EXISTS `emergencycontact`;
 CREATE TABLE `emergencycontact` (
+  `emergencycontact_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int NOT NULL,
-  `contact_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contact_phone` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`student_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `student_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contact_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contact_phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`emergencycontact_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of emergencycontact
 -- ----------------------------
+INSERT INTO `emergencycontact` VALUES ('1', '212106272', 'cjc', '父亲', '16782738495');
+INSERT INTO `emergencycontact` VALUES ('2', '212106273', 'cjc', '父亲', '16782738495');
+INSERT INTO `emergencycontact` VALUES ('3', '212106274', 'cjc', '父亲', '16782738495');
+INSERT INTO `emergencycontact` VALUES ('4', '212106275', 'cjc', '父亲', '16782738495');
 
 -- ----------------------------
 -- Table structure for eventregistration
@@ -178,11 +202,11 @@ CREATE TABLE `eventregistration` (
 -- ----------------------------
 DROP TABLE IF EXISTS `exams`;
 CREATE TABLE `exams` (
-  `id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `exam_id` int NOT NULL,
   `course_id` int DEFAULT NULL,
   `exam_time` datetime DEFAULT NULL,
-  `exam_location` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exam_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `exam_hour` float DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -200,7 +224,7 @@ DROP TABLE IF EXISTS `financialrecord`;
 CREATE TABLE `financialrecord` (
   `record_id` int NOT NULL,
   `student_id` int DEFAULT NULL,
-  `transaction_type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `transaction_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
   `date` date DEFAULT NULL,
   PRIMARY KEY (`record_id`)
@@ -227,7 +251,7 @@ DROP TABLE IF EXISTS `forum`;
 CREATE TABLE `forum` (
   `post_id` int NOT NULL,
   `student_id` int DEFAULT NULL,
-  `topic` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `topic` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `post_date` date DEFAULT NULL,
   PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -241,7 +265,7 @@ CREATE TABLE `forum` (
 -- ----------------------------
 DROP TABLE IF EXISTS `grades`;
 CREATE TABLE `grades` (
-  `id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `student_id` int NOT NULL,
   `course_id` int NOT NULL,
   `grade` int NOT NULL,
@@ -260,24 +284,35 @@ INSERT INTO `grades` VALUES ('527c37df-8815-4629-9c28-868836058d8b', '212100004'
 -- ----------------------------
 DROP TABLE IF EXISTS `healthreport`;
 CREATE TABLE `healthreport` (
-  `report_id` int NOT NULL,
+  `report_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int DEFAULT NULL,
+  `student_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `health_status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `health_status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`report_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1490243587 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of healthreport
 -- ----------------------------
+INSERT INTO `healthreport` VALUES ('-1258242047', '212106278', 'cjc', '2024-06-16', '不健康');
+INSERT INTO `healthreport` VALUES ('-213803007', '212106278', 'cjc', '2024-06-23', '不健康');
+INSERT INTO `healthreport` VALUES ('1', '212106273', 'cjc', '2024-06-11', '健康');
+INSERT INTO `healthreport` VALUES ('2', '212106276', 'cjc', '2024-06-11', '健康');
+INSERT INTO `healthreport` VALUES ('3', '212106277', 'cjc', '2024-06-11', '健康');
+INSERT INTO `healthreport` VALUES ('4', '212106275', 'cjc', '2024-06-11', '健康');
+INSERT INTO `healthreport` VALUES ('5', '212106274', 'cjc', '2024-06-11', '健康');
+INSERT INTO `healthreport` VALUES ('381730818', '212106268', 'cjc', '2024-06-16', '不健康');
+INSERT INTO `healthreport` VALUES ('545382401', '212109999', 'cjc', '2024-06-22', '健康');
 
 -- ----------------------------
 -- Table structure for idcard
 -- ----------------------------
 DROP TABLE IF EXISTS `idcard`;
 CREATE TABLE `idcard` (
-  `id_card_id` int NOT NULL,
+  `id_card_id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `student_id` int DEFAULT NULL,
+  `student_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `issue_date` date DEFAULT NULL,
   `expiration_date` date DEFAULT NULL,
   PRIMARY KEY (`id_card_id`)
@@ -286,23 +321,36 @@ CREATE TABLE `idcard` (
 -- ----------------------------
 -- Records of idcard
 -- ----------------------------
+INSERT INTO `idcard` VALUES ('52d5c1f1-f305-49a8-8a30-49fbd6339edf', '212106277', 'cjc', '2024-06-16', '2028-06-16');
+INSERT INTO `idcard` VALUES ('6c20c16b-135a-4319-b51e-774890ea0309', '212106279', 'cjc', '2024-06-22', '2028-06-22');
+INSERT INTO `idcard` VALUES ('ad0636c9-d7dd-4b75-a6d7-b4a2c62c2054', '212106277', 'cjc', '2024-06-14', '2028-06-14');
+INSERT INTO `idcard` VALUES ('c6d22232-1f9d-4842-af54-5608501c8bab', '212106272', 'cjc', '2024-06-14', '2028-06-14');
+INSERT INTO `idcard` VALUES ('eb8c8f63-d378-4043-a32b-2e5c4dc52578', '212109988', '陈嘉诚', '2024-06-22', '2028-06-22');
 
 -- ----------------------------
--- Table structure for leaveapplication
+-- Table structure for leave_application
 -- ----------------------------
-DROP TABLE IF EXISTS `leaveapplication`;
-CREATE TABLE `leaveapplication` (
-  `application_id` int NOT NULL,
+DROP TABLE IF EXISTS `leave_application`;
+CREATE TABLE `leave_application` (
+  `application_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int DEFAULT NULL,
+  `student_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
-  `approval_status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `approval_reason` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `approval_status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`application_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
--- Records of leaveapplication
+-- Records of leave_application
 -- ----------------------------
+INSERT INTO `leave_application` VALUES ('1', '212107677', 'cjc', '2024-06-21', '2024-06-22', '探亲', '审核通过');
+INSERT INTO `leave_application` VALUES ('6', '212106272', 'cjc', '2024-06-06', '2024-06-09', '探亲', '审核通过');
+INSERT INTO `leave_application` VALUES ('7', '212106279', 'cjc', '2024-06-06', '2024-06-09', '探亲', '未审核');
+INSERT INTO `leave_application` VALUES ('9', '212106289', 'cjc', '2024-06-21', '2024-06-22', '探亲', '未审核');
+INSERT INTO `leave_application` VALUES ('10', '212106272', 'cjc', '2024-06-21', '2024-06-22', '探亲', '未审核');
+INSERT INTO `leave_application` VALUES ('11', '212106272', 'cjc', '2024-06-21', '2024-06-22', '探亲', '未审核');
 
 -- ----------------------------
 -- Table structure for logistics
@@ -312,7 +360,7 @@ CREATE TABLE `logistics` (
   `repair_id` int NOT NULL,
   `equipment_id` int DEFAULT NULL,
   `repair_date` date DEFAULT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`repair_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -336,37 +384,44 @@ INSERT INTO `logistics` VALUES ('10', '5010', '2024-04-05', '待处理');
 DROP TABLE IF EXISTS `manager`;
 CREATE TABLE `manager` (
   `admin_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `user_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `role` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `is_delete` int DEFAULT '0' COMMENT '0不删，1反之',
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `delect_time` datetime DEFAULT NULL,
+  `delete_time` datetime DEFAULT NULL,
   PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of manager
 -- ----------------------------
+INSERT INTO `manager` VALUES ('b4c25a05-f8ee-4940-915d-59668320b2d2', null, 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, null, '0', '2024-06-22 23:06:42', '2024-06-22 23:06:42', null);
 
 -- ----------------------------
 -- Table structure for medicalappointment
 -- ----------------------------
 DROP TABLE IF EXISTS `medicalappointment`;
 CREATE TABLE `medicalappointment` (
-  `appointment_id` int NOT NULL,
+  `appointment_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int DEFAULT NULL,
-  `appointment_time` datetime DEFAULT NULL,
-  `record` text COLLATE utf8mb4_general_ci,
+  `student_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `appointment_time` date DEFAULT NULL,
+  `reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`appointment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1656766468 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of medicalappointment
 -- ----------------------------
+INSERT INTO `medicalappointment` VALUES ('-763314175', '212106273', 'cjc12122', '2024-06-18', '头疼12222221');
+INSERT INTO `medicalappointment` VALUES ('-515850238', '212106273', 'cjc12122', '2024-06-18', '头疼12222221');
+INSERT INTO `medicalappointment` VALUES ('826294274', '212106272', 'cjc', '2024-06-18', '头疼');
+INSERT INTO `medicalappointment` VALUES ('1656766466', '212106273', 'cjc2', '2024-06-18', '头疼1111');
+INSERT INTO `medicalappointment` VALUES ('1656766467', '212106273', 'cjc2', '2024-06-18', '头疼12222221');
 
 -- ----------------------------
 -- Table structure for payment
@@ -375,7 +430,7 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `payment_id` int NOT NULL,
   `student_id` int DEFAULT NULL,
-  `payment_type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `payment_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
   `payment_date` date DEFAULT NULL,
   PRIMARY KEY (`payment_id`)
@@ -458,20 +513,20 @@ INSERT INTO `student` VALUES ('ff48bf64-b7ae-49df-a6d1-3f57f7b27118', '212100011
 -- ----------------------------
 DROP TABLE IF EXISTS `teachers`;
 CREATE TABLE `teachers` (
-  `id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `teacher_id` int NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `sex` int NOT NULL,
   `birth_date` date NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `is_delete` int DEFAULT '0' COMMENT '软删除，0是没删，1是删了',
   `hire_date` date NOT NULL,
   `salary` int DEFAULT NULL,
-  `degree` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `major` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `degree` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `major` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL,

@@ -178,8 +178,8 @@ const list = (searsh) => {
     result.then(function (data) {
         // 在这里可以访问后端数据  
         tableData.value = data.data;
-        tableList.value = tableData.value.data.rows;
-        total.value = tableData.value.data.total;
+        tableList.value = tableData.value.rows;
+        total.value = tableData.value.total;
         loading.value = false;
     });
 }
