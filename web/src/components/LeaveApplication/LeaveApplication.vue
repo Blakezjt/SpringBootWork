@@ -151,11 +151,13 @@ const options = [
 //初始化数据、分页
 const list = () => {
     let result = findAllLeaveApplicationByPages(currentPage4.value, pageSize4.value);
-    // tableData.value = result; 
+    
+    
+    tableData.value = result; 
     result.then(function (data) {
         // 在这里可以访问后端数据  
         tableData.value = data.data;
-        // console.log(tableData.value);
+        console.log(tableData.value);
         tableList.value = tableData.value.records;
         total.value = tableData.value.total;
     });

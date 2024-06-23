@@ -1,7 +1,9 @@
 package com.fdzc.javaeeserver.service;
 
+import com.fdzc.javaeeserver.common.R;
 import com.fdzc.javaeeserver.common.T;
 import com.fdzc.javaeeserver.validate.Manager.ManagerCreateValidate;
+import com.fdzc.javaeeserver.validate.Manager.ManagerLoginValidate;
 import com.fdzc.javaeeserver.validate.Manager.ManagerSearchValidate;
 import com.fdzc.javaeeserver.validate.Manager.ManagerUpdateValidate;
 import com.fdzc.javaeeserver.validate.PageValidate;
@@ -18,4 +20,6 @@ public interface ManagerService {
     void managerAdd(ManagerCreateValidate createValidate);
 
     void managerDelete(String id);
+
+    R login(ManagerLoginValidate managerLoginValidate);
 }

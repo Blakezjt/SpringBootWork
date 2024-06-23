@@ -38,16 +38,16 @@ public class MedicalappointmentController {
 
     //老师查看多个学生请假状态（分页）
     @GetMapping("/teacherlist")
-    public IPage<Medicalappointment> teacherlist(@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R teacherlist(@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<Medicalappointment> medicalappointmentPage = new Page<>(page, size);
-        return medicalappointmentService.teacherlist(medicalappointmentPage);
+        return R.success(medicalappointmentService.teacherlist(medicalappointmentPage));
     }
 
     //学生查看自己的请假信息
     @GetMapping("/studentlist")
-    public IPage<Medicalappointment> studentlist(@PathParam("studentId") Integer studentId,@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R studentlist(@PathParam("studentId") Integer studentId,@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<Medicalappointment> medicalappointmentPage = new Page<>(page, size);
-        return medicalappointmentService.studentlist(studentId,medicalappointmentPage);
+        return R.success(medicalappointmentService.studentlist(studentId,medicalappointmentPage));
     }
 
     //老师根据学生id来修改审核状态

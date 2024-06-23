@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 //生成拦截器
-//@Component
+@Component
 public class LoginInterceptors implements HandlerInterceptor {
 //    @Autowired
 //    private StringRedisTemplate stringRedisTemplate;

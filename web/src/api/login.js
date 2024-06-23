@@ -15,6 +15,7 @@ export const manLoginService = (loginData)=>{
     for (const key in loginData) {
        params.append(key,loginData[key]);
     }
+    
     return axiosUtil.post('/manager/login',params);
 }
 

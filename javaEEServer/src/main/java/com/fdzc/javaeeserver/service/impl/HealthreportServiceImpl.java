@@ -54,6 +54,13 @@ public class HealthreportServiceImpl extends ServiceImpl<HealthreportMapper, Hea
     }
 
     @Override
+    public IPage<Healthreport> studentlist2(String healthStatus, Page<Healthreport> healthreportPage) {
+        LambdaQueryWrapper<Healthreport> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Healthreport::getHealthStatus,healthStatus);
+        return healthreportMapper.selectPage(healthreportPage,queryWrapper);
+    }
+
+    @Override
     public boolean deletebyId(Integer id) {
         int isdelete = healthreportMapper.deleteById(id);
         if (isdelete>0){

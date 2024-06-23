@@ -29,23 +29,23 @@ public class LeaveApplicationController {
 
     //老师查看多个学生请假状态（分页）
     @GetMapping("/teacherlist")
-    public IPage<LeaveApplication> teacherlist(@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R teacherlist(@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<LeaveApplication> leaveApplicationPagepage = new Page<>(page, size);
-        return leaveApplicationService.teacherlist(leaveApplicationPagepage);
+        return R.success(leaveApplicationService.teacherlist(leaveApplicationPagepage));
     }
 
     //学生查看自己的请假信息
     @GetMapping("/studentlist")
-    public IPage<LeaveApplication> studentlist(@PathParam("studentId") Integer studentId,@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R studentlist(@PathParam("studentId") Integer studentId,@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<LeaveApplication> leaveApplicationPagepage = new Page<>(page, size);
-        return leaveApplicationService.studentlist(studentId,leaveApplicationPagepage);
+        return R.success(leaveApplicationService.studentlist(studentId,leaveApplicationPagepage));
     }
 
     //根据请假状态查询
     @GetMapping("/studentlist2")
-    public IPage<LeaveApplication> studentlist2(@PathParam("approvalStatus") String approvalStatus,@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R studentlist2(@PathParam("approvalStatus") String approvalStatus,@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<LeaveApplication> leaveApplicationPagepage = new Page<>(page, size);
-        return leaveApplicationService.studentlist2(approvalStatus,leaveApplicationPagepage);
+        return R.success(leaveApplicationService.studentlist2(approvalStatus,leaveApplicationPagepage));
     }
     //老师根据学生id来修改审核状态
     @PostMapping("/update")

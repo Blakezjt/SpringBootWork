@@ -22,4 +22,6 @@ public interface HealthreportService extends IService<Healthreport> {
     boolean deletebyId(Integer id);
 
     IPage<Healthreport> studentlist(Integer id,Page<Healthreport> healthreportPage);
+
+    IPage<Healthreport> studentlist2(String healthStatus, Page<Healthreport> healthreportPage);
 }

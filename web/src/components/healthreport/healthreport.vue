@@ -4,11 +4,11 @@
             <el-form-item label="学号">
                 <el-input v-model="searchForm.studentId" placeholder="Approved by" clearable />
             </el-form-item>
-            <!-- <el-form-item label="请假状态">
-                <el-select v-model="searchForm.approvalStatus" placeholder="请假状态" style="width: 240px">
+            <el-form-item label="打卡状态">
+                <el-select v-model="searchForm.healthStatus" placeholder="打卡状态" style="width: 240px">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
-            </el-form-item> -->
+            </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="onSubmit(searchForm)">查询</el-button>
                 <el-button @click="resetForm">重置</el-button>
@@ -22,11 +22,10 @@
     </div>
 
     <el-table :data="tableList" stripe style="width: 100%" @cell-click="cellClick">
-        <el-table-column prop="idCardId" label="证件号" />
         <el-table-column prop="studentId" label="学号" />
         <el-table-column prop="studentName" label="姓名" />
-        <el-table-column prop="issueDate" label="证件创建时间" />
-        <el-table-column prop="expirationDate" label="证件有效时间" />
+        <el-table-column prop="date" label="打卡日期" />
+        <el-table-column prop="healthStatus" label="健康状态" />
         <el-table-column prop="" label="操作">
             <el-button type="primary" :icon="Edit" circle @click="showUpdateDialog" />
             <el-button type="danger" :icon="Delete" circle @click=" centerDialogVisible = true" />
@@ -42,20 +41,21 @@
     <el-dialog v-model="dialogFormVisible" :title="addFrame ? '添加' : '更新'" width="600px" draggable>
         <el-form :model="ruleForm" ref="ruleFormRef" :rules="rules" label-width="180px" class="demo-ruleForm"
             :size="formSize" status-icon>
-            <el-form-item label="证件号" v-if="addFrame == false">
-                <el-input v-model="ruleForm.idCardId" disabled placeholder="Please input" />
-            </el-form-item>
             <el-form-item label="学号">
                 <el-input v-model="ruleForm.studentId" placeholder="Please input" />
             </el-form-item>
             <el-form-item label="姓名">
                 <el-input v-model="ruleForm.studentName" placeholder="Please input" />
             </el-form-item>
-            <el-form-item label="证件创建时间" v-if="addFrame == false">
-                <el-input v-model="ruleForm.issueDate" placeholder="Please input" />
+            <el-form-item label="打卡日期" v-if="addFrame == false">
+                <el-input v-model="ruleForm.date" placeholder="Please input" />
             </el-form-item>
-            <el-form-item label="证件有效时间" v-if="addFrame == false">
-                <el-input v-model="ruleForm.expirationDate" placeholder="Please input" />
+            <el-form-item label="健康状态">
+                <el-radio-group v-model="ruleForm.healthStatus">
+                    <el-radio-button label="健康" value="健康"/>
+                    <el-radio-button label="不健康" value="不健康" />
+                    <el-radio-button label="未打卡" value="未打卡" />
+                </el-radio-group>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="handleSubmit(ruleFormRef)">
@@ -92,7 +92,7 @@ import {
 } from '@element-plus/icons-vue'
 import { ref, reactive } from 'vue'
 
-import { findAllIDCardByPages, AddIDCard, UpdateIDCard,DeleteIDCard ,SearchIDCard} from '../../api/IDCard/IDCard.js'
+import { findAllHealthreportByPages,AddHealthreport,UpdateHealthreport,DeleteHealthreport,SearchHealthreport,SearchHealthreport2} from '../../api/healthreport/healthreport.js'
 import { ElNotification } from 'element-plus'
 
 //table
@@ -123,22 +123,22 @@ const addFrame = ref(false);
 //请假状态选择
 const options = [
     {
-        value: '未审核',
-        label: '未审核',
+        value: '健康',
+        label: '健康',
     },
     {
-        value: '审核通过',
-        label: '审核通过',
+        value: '不健康',
+        label: '不健康',
     },
     {
-        value: '审核未通过',
-        label: '审核未通过',
+        value: '未打卡',
+        label: '未打卡',
     }
 ]
 
 //初始化数据、分页
 const list = () => {
-    let result = findAllIDCardByPages(currentPage4.value, pageSize4.value);
+    let result = findAllHealthreportByPages(currentPage4.value, pageSize4.value);
     // tableData.value = result; 
     result.then(function (data) {
         // 在这里可以访问后端数据  
@@ -153,7 +153,11 @@ list();
 //查询函数
 const searsh = (searchForm) => {
     let result;
-    result = SearchIDCard(searchForm.studentId, currentPage4.value, pageSize4.value);
+    if (searchForm.studentId != '') {
+        result = SearchHealthreport(searchForm.studentId, currentPage4.value, pageSize4.value);
+    } else if (searchForm.healthStatus != "") {
+        result = SearchHealthreport2(searchForm.healthStatus, currentPage4.value, pageSize4.value);
+    }
     // tableData.value = result; 
     result.then(function (data) {
         // 在这里可以访问后端数据  
@@ -178,7 +182,7 @@ const showUpdateDialog = () => {
 const handleSubmit = (ruleFormRef) => {
     if (addFrame.value) {
         // 添加证件逻辑
-        addidcard(ruleFormRef)
+        add(ruleFormRef)
     } else {
         // 更新证件逻辑
         submitForm(ruleFormRef)
@@ -186,18 +190,18 @@ const handleSubmit = (ruleFormRef) => {
 };
 
 //点添加，初始学生证件信息
-const add = () => {
+const add11 = () => {
     resetRuleForm();
     dialogFormVisible.value = true;
     addFrame.value = true;
 }
 
 //添加学生证件记录
-const addidcard = async (formEl: FormInstance | undefined) => {
+const add = async (formEl: FormInstance | undefined) => {
     if (!formEl) return
     await formEl.validate((valid, fields) => {
         if (valid) {
-            AddIDCard(ruleForm).then(() => {
+            AddHealthreport(ruleForm).then(() => {
                 list();
                 dialogFormVisible.value = false;
                 open1();
@@ -211,8 +215,8 @@ const addidcard = async (formEl: FormInstance | undefined) => {
 //删除请假记录
 const deleteLie = () => {
     centerDialogVisible.value = false;
-    // console.log(ruleForm.idCardId);
-    DeleteIDCard(ruleForm.idCardId).then(() => {
+    console.log(ruleForm.reportId);
+    DeleteHealthreport(ruleForm.reportId).then(() => {
         open1();
         list();
     });
@@ -221,14 +225,14 @@ const deleteLie = () => {
 
 const handleSizeChange = (val) => {
     // console.log(`${val} items per page`)
-    if (searchForm.studentId == '') {
+    if (searchForm.studentId == ''&& searchForm.healthStatus == "") {
         list()
     } else {
         searsh(searchForm)
     }
 }
 const handleCurrentChange = (val) => {
-    if (searchForm.studentId == '') {
+    if (searchForm.studentId == ''&& searchForm.healthStatus == "") {
         list()
     } else {
         searsh(searchForm)
@@ -240,11 +244,11 @@ const handleCurrentChange = (val) => {
 function resetRuleForm() {
     // 创建一个新的 RuleForm 对象，并分配给 ruleForm
     Object.assign(ruleForm, {
-        idCardId: '',
+        reportId: '',
         studentId: '',
         studentName: '',
-        issueDate: '',
-        expirationDate: ''
+        date: '',
+        healthStatus: ''
     });
 }
 
@@ -254,29 +258,30 @@ function resetRuleForm() {
 import type { FormInstance, FormRules } from 'element-plus'
 
 interface RuleForm {
-    idCardId: any
+    reportId: any
     studentId: any
     studentName: string
-    issueDate: string
-    expirationDate: string
+    date: string
+    healthStatus: string
 }
 
 interface SearchForm {
     studentId: any
-
+    healthStatus:string
 }
 
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive<RuleForm>({
-    idCardId: 0,
+    reportId: 0,
     studentId: '',
     studentName: '',
-    issueDate: '',
-    expirationDate: ''
+    date: '',
+    healthStatus: ''
 })
 const searchForm = reactive<SearchForm>({
-    studentId: ''
+    studentId: '',
+    healthStatus:''
 })
 
 const rules = reactive<FormRules<RuleForm>>({
@@ -296,6 +301,7 @@ const resetForm = () => {
     Object.assign(searchForm, {
         studentId: '',
         studentName: '',
+        healthStatus: ''
     });
     list();
     open1();
@@ -306,7 +312,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     await formEl.validate((valid, fields) => {
         if (valid) {
             console.log('submit!')
-            UpdateIDCard(ruleForm).then(() => {
+            UpdateHealthreport(ruleForm).then(() => {
                 console.log(ruleForm);
                 list();
                 dialogFormVisible.value = false;
@@ -319,11 +325,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     })
 }
 const cellClick = (row: any) => {
-    ruleForm.idCardId = row.idCardId;
+    ruleForm.reportId = row.reportId;
     ruleForm.studentId = row.studentId;
     ruleForm.studentName = row.studentName;
-    ruleForm.issueDate = row.issueDate;
-    ruleForm.expirationDate = row.expirationDate;
+    ruleForm.date = row.date;
+    ruleForm.healthStatus = row.healthStatus;
 
 }
 //提醒框

@@ -1,14 +1,18 @@
 package com.fdzc.javaeeserver.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fdzc.javaeeserver.common.R;
 import com.fdzc.javaeeserver.common.T;
 import com.fdzc.javaeeserver.entity.Manager;
 import com.fdzc.javaeeserver.entity.Student;
 import com.fdzc.javaeeserver.mapper.ManagerMapper;
 import com.fdzc.javaeeserver.service.ManagerService;
+import com.fdzc.javaeeserver.utils.JwtUtil;
 import com.fdzc.javaeeserver.utils.Md5Utils;
 import com.fdzc.javaeeserver.validate.Manager.ManagerCreateValidate;
+import com.fdzc.javaeeserver.validate.Manager.ManagerLoginValidate;
 import com.fdzc.javaeeserver.validate.Manager.ManagerSearchValidate;
 import com.fdzc.javaeeserver.validate.Manager.ManagerUpdateValidate;
 import com.fdzc.javaeeserver.validate.PageValidate;
@@ -17,13 +21,13 @@ import com.fdzc.javaeeserver.vo.Manager.ManagerListVo;
 import com.fdzc.javaeeserver.vo.student.StudentDetailVo;
 import com.fdzc.javaeeserver.vo.student.StudentListVo;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {
@@ -93,5 +97,21 @@ public class ManagerServiceImpl implements ManagerService {
         manager.setIsDelete(1);
         manager.setDeleteTime(LocalDateTime.now());
         managerMapper.updateById(manager);
+    }
+
+    @Override
+    public R login(ManagerLoginValidate managerLoginValidate) {
+        System.out.println(managerLoginValidate);
+        Manager manager = managerMapper.selectOne(new QueryWrapper<Manager>().eq("user_name",managerLoginValidate.getUserName()));
+        if (manager == null) return R.error(null,"用户不存在");
+        if (Md5Utils.encode(managerLoginValidate.getPassword()).equals(manager.getPassword())){
+            Map<String,Object> map = new HashMap<>();
+            map.put("userName",manager.getUserName());
+            map.put("adminId",manager.getAdminId());
+            String token = JwtUtil.genToken(map);
+            return R.success(token);
+        }
+        return R.error(null,"密码错误");
+
     }
 }

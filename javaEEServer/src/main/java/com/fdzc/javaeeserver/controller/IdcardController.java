@@ -38,20 +38,20 @@ public class IdcardController {
 
     //老师查看多个学生证件状态（分页）
     @GetMapping("/teacherlist")
-    public IPage<Idcard> teacherlist(@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R teacherlist(@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<Idcard> idcardPage = new Page<>(page, size);
-        return idcardService.teacherlist(idcardPage);
+        return R.success(idcardService.teacherlist(idcardPage));
     }
 
     //学生查看自己的证件信息
     @GetMapping("/studentlist")
-    public IPage<Idcard> studentlist(@PathParam("studentId") Integer studentId,@PathParam("page") Integer page, @PathParam("size") Integer size){
+    public R studentlist(@PathParam("studentId") Integer studentId,@PathParam("page") Integer page, @PathParam("size") Integer size){
         Page<Idcard> idcardPage = new Page<>(page, size);
-        return idcardService.studentlist(studentId,idcardPage);
+        return R.success(idcardService.studentlist(studentId,idcardPage));
     }
 
     //老师根据学生id来修改审核状态
-    @PutMapping("/update")
+    @PostMapping("/update")
     public R update(@RequestBody Idcard idcard){
         boolean update=idcardService.updateById(idcard);
         if (!update){
@@ -63,12 +63,12 @@ public class IdcardController {
 
     //删除请假申请记录
     @DeleteMapping("/deletebyId")
-    public R deletebyId(@PathParam("id") String id) {
-        boolean delete=idcardService.deletebyId(id);
+    public R deletebyId(@PathParam("idcard") String idcard) {
+        boolean delete=idcardService.deletebyId(idcard);
         if (!delete){
             return R.error();
         } else {
-            return R.success("证件号为"+id+"被成功删除");
+            return R.success("证件号为"+idcard+"被成功删除");
         }
     }
 

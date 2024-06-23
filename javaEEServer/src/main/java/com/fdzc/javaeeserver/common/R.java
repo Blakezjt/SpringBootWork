@@ -48,4 +48,7 @@ public class R {
         }
     }
 
+    public static R error(String s) {
+        return new R(500,s,null);
+    }
 }

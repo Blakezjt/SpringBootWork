@@ -5,10 +5,12 @@
       <div class="home_userinfoContainer">
         <el-dropdown>
           <span class="el-dropdown-link home_userinfo">
+            <span>admin</span>
             <el-icon class="el-icon--right">
-              admin<arrow-down />
+              <arrow-down />
             </el-icon>
           </span>
+          
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="centerDialogVisible = true">退出登入</el-dropdown-item>
@@ -19,7 +21,7 @@
     </el-header>
 
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="220px">
         <div class="aside">
           <el-row class="tac">
             <el-col :span="30">
@@ -199,7 +201,7 @@
                     <span style="font-size: 18px;">健康与安全服务</span>
                   </template>
                   <el-menu-item-group>
-                    <RouterLink to="/manMain/stuList">
+                    <RouterLink to="/manMain/Healthreport">
                       <el-menu-item index="9-1">
                         健康打卡
                       </el-menu-item>

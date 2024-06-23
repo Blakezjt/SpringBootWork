@@ -60,8 +60,8 @@
       <div class="login-container">
         <el-form ref="ruleFormRef" :model="ruleForm" label-width="80px" :rules="rules" hide-required-aterisk="true">
           <h3 class="title">系统登录</h3>
-          <el-form-item label="账号：" prop="sno">
-            <el-input v-model="ruleForm.sno" placeholder="请输入用户名" prop="sno"></el-input>
+          <el-form-item label="账号：" prop="userName">
+            <el-input v-model="ruleForm.userName" placeholder="请输入用户名" prop="userName"></el-input>
           </el-form-item>
           <el-form-item label="密码：" prop="password">
             <el-input v-model="ruleForm.password" placeholder="请输入密码" prop="password" type="password"></el-input>
@@ -87,22 +87,21 @@ const tokenStore = useTokenStore();
 const router = useRouter();
 const radio = ref(3)
 interface RuleForm {
-    sno: string,
+    userName: string,
     password: string
 }
 
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive<RuleForm>({
-    sno: '',
+    userName: '',
     password: ''
 })
 const logining=false
 
 const rules = reactive<FormRules<RuleForm>>({
-    sno: [
+    userName: [
         { required: true, message: '请输入账户', trigger: 'blur' },
-        { min: 9, max: 9, message: '账户为9位', trigger: 'blur' },
     ],
     password: [
         { required: true, message: '请输入密码', trigger: 'blur' },
@@ -125,32 +124,32 @@ const resetForm = (formEl: FormInstance | undefined) => {
     formEl.resetFields()
 }
 //学生登入
-const stuLogin = async () => {
-    let result = await stuLoginService(ruleForm);
-    ElMessage.success(result.msg ? result.msg : '登入成功');
-    //把得到的token存储到pinia中
-    tokenStore.setToken(result.data);
+// const stuLogin = async () => {
+//     let result = await stuLoginService(ruleForm);
+//     ElMessage.success(result.msg ? result.msg : '登入成功');
+//     //把得到的token存储到pinia中
+//     tokenStore.setToken(result.data);
     
-    router.push('/stuMain/stuUpdate');
-}
+//     router.push('/stuMain/stuUpdate');
+// }
 //管理员登入
 const manLogin = async () => {
-    // let result = await manLoginService(ruleForm);
-    // ElMessage.success(result.msg ? result.msg : '登入成功');
+    let result = await manLoginService(ruleForm);
+    ElMessage.success(result.msg ? result.msg : '登入成功');
     ElMessage.success('登入成功');
-    // tokenStore.setToken(result.data);
+    tokenStore.setToken(result.data);
     router.push('/manMain/workbench');
 }
 //水电工登入
-const pluLogin = async () => {
-    let result = await pluLoginService(ruleForm);
-    tokenStore.setToken(result.data);
-    ElMessage.success(result.msg ? result.msg : '登入成功');
-    router.push('/pluMain/pluUpdate');
-}
+// const pluLogin = async () => {
+//     let result = await pluLoginService(ruleForm);
+//     tokenStore.setToken(result.data);
+//     ElMessage.success(result.msg ? result.msg : '登入成功');
+//     router.push('/pluMain/pluUpdate');
+// }
 //清空点击radio的数据
 const cleanData = () => {
-    ruleForm.sno = '',
+    ruleForm.userName = '',
         ruleForm.password = ''
 }
 </script>

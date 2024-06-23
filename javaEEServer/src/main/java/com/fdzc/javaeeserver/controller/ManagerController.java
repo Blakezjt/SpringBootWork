@@ -3,6 +3,7 @@ package com.fdzc.javaeeserver.controller;
 import com.fdzc.javaeeserver.common.R;
 import com.fdzc.javaeeserver.service.impl.ManagerServiceImpl;
 import com.fdzc.javaeeserver.validate.Manager.ManagerCreateValidate;
+import com.fdzc.javaeeserver.validate.Manager.ManagerLoginValidate;
 import com.fdzc.javaeeserver.validate.Manager.ManagerSearchValidate;
 import com.fdzc.javaeeserver.validate.Manager.ManagerUpdateValidate;
 import com.fdzc.javaeeserver.validate.PageValidate;
@@ -13,10 +14,17 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
+
 @RestController
+@RequestMapping("/manager")
 public class ManagerController {
     @Resource
     private ManagerServiceImpl managerServiceImpl;
+
+    @PostMapping("/login")
+    public R login(@Validated  ManagerLoginValidate managerLoginValidate){
+        return managerServiceImpl.login(managerLoginValidate);
+    }
 
     @GetMapping("/list")
     public R managerList(@Validated PageValidate pageValidate,

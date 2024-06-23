@@ -24,26 +24,26 @@ instance.interceptors.request.use(
 )
 import router from '@/route/router.js'
 //添加响应拦截器
-// instance.interceptors.response.use(
-//     result=>{
-//         if(result.data.code === 0){
-//             return result.data;
-//         }else{
-//             // alert(result.data.msg ? result.data.msg:'服务异常');
-//             ElMessage.error(result.data.msg ? result.data.msg:'服务异常')
-//             return Promise.reject(result.data);
-//         }
-//     },
-//     err=>{
-//         //判断响应状态码，如果为401，否则未登录，提示请登录，并跳转到登录页面
-//         if(err.response.status==401){
-//             ElMessage.error('请先登录')
-//             router.push('/login')
-//         }else{
-//             ElMessage.error('服务异常')
-//         }
-//         return Promise.reject(err);//异步的状态转化成失败的状态
-//     }
-// )
+instance.interceptors.response.use(
+    result=>{
+        if(result.data.code === 200){
+            return result.data;
+        }else{
+            // alert(result.data.msg ? result.data.msg:'服务异常');
+            ElMessage.error(result.data.msg ? result.data.msg:'服务异常')
+            return Promise.reject(result.data);
+        }
+    },
+    err=>{
+        //判断响应状态码，如果为401，否则未登录，提示请登录，并跳转到登录页面
+        if(err.response.status==401){
+            ElMessage.error('请先登录')
+            router.push('/login')
+        }else{
+            ElMessage.error('服务异常')
+        }
+        return Promise.reject(err);//异步的状态转化成失败的状态
+    }
+)
 
 export default instance
