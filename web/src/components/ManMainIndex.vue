@@ -53,11 +53,11 @@
                         学生请假
                       </el-menu-item>
                     </RouterLink>
-                    <RouterLink to="/manMain/updatePwd">
+                    <!-- <RouterLink to="/manMain/updatePwd">
                       <el-menu-item index="2-3">
                         学生报修
                       </el-menu-item>
-                    </RouterLink>
+                    </RouterLink> -->
                     <RouterLink to="/manMain/IDCard">
                       <el-menu-item index="2-4">
                         证件办理
