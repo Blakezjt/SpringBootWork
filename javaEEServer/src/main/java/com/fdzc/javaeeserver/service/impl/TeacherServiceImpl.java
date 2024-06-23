@@ -51,7 +51,7 @@ public class TeacherServiceImpl implements TeacherService {
         else if(!searchValidate.getMajor().equals("")){
             queryWrapper.eq("major",searchValidate.getMajor());
         }
-        Page<Teachers> teacherPage = teacherMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper);
+        Page<Teachers> teacherPage = teacherMapper.selectPage(new Page<>(pageNo, pageSize), queryWrapper.eq("is_delete",0));
 
         List<TeacherListVo> list = new LinkedList<>();
         for (Teachers stu: teacherPage.getRecords()) {
